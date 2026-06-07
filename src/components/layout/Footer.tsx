@@ -82,6 +82,20 @@ export function Footer() {
                 </div>
             </div>
 
+            <div className="container mx-auto px-4 mt-6 flex justify-center">
+                <p className="text-xs text-muted-foreground/70">
+                    {t('footer.crafted_by')}{' '}
+                    <a
+                        href="https://tom-web.ch"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                        TomWeb
+                    </a>
+                </p>
+            </div>
+
             <PrivacyPolicyModal
                 isOpen={isPrivacyOpen}
                 onClose={() => setIsPrivacyOpen(false)}

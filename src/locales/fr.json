@@ -90,6 +90,34 @@
             }
         }
     },
+    "venture": {
+        "eyebrow": "Projet parallèle",
+        "title": "TomWeb",
+        "lead": "En parallèle de ma formation, j'ai conçu et lancé TomWeb : un studio qui crée des sites vitrines rapides, soignés et bilingues pour les indépendants et petites entreprises de Suisse romande. De la première maquette à la mise en ligne, tout est pensé et développé en solo.",
+        "pillars": {
+            "performance": {
+                "title": "Performance au cœur",
+                "desc": "Des sites taillés pour le score Lighthouse 100 : chargement quasi instantané, optimisés jusqu'au dernier kilo-octet."
+            },
+            "design": {
+                "title": "Design sur mesure",
+                "desc": "Une identité claire et crédible, pensée mobile-first, déclinée en français et en anglais."
+            },
+            "ship": {
+                "title": "De la conception au déploiement",
+                "desc": "Design, développement et mise en ligne sur l'edge Cloudflare — la même stack moderne que ce portfolio."
+            }
+        },
+        "scores": {
+            "performance": "Performance",
+            "accessibility": "Accessibilité",
+            "best_practices": "Bonnes pratiques",
+            "seo": "SEO"
+        },
+        "browser_url": "tom-web.ch",
+        "report_label": "Rapport de performance",
+        "cta": "Découvrir tom-web.ch"
+    },
     "contact": {
         "title": "Travaillons ensemble",
         "desc": "Vous avez un projet en tête ou voulez simplement discuter ? Envoyez-moi un message.",
@@ -161,7 +189,8 @@
     "footer": {
         "rights": "Tous droits réservés.",
         "privacy": "Politique de confidentialité",
-        "terms": "Conditions d'utilisation"
+        "terms": "Conditions d'utilisation",
+        "crafted_by": "Conçu & développé par"
     },
     "privacy_modal": {
         "title": "Politique de Confidentialité",

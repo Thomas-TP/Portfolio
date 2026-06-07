@@ -90,6 +90,34 @@
             }
         }
     },
+    "venture": {
+        "eyebrow": "Side venture",
+        "title": "TomWeb",
+        "lead": "Alongside my studies, I designed and launched TomWeb: a studio that builds fast, polished, bilingual showcase websites for independents and small businesses across French-speaking Switzerland. From the first mockup to going live, everything is crafted and built solo.",
+        "pillars": {
+            "performance": {
+                "title": "Performance first",
+                "desc": "Sites engineered for a perfect Lighthouse 100 score: near-instant loads, optimized down to the last kilobyte."
+            },
+            "design": {
+                "title": "Tailored design",
+                "desc": "A clear, credible identity, built mobile-first, in both French and English."
+            },
+            "ship": {
+                "title": "From concept to deployment",
+                "desc": "Design, development and shipping on the Cloudflare edge — the same modern stack as this portfolio."
+            }
+        },
+        "scores": {
+            "performance": "Performance",
+            "accessibility": "Accessibility",
+            "best_practices": "Best Practices",
+            "seo": "SEO"
+        },
+        "browser_url": "tom-web.ch",
+        "report_label": "Performance report",
+        "cta": "Explore tom-web.ch"
+    },
     "contact": {
         "title": "Let's work together",
         "desc": "Have a project in mind or just want to chat? Send me a message.",
@@ -161,7 +189,8 @@
     "footer": {
         "rights": "All rights reserved.",
         "privacy": "Privacy Policy",
-        "terms": "Terms"
+        "terms": "Terms",
+        "crafted_by": "Crafted & built by"
     },
     "privacy_modal": {
         "title": "Privacy Policy",

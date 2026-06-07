@@ -13,6 +13,9 @@ const TechStack = lazy(() =>
 const Projects = lazy(() =>
     import('@/components/sections/Projects').then(m => ({ default: m.Projects }))
 );
+const Venture = lazy(() =>
+    import('@/components/sections/Venture').then(m => ({ default: m.Venture }))
+);
 const Contact = lazy(() =>
     import('@/components/sections/Contact').then(m => ({ default: m.Contact }))
 );
@@ -25,6 +28,7 @@ export function Home() {
                 <AboutBento />
                 <TechStack />
                 <Projects />
+                <Venture />
                 <Contact />
             </Suspense>
         </main>
