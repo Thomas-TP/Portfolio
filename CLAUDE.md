@@ -77,7 +77,9 @@ GSAP is **never imported at the top level**. Always use `loadGsap()` from `src/l
 - Dark/Light mode via class-based toggle (`.dark` on `<html>`)
 - CSS custom properties defined as raw RGB channels in `src/globals.css` (e.g., `--background: 255 255 255`) for UnoCSS `<alpha-value>` support
 - UnoCSS theme tokens in `uno.config.ts` reference these variables
-- Two UnoCSS shortcuts: `glass` (glassmorphism) and `text-gradient`
+- Type: `font-sans` maps to `--font-main` (Bruno Ace). Sub-12px tokens `text-3xs` (8px) / `text-2xs` (10px) extend presetWind's scale — prefer them over `text-[8px]`-style arbitrary values
+- Radius: `--radius` drives the whole `rounded-{sm,md,lg,xl}` scale (shadcn-style `calc()` derivation in `uno.config.ts`)
+- `text-gradient` is a UnoCSS shortcut; `glass` (glassmorphism) is a real CSS class in `globals.css` (carries explicit `-webkit-backdrop-filter` for Safari) — single source of truth, do not re-add it as a shortcut
 
 ### i18n
 - Two languages: `en` and `fr` in `src/locales/`
