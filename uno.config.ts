@@ -61,9 +61,10 @@ export default {
       '2xs': ['0.625rem', '0.875rem'], // 10px
     },
     fontFamily: {
-      // Single source of truth: the display font lives in --font-main
-      // (Bruno Ace, set in globals.css). The old --font-inter was never defined.
-      sans: 'var(--font-main)',
+      // Body/UI = Inter (--font-body); display/brand = Bruno Ace (--font-main).
+      // Headings stay on Bruno Ace via the h1–h6 rule in globals.css.
+      sans: 'var(--font-body)',
+      display: 'var(--font-main)',
     },
   },
   shortcuts: {

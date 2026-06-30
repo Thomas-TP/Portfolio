@@ -28,7 +28,8 @@
 }
 
 :root {
-  --font-main: 'Bruno Ace', system-ui, sans-serif;
+  --font-main: 'Bruno Ace', system-ui, sans-serif; /* display / brand / headings */
+  --font-body: 'Inter', system-ui, sans-serif; /* body / UI text */
 
   /* Light Mode (High Contrast Monochrome) — RGB channels for UnoCSS opacity support */
   --background: 255 255 255;
@@ -283,8 +284,18 @@ html {
 body {
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
-  font-family: var(--font-main);
+  font-family: var(--font-body);
   font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Headings & brand stay on the display face (Bruno Ace) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-main);
 }
 
 /* Global Scrollbar Styling */
