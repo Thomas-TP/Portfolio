@@ -326,7 +326,7 @@ export function NotFound() {
                 </div>
 
                 {/* Footer hint */}
-                <div className="mt-6 flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-muted-foreground font-mono">
+                <div className="mt-6 flex items-center justify-between text-2xs uppercase tracking-[0.25em] text-muted-foreground font-mono">
                     <span>SPACE / ↑ / TAP — JUMP</span>
                     <span>thomastp.ch</span>
                 </div>

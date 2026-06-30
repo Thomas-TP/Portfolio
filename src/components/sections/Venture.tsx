@@ -104,7 +104,7 @@ function ScoreRing({ labelKey, value }: { labelKey: string; value: number }) {
                     <span ref={numberRef}>0</span>
                 </span>
             </div>
-            <span className="text-[10px] uppercase tracking-wider text-white/50 text-center leading-tight">
+            <span className="text-2xs uppercase tracking-wider text-white/50 text-center leading-tight">
                 {t(`venture.scores.${labelKey}`)}
             </span>
         </div>
@@ -170,10 +170,10 @@ function BrowserVisual() {
                 {/* Lighthouse score card */}
                 <div className="mx-4 mb-4 rounded-xl border border-white/10 bg-white/[0.03] p-4">
                     <div className="flex items-center justify-between mb-4">
-                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">
+                        <span className="font-mono text-2xs uppercase tracking-[0.2em] text-white/40">
                             {t('venture.report_label')}
                         </span>
-                        <span className="font-mono text-[10px] text-white/40">Lighthouse</span>
+                        <span className="font-mono text-2xs text-white/40">Lighthouse</span>
                     </div>
                     <div className="grid grid-cols-4 gap-2 md:gap-3">
                         {SCORES.map(s => (

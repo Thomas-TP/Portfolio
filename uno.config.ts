@@ -47,15 +47,28 @@ export default {
       ring: 'rgb(var(--ring) / <alpha-value>)',
     },
     borderRadius: {
+      // Single knob: --radius drives the whole scale (shadcn-style derivation).
       DEFAULT: 'var(--radius)',
+      sm: 'calc(var(--radius) - 4px)',
+      md: 'calc(var(--radius) - 2px)',
+      lg: 'var(--radius)',
+      xl: 'calc(var(--radius) + 4px)',
+    },
+    fontSize: {
+      // Sub-12px micro scale (presetWind starts at text-xs = 12px). Prefer these
+      // tokens over one-off text-[8px]/text-[10px] arbitrary values.
+      '3xs': ['0.5rem', '0.75rem'], // 8px
+      '2xs': ['0.625rem', '0.875rem'], // 10px
     },
     fontFamily: {
-      sans: 'var(--font-inter), "Inter", sans-serif',
+      // Single source of truth: the display font lives in --font-main
+      // (Bruno Ace, set in globals.css). The old --font-inter was never defined.
+      sans: 'var(--font-main)',
     },
   },
   shortcuts: {
-    glass:
-      'bg-white/70 backdrop-blur-md border border-black/5 dark:bg-black/40 dark:border-white/10 shadow-sm dark:shadow-none',
+    // `glass` is defined in globals.css (.glass) so it can ship an explicit
+    // -webkit-backdrop-filter for Safari. Keep only derivable shortcuts here.
     'text-gradient':
       'bg-clip-text text-transparent bg-gradient-to-br from-black via-black/80 to-black/40 dark:from-white dark:via-white/80 dark:to-white/40',
   },

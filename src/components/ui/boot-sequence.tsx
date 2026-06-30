@@ -193,7 +193,7 @@ export function BootSequence({ onExitStart, onComplete }: BootSequenceProps) {
           {String(counter).padStart(3, '0')}
           <span className="text-muted-foreground">%</span>
         </div>
-        <div className="text-[10px] uppercase tracking-[0.5em] text-muted-foreground">{status}</div>
+        <div className="text-2xs uppercase tracking-[0.5em] text-muted-foreground">{status}</div>
       </div>
 
       {/* Loading bar */}
@@ -209,7 +209,7 @@ export function BootSequence({ onExitStart, onComplete }: BootSequenceProps) {
       </div>
 
       {/* Brand mark bottom */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[8px] uppercase tracking-[0.45em] text-muted-foreground/50">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-3xs uppercase tracking-[0.45em] text-muted-foreground/50">
         Geneva / React / Cloudflare
       </div>
     </div>
