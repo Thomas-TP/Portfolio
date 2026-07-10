@@ -118,6 +118,35 @@
         "report_label": "Rapport de performance",
         "cta": "Découvrir tom-web.ch"
     },
+    "swiss3design": {
+        "eyebrow": "Plateforme e-commerce",
+        "title": "Swiss3Design",
+        "lead": "Swiss3Design est une boutique en ligne complète que j'ai conçue et développée : des objets design imprimés en 3D jusqu'à 4 couleurs simultanées, fabriqués pièce par pièce à Gland. Du configurateur produit au paiement Stripe, toute la plateforme tourne sur l'edge Cloudflare.",
+        "pillars": {
+            "print": {
+                "title": "Impression multicolore",
+                "desc": "Jusqu'à 4 couleurs imprimées en une seule pièce grâce à la technologie AMS, sans assemblage ni peinture."
+            },
+            "custom": {
+                "title": "Devis sur mesure",
+                "desc": "Upload d'un fichier 3D et devis personnalisé sous 48h, du concept à l'objet fini."
+            },
+            "stack": {
+                "title": "E-commerce complet",
+                "desc": "Comptes clients, paiement Stripe, suivi de commande et back-office — développé en solo sur Next.js et Cloudflare Workers."
+            }
+        },
+        "colors_label": "Jusqu'à 4 couleurs",
+        "stats": {
+            "colors": "Couleurs simultanées",
+            "quote": "Délai de devis",
+            "shipping": "Livraison offerte dès",
+            "swiss": "Fabriqué en Suisse"
+        },
+        "browser_url": "swiss3design.ch",
+        "report_label": "Aperçu boutique",
+        "cta": "Découvrir swiss3design.ch"
+    },
     "contact": {
         "title": "Travaillons ensemble",
         "desc": "Vous avez un projet en tête ou voulez simplement discuter ? Envoyez-moi un message.",

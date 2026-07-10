@@ -235,6 +235,28 @@ export function Contact() {
         const playMap = () => {
           if (played) return;
           played = true;
+
+          // Shore path draws — measured here, right before playback, rather
+          // than at mount. The section is behind `cv-auto` (content-visibility:
+          // auto), so while it's off-screen getTotalLength() can hand back a
+          // stale/zero length; that made some paths skip the draw-in reveal
+          // and pop in fully solid instead of animating in sequence.
+          const shores = svg.querySelectorAll('.shore-path');
+          shores.forEach((path, i) => {
+            const pathEl = path as SVGPathElement;
+            const length = pathEl.getTotalLength();
+            tl.fromTo(
+              pathEl,
+              { strokeDasharray: length, strokeDashoffset: length },
+              {
+                strokeDashoffset: 0,
+                duration: i === 0 ? 1.2 : 1.6,
+                ease: 'power2.inOut',
+              },
+              0.1 + i * 0.2
+            );
+          });
+
           tl.play();
           rippleTweens.forEach(tween => tween.play(0));
         };
@@ -253,23 +275,6 @@ export function Contact() {
             },
             0.5
           );
-
-        // Shore path draws
-        const shores = svg.querySelectorAll('.shore-path');
-        shores.forEach((path, i) => {
-          const pathEl = path as SVGPathElement;
-          const length = pathEl.getTotalLength();
-          tl.fromTo(
-            pathEl,
-            { strokeDasharray: length, strokeDashoffset: length },
-            {
-              strokeDashoffset: 0,
-              duration: i === 0 ? 1.2 : 1.6,
-              ease: 'power2.inOut',
-            },
-            0.1 + i * 0.2
-          );
-        });
 
         // Lake label text
         const lakeLabel = svg.querySelector('.lake-label-text');
@@ -682,7 +687,10 @@ export function Contact() {
             {/* Card background continuation down to the northern shore */}
             <path d={cardFill} className="fill-card/80" />
 
-            {/* Side borders extending from card down to lake extremities */}
+            {/* Side borders extending from card down to lake extremities —
+                same color as the card's own border. crispEdges avoids the
+                anti-aliasing blur that made a nominal 1px SVG line read
+                thinner than the card's crisp CSS border. */}
             <line
               x1={0}
               y1={0}
@@ -691,6 +699,7 @@ export function Contact() {
               className="stroke-border"
               strokeWidth={1}
               vectorEffect="non-scaling-stroke"
+              shapeRendering="crispEdges"
             />
             <line
               x1={1000}
@@ -700,6 +709,7 @@ export function Contact() {
               className="stroke-border"
               strokeWidth={1}
               vectorEffect="non-scaling-stroke"
+              shapeRendering="crispEdges"
             />
 
             {/* Lake body fill — the recognisable crescent between both shores */}
@@ -718,21 +728,25 @@ export function Contact() {
               fill="none"
             />
 
-            {/* Northern shore — full thin line, also text guide */}
+            {/* Northern shore — full thin line, also text guide. Same
+                border color as the card; slightly wider than the side lines
+                since it's a curve (crispEdges distorts curved strokes, so we
+                compensate for anti-aliasing softness with width instead). */}
             <path
               id="shoreNorthRef"
               d={shoreNorth}
-              className="shore-path stroke-border/60"
-              strokeWidth={1}
+              className="shore-path stroke-border"
+              strokeWidth={1.5}
               vectorEffect="non-scaling-stroke"
               fill="none"
             />
 
             {/* Northern shore — brighter animated segment between Genève and Lausanne */}
             <defs>
-              {/* clip stops exactly at Lausanne (cx≈618.7) */}
+              {/* Lausanne's dot is centered at cx≈618.7 with r=6, so the clip must
+                  clear cx + r to fully cover the marker rather than cut through it. */}
               <clipPath id="gvLsn">
-                <rect x={0} y={-20} width={622} height={155} />
+                <rect x={0} y={-20} width={634} height={155} />
               </clipPath>
               {/* north shore shifted -10 in y → text guide above the line */}
               <path

@@ -16,6 +16,9 @@ const Projects = lazy(() =>
 const Venture = lazy(() =>
     import('@/components/sections/Venture').then(m => ({ default: m.Venture }))
 );
+const Swiss3Design = lazy(() =>
+    import('@/components/sections/Swiss3Design').then(m => ({ default: m.Swiss3Design }))
+);
 const Contact = lazy(() =>
     import('@/components/sections/Contact').then(m => ({ default: m.Contact }))
 );
@@ -29,6 +32,7 @@ export function Home() {
                 <TechStack />
                 <Projects />
                 <Venture />
+                <Swiss3Design />
                 <Contact />
             </Suspense>
         </main>
