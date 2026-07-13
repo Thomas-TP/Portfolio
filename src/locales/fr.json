@@ -90,33 +90,34 @@
             }
         }
     },
-    "venture": {
-        "eyebrow": "Projet parallèle",
-        "title": "TomWeb",
-        "lead": "En parallèle de ma formation, j'ai conçu et lancé TomWeb : un studio qui crée des sites vitrines rapides, soignés et bilingues pour les indépendants et petites entreprises de Suisse romande. De la première maquette à la mise en ligne, tout est pensé et développé en solo.",
+    "calyroc": {
+        "eyebrow": "Studio web indépendant",
+        "title": "Calyroc",
+        "lead": "Calyroc est mon studio web : des sites rapides et sur-mesure pour indépendants, PME et startups, livrés sans détour. Devis fixe, contact direct avec moi du premier brief à la mise en ligne — sans chef de projet ni surcoût caché.",
         "pillars": {
-            "performance": {
-                "title": "Performance au cœur",
-                "desc": "Des sites taillés pour le score Lighthouse 100 : chargement quasi instantané, optimisés jusqu'au dernier kilo-octet."
+            "pricing": {
+                "title": "Devis fixe et transparent",
+                "desc": "Un prix annoncé dès le départ, sans dépassement — dès 1490.- CHF, contre 6000 à 12000.- CHF en agence."
             },
-            "design": {
-                "title": "Design sur mesure",
-                "desc": "Une identité claire et crédible, pensée mobile-first, déclinée en français et en anglais."
+            "direct": {
+                "title": "Contact direct",
+                "desc": "Vous travaillez avec moi directement, du premier échange à la livraison — pas de chef de projet intermédiaire."
             },
-            "ship": {
-                "title": "De la conception au déploiement",
-                "desc": "Design, développement et mise en ligne sur l'edge Cloudflare — la même stack moderne que ce portfolio."
+            "perf": {
+                "title": "Performance et stack moderne",
+                "desc": "Sites rapides et optimisés pour les Core Web Vitals, sur la même stack edge Cloudflare que ce portfolio."
             }
         },
-        "scores": {
-            "performance": "Performance",
-            "accessibility": "Accessibilité",
-            "best_practices": "Bonnes pratiques",
-            "seo": "SEO"
+        "stages_label": "4 étapes claires",
+        "stats": {
+            "price": "Devis fixe dès",
+            "stages": "Étapes du projet",
+            "revisions": "Révisions incluses",
+            "languages": "Langues du studio"
         },
-        "browser_url": "tom-web.ch",
-        "report_label": "Rapport de performance",
-        "cta": "Découvrir tom-web.ch"
+        "browser_url": "calyroc.com",
+        "report_label": "Aperçu du studio",
+        "cta": "Découvrir calyroc.com"
     },
     "swiss3design": {
         "eyebrow": "Plateforme e-commerce",

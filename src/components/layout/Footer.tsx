@@ -86,17 +86,17 @@ export function Footer() {
                 <p className="flex items-center gap-1.5 text-xs text-muted-foreground/70">
                     {t('footer.crafted_by')}
                     <a
-                        href="https://tom-web.ch"
+                        href="https://calyroc.com"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center hover:opacity-80 transition-opacity"
                     >
                         <img
-                            src="/images/tomweb-logo.png"
-                            alt="TomWeb"
+                            src="/images/calyroc-logo.png"
+                            alt="Calyroc"
                             loading="lazy"
                             decoding="async"
-                            className="h-3.5 w-auto object-contain brightness-0 dark:invert"
+                            className="h-4 w-auto object-contain brightness-0 dark:invert"
                         />
                     </a>
                 </p>

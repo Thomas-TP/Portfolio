@@ -399,7 +399,7 @@ Use only sources that support the answer. For project answers, cite the exact re
 - Current status: apprentice/student pursuing a Swiss CFC in computer science, exploitation and infrastructure orientation. In 2026 he is in the second year / specialization period and is looking to continue the CFC in company/alternance from July 2026 across the Lake Geneva region. Sources: [CV], [Portfolio].
 - Languages: French native, English B2 / fluent, school-level German. Sources: [CV], [Portfolio].
 - Driving license: listed on the CV. Source: [CV].
-- Public GitHub profile metadata: 13 public repositories, 2 followers, 6 following, hireable=true, organization @Satom-IT-Learning-Solutions, location Switzerland, profile links include links.thomastp.ch, LinkedIn, thomastp.ch, tomweb.dev, and WhatsApp redirect/number. Source: [GitHub profile].
+- Public GitHub profile metadata: 13 public repositories, 2 followers, 6 following, hireable=true, organization @Satom-IT-Learning-Solutions, location Switzerland, profile links include links.thomastp.ch, LinkedIn, thomastp.ch, and WhatsApp redirect/number. Source: [GitHub profile].
 
 ## Contact and Public Profiles
 

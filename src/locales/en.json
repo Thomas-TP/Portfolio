@@ -90,33 +90,34 @@
             }
         }
     },
-    "venture": {
-        "eyebrow": "Side venture",
-        "title": "TomWeb",
-        "lead": "Alongside my studies, I designed and launched TomWeb: a studio that builds fast, polished, bilingual showcase websites for independents and small businesses across French-speaking Switzerland. From the first mockup to going live, everything is crafted and built solo.",
+    "calyroc": {
+        "eyebrow": "Independent web studio",
+        "title": "Calyroc",
+        "lead": "Calyroc is my web studio: fast, custom-built sites for independents, SMEs and startups, delivered without detours. Fixed quotes, direct contact with me from the first brief to launch — no project manager, no hidden costs.",
         "pillars": {
-            "performance": {
-                "title": "Performance first",
-                "desc": "Sites engineered for a perfect Lighthouse 100 score: near-instant loads, optimized down to the last kilobyte."
+            "pricing": {
+                "title": "Fixed, transparent pricing",
+                "desc": "A price set upfront, no scope creep — starting at CHF 1,490 versus CHF 6,000–12,000 at a traditional agency."
             },
-            "design": {
-                "title": "Tailored design",
-                "desc": "A clear, credible identity, built mobile-first, in both French and English."
+            "direct": {
+                "title": "Direct access",
+                "desc": "You work with me directly, from the first conversation to delivery — no project manager in between."
             },
-            "ship": {
-                "title": "From concept to deployment",
-                "desc": "Design, development and shipping on the Cloudflare edge — the same modern stack as this portfolio."
+            "perf": {
+                "title": "Performance-first, modern stack",
+                "desc": "Fast sites tuned for Core Web Vitals, on the same Cloudflare edge stack as this portfolio."
             }
         },
-        "scores": {
-            "performance": "Performance",
-            "accessibility": "Accessibility",
-            "best_practices": "Best Practices",
-            "seo": "SEO"
+        "stages_label": "4 clear stages",
+        "stats": {
+            "price": "Fixed quote from",
+            "stages": "Project stages",
+            "revisions": "Revisions included",
+            "languages": "Studio languages"
         },
-        "browser_url": "tom-web.ch",
-        "report_label": "Performance report",
-        "cta": "Explore tom-web.ch"
+        "browser_url": "calyroc.com",
+        "report_label": "Studio overview",
+        "cta": "Explore calyroc.com"
     },
     "swiss3design": {
         "eyebrow": "E-commerce platform",

@@ -13,8 +13,8 @@ const TechStack = lazy(() =>
 const Projects = lazy(() =>
     import('@/components/sections/Projects').then(m => ({ default: m.Projects }))
 );
-const Venture = lazy(() =>
-    import('@/components/sections/Venture').then(m => ({ default: m.Venture }))
+const Calyroc = lazy(() =>
+    import('@/components/sections/Calyroc').then(m => ({ default: m.Calyroc }))
 );
 const Swiss3Design = lazy(() =>
     import('@/components/sections/Swiss3Design').then(m => ({ default: m.Swiss3Design }))
@@ -31,7 +31,7 @@ export function Home() {
                 <AboutBento />
                 <TechStack />
                 <Projects />
-                <Venture />
+                <Calyroc />
                 <Swiss3Design />
                 <Contact />
             </Suspense>
