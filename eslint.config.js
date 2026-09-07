@@ -23,6 +23,7 @@ const eslintConfig = [
       'react-hooks/set-state-in-effect': 'off', // Valid for listeners and mount guards
       'react-hooks/refs': 'off',                 // Valid for controlled transitions
       'react-hooks/purity': 'off',               // Math.random() in useMemo is intentional (particles)
+      'react-hooks/use-memo': 'off',             // useMergedRefs needs a dynamic-length dep array (rest params)
       'no-unused-vars': 'off', // Handled by TypeScript
       'no-undef': 'off',       // Handled by TypeScript
     },
