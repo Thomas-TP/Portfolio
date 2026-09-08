@@ -5,36 +5,36 @@ import { Hero } from '@/components/sections/Hero';
 // and avoid parsing/executing heavy components (BentoGrid ~847 lines, Projects ~444 lines)
 // before they are needed.
 const AboutBento = lazy(() =>
-    import('@/components/sections/BentoGrid').then(m => ({ default: m.AboutBento }))
+  import('@/components/sections/BentoGrid').then(m => ({ default: m.AboutBento }))
 );
 const TechStack = lazy(() =>
-    import('@/components/sections/TechStack').then(m => ({ default: m.TechStack }))
+  import('@/components/sections/TechStack').then(m => ({ default: m.TechStack }))
 );
 const Projects = lazy(() =>
-    import('@/components/sections/Projects').then(m => ({ default: m.Projects }))
+  import('@/components/sections/Projects').then(m => ({ default: m.Projects }))
 );
 const Calyroc = lazy(() =>
-    import('@/components/sections/Calyroc').then(m => ({ default: m.Calyroc }))
+  import('@/components/sections/Calyroc').then(m => ({ default: m.Calyroc }))
 );
 const Swiss3Design = lazy(() =>
-    import('@/components/sections/Swiss3Design').then(m => ({ default: m.Swiss3Design }))
+  import('@/components/sections/Swiss3Design').then(m => ({ default: m.Swiss3Design }))
 );
 const Contact = lazy(() =>
-    import('@/components/sections/Contact').then(m => ({ default: m.Contact }))
+  import('@/components/sections/Contact').then(m => ({ default: m.Contact }))
 );
 
 export function Home() {
-    return (
-        <main id="main-content" className="relative z-10 flex flex-col gap-20">
-            <Hero />
-            <Suspense fallback={<div className="min-h-screen" />}>
-                <AboutBento />
-                <TechStack />
-                <Projects />
-                <Calyroc />
-                <Swiss3Design />
-                <Contact />
-            </Suspense>
-        </main>
-    );
+  return (
+    <main id="main-content" className="relative z-10 flex flex-col gap-20">
+      <Hero />
+      <Suspense fallback={<div className="min-h-screen" />}>
+        <AboutBento />
+        <TechStack />
+        <Projects />
+        <Calyroc />
+        <Swiss3Design />
+        <Contact />
+      </Suspense>
+    </main>
+  );
 }

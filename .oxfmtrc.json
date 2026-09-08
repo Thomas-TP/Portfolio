@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "printWidth": 100,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "endOfLine": "lf",
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    ".next/",
+    "out/",
+    "node_modules/",
+    "pnpm-lock.yaml",
+    "package-lock.json",
+    "cloudflare-worker/.wrangler/",
+    "next-env.d.ts"
+  ]
+}

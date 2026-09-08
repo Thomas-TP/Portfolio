@@ -5,8 +5,12 @@ import type Lenis from 'lenis';
 // Lazy-load non-LCP shell components to reduce sync JS on the main thread
 const Navbar = lazy(() => import('@/components/layout/Navbar').then(m => ({ default: m.Navbar })));
 const Footer = lazy(() => import('@/components/layout/Footer').then(m => ({ default: m.Footer })));
-const ScrollProgress = lazy(() => import('@/components/ui/scroll-progress').then(m => ({ default: m.ScrollProgress })));
-const AskThomas = lazy(() => import('@/components/ui/ask-thomas').then(m => ({ default: m.AskThomas })));
+const ScrollProgress = lazy(() =>
+  import('@/components/ui/scroll-progress').then(m => ({ default: m.ScrollProgress }))
+);
+const AskThomas = lazy(() =>
+  import('@/components/ui/ask-thomas').then(m => ({ default: m.AskThomas }))
+);
 
 function usePrefersReducedMotion() {
   const [prefers, setPrefers] = useState(false);

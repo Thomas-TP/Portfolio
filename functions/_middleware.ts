@@ -5,10 +5,22 @@ interface ProjectMeta {
 }
 
 const PROJECTS: ProjectMeta[] = [
-  { slug: 'x-clone', title: 'X-clone', description: 'A responsive clone of the X platform with AI chat integration' },
-  { slug: 'powershell-empire', title: 'PowerShell Empire', description: 'Post-exploitation framework for ethical security testing' },
+  {
+    slug: 'x-clone',
+    title: 'X-clone',
+    description: 'A responsive clone of the X platform with AI chat integration',
+  },
+  {
+    slug: 'powershell-empire',
+    title: 'PowerShell Empire',
+    description: 'Post-exploitation framework for ethical security testing',
+  },
   { slug: 'tank-io', title: 'Tank.io', description: 'Real-time multiplayer tank battle game' },
-  { slug: 'tomboard', title: 'TomBoard', description: 'Open-source soundboard for Windows — free Voicemod alternative' },
+  {
+    slug: 'tomboard',
+    title: 'TomBoard',
+    description: 'Open-source soundboard for Windows — free Voicemod alternative',
+  },
 ];
 
 interface PagesContext {
@@ -30,7 +42,7 @@ export async function onRequest(context: PagesContext): Promise<Response> {
     return context.next();
   }
 
-  const project = PROJECTS.find((p) => p.slug === slug);
+  const project = PROJECTS.find(p => p.slug === slug);
   if (!project) {
     return context.next();
   }
@@ -50,7 +62,10 @@ export async function onRequest(context: PagesContext): Promise<Response> {
     .replace(/(<meta property="og:title" content=")[^"]*"/, `$1${ogTitle}"`)
     .replace(/(<meta property="og:description" content=")[^"]*"/, `$1${ogDesc}"`)
     .replace(/(<meta property="og:image" content=")[^"]*"/, `$1${ogImage}"`)
-    .replace(/(<meta property="og:image:alt" content=")[^"]*"/, `$1${project.title} — Thomas P. Portfolio"`)
+    .replace(
+      /(<meta property="og:image:alt" content=")[^"]*"/,
+      `$1${project.title} — Thomas P. Portfolio"`
+    )
     .replace(/(<meta name="twitter:title" content=")[^"]*"/, `$1${ogTitle}"`)
     .replace(/(<meta name="twitter:description" content=")[^"]*"/, `$1${ogDesc}"`)
     .replace(/(<meta name="twitter:image" content=")[^"]*"/, `$1${ogImage}"`);

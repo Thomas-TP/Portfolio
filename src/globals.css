@@ -5,11 +5,31 @@
 .container {
   width: 100%;
 }
-@media (min-width: 640px)  { .container { max-width: 640px; } }
-@media (min-width: 768px)  { .container { max-width: 768px; } }
-@media (min-width: 1024px) { .container { max-width: 1024px; } }
-@media (min-width: 1280px) { .container { max-width: 1280px; } }
-@media (min-width: 1536px) { .container { max-width: 1536px; } }
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
 
 /* Glassmorphism utility — used by Navbar */
 .glass {
@@ -131,12 +151,19 @@ html {
   inset: 11% 6% -8%;
   border-radius: 48% 52% 44% 56% / 48% 38% 62% 52%;
   background:
-    radial-gradient(circle at var(--avatar-x) var(--avatar-y), rgb(var(--foreground) / 0.18), transparent 36%),
+    radial-gradient(
+      circle at var(--avatar-x) var(--avatar-y),
+      rgb(var(--foreground) / 0.18),
+      transparent 36%
+    ),
     rgb(var(--primary) / 0.08);
   filter: blur(28px);
   opacity: 0.72;
-  transform: translate3d(calc(var(--avatar-tx) * -0.55), calc(var(--avatar-ty) * -0.35), -60px) scale(1.06);
-  transition: transform 220ms ease-out, opacity 320ms ease-out;
+  transform: translate3d(calc(var(--avatar-tx) * -0.55), calc(var(--avatar-ty) * -0.35), -60px)
+    scale(1.06);
+  transition:
+    transform 220ms ease-out,
+    opacity 320ms ease-out;
 }
 
 .hero-avatar-stage:hover .hero-avatar-shadow {
@@ -148,13 +175,16 @@ html {
   pointer-events: none;
   border: 1px solid rgb(var(--foreground) / 0.12);
   opacity: 0.8;
-  transition: opacity 320ms ease-out, transform 320ms ease-out;
+  transition:
+    opacity 320ms ease-out,
+    transform 320ms ease-out;
 }
 
 .hero-avatar-orbit-a {
   inset: -8px 6px 14px -6px;
   border-radius: 58% 42% 54% 46% / 43% 58% 42% 57%;
-  transform: rotate(-10deg) translate3d(calc(var(--avatar-tx) * 0.45), calc(var(--avatar-ty) * 0.35), 0);
+  transform: rotate(-10deg)
+    translate3d(calc(var(--avatar-tx) * 0.45), calc(var(--avatar-ty) * 0.35), 0);
 }
 
 .hero-avatar-orbit-b {
@@ -162,7 +192,8 @@ html {
   border-style: dashed;
   border-color: rgb(var(--foreground) / 0.18);
   border-radius: 43% 57% 45% 55% / 61% 41% 59% 39%;
-  transform: rotate(13deg) translate3d(calc(var(--avatar-tx) * -0.35), calc(var(--avatar-ty) * -0.25), 0);
+  transform: rotate(13deg)
+    translate3d(calc(var(--avatar-tx) * -0.35), calc(var(--avatar-ty) * -0.25), 0);
   animation: avatar-orbit-drift 11s linear infinite;
 }
 
@@ -181,9 +212,7 @@ html {
   box-shadow:
     0 24px 80px rgb(var(--foreground) / 0.12),
     inset 0 0 0 1px rgb(var(--foreground) / 0.04);
-  transform:
-    translate3d(var(--avatar-tx), var(--avatar-ty), 0)
-    rotateX(var(--avatar-rx))
+  transform: translate3d(var(--avatar-tx), var(--avatar-ty), 0) rotateX(var(--avatar-rx))
     rotateY(var(--avatar-ry));
   transform-style: preserve-3d;
   transition:
@@ -215,18 +244,19 @@ html {
 .hero-avatar-photo {
   object-fit: cover;
   object-position: center;
-  transform:
-    translate3d(calc(var(--avatar-tx) * -0.35), calc(var(--avatar-ty) * -0.35), 18px)
+  transform: translate3d(calc(var(--avatar-tx) * -0.35), calc(var(--avatar-ty) * -0.35), 18px)
     scale(1.06);
-  transition: transform 180ms ease-out, opacity 520ms ease-out, filter 520ms ease-out;
+  transition:
+    transform 180ms ease-out,
+    opacity 520ms ease-out,
+    filter 520ms ease-out;
   will-change: transform, opacity, filter;
 }
 
 .hero-avatar-stage:hover .hero-avatar-photo {
   opacity: 0.34;
   filter: blur(2.5px) saturate(0.75) contrast(1.08);
-  transform:
-    translate3d(calc(var(--avatar-tx) * -0.5), calc(var(--avatar-ty) * -0.5), 18px)
+  transform: translate3d(calc(var(--avatar-tx) * -0.5), calc(var(--avatar-ty) * -0.5), 18px)
     scale(1.12);
 }
 
@@ -234,25 +264,27 @@ html {
   object-fit: cover;
   object-position: center;
   opacity: 0;
-  transform:
-    translate3d(calc(var(--avatar-tx) * 0.35), calc(2rem + var(--avatar-ty) * 0.5), 42px)
-    rotate(-7deg)
-    scale(0.74);
-  transition: transform 520ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 420ms ease-out;
+  transform: translate3d(calc(var(--avatar-tx) * 0.35), calc(2rem + var(--avatar-ty) * 0.5), 42px)
+    rotate(-7deg) scale(0.74);
+  transition:
+    transform 520ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    opacity 420ms ease-out;
   will-change: transform, opacity;
 }
 
 .hero-avatar-stage:hover .hero-avatar-memoji {
   opacity: 1;
-  transform:
-    translate3d(calc(var(--avatar-tx) * 0.65), calc(var(--avatar-ty) * 0.65), 42px)
-    rotate(0deg)
-    scale(1.12);
+  transform: translate3d(calc(var(--avatar-tx) * 0.65), calc(var(--avatar-ty) * 0.65), 42px)
+    rotate(0deg) scale(1.12);
 }
 
 .hero-avatar-glare {
   background:
-    radial-gradient(circle at var(--avatar-x) var(--avatar-y), rgb(255 255 255 / 0.34), transparent 18%),
+    radial-gradient(
+      circle at var(--avatar-x) var(--avatar-y),
+      rgb(255 255 255 / 0.34),
+      transparent 18%
+    ),
     linear-gradient(145deg, rgb(255 255 255 / 0.18), transparent 36%, rgb(var(--foreground) / 0.08));
   mix-blend-mode: overlay;
   opacity: 0.38;
@@ -285,7 +317,9 @@ body {
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
   font-family: var(--font-body);
-  font-feature-settings: "rlig" 1, "calt" 1;
+  font-feature-settings:
+    'rlig' 1,
+    'calt' 1;
 }
 
 /* Headings & brand stay on the display face (Bruno Ace) */
@@ -328,7 +362,9 @@ h6 {
 /* Accessibility: High Visibility Focus Ring (WCAG 2.2) */
 :focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px rgb(var(--background)), 0 0 0 4px rgb(var(--ring));
+  box-shadow:
+    0 0 0 2px rgb(var(--background)),
+    0 0 0 4px rgb(var(--ring));
 }
 
 .ask-thomas-input:focus-visible {

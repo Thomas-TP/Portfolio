@@ -50,17 +50,17 @@ async function loadFont(weight: number): Promise<ArrayBuffer> {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0',
       },
-    },
-  ).then((r) => r.text());
+    }
+  ).then(r => r.text());
 
   const match = css.match(/src:\s*url\(([^)]+)\)\s*format\('woff'\)/);
   if (!match) {
     // Fallback: grab any URL from the CSS
     const any = css.match(/src:\s*url\(([^)]+)\)/);
     if (!any) throw new Error(`No font URL found for Inter weight ${weight}`);
-    return fetch(any[1]).then((r) => r.arrayBuffer());
+    return fetch(any[1]).then(r => r.arrayBuffer());
   }
-  return fetch(match[1]).then((r) => r.arrayBuffer());
+  return fetch(match[1]).then(r => r.arrayBuffer());
 }
 
 function createOgElement(project: ProjectOG): Record<string, unknown> {
@@ -165,7 +165,7 @@ function createOgElement(project: ProjectOG): Record<string, unknown> {
                       type: 'div',
                       props: {
                         style: { display: 'flex', gap: '10px', flexWrap: 'wrap' as const },
-                        children: project.tags.map((tag) => ({
+                        children: project.tags.map(tag => ({
                           type: 'span',
                           props: {
                             style: {

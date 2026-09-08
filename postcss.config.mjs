@@ -1,9 +1,7 @@
 import UnoCSS from '@unocss/postcss';
 
 const config = {
-  plugins: [
-    UnoCSS(),
-  ],
+  plugins: [UnoCSS()],
 };
 
 export default config;

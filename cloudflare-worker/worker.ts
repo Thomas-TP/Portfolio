@@ -88,9 +88,12 @@ function cvLinkLabel(url: string, lang: Lang): string {
 
 function normalizeCvLinks(reply: string, lang: Lang): string {
   return reply
-    .replace(/\[(https:\/\/(?:thomastp\.ch\/documents\/(?:ThomasPrudhommeCV|CV_Thomas_Prudhomme_(?:FR|EN)|cv-(?:fr|en))|cv\.thomastp\.ch\/(?:\d{8}\/)?cv-(?:fr|en))\.pdf(?:\?v=\d+)?)\]\(\1\)/g, (_match, url: string) => {
-      return `[${cvLinkLabel(url, lang)}](${url})`;
-    })
+    .replace(
+      /\[(https:\/\/(?:thomastp\.ch\/documents\/(?:ThomasPrudhommeCV|CV_Thomas_Prudhomme_(?:FR|EN)|cv-(?:fr|en))|cv\.thomastp\.ch\/(?:\d{8}\/)?cv-(?:fr|en))\.pdf(?:\?v=\d+)?)\]\(\1\)/g,
+      (_match, url: string) => {
+        return `[${cvLinkLabel(url, lang)}](${url})`;
+      }
+    )
     .replace(CV_URL_PATTERN, (url, offset, fullText) => {
       const previous = fullText[offset - 1];
       if (previous === '(') return url;
@@ -620,7 +623,8 @@ async function handleTTS(request: Request, env: Env, origin: string): Promise<Re
   const lang = body.lang?.toLowerCase().startsWith('fr') ? 'fr' : 'en';
   if (!text) return jsonResp({ error: 'Empty text' }, 400, origin);
   if (text.length > 2000) return jsonResp({ error: 'Text too long (max 2000 chars)' }, 400, origin);
-  if (lang !== 'en') return jsonResp({ error: 'Text-to-speech is available in English only.' }, 400, origin);
+  if (lang !== 'en')
+    return jsonResp({ error: 'Text-to-speech is available in English only.' }, 400, origin);
 
   const clientIp = request.headers.get('CF-Connecting-IP') ?? 'unknown';
   const rateKey = `tts:${clientIp}`;

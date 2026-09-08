@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -6,10 +6,19 @@
 
     <!-- Primary SEO -->
     <title>Thomas Prudhomme | Informaticien Genève, Lausanne & Vaud</title>
-    <meta name="description" content="Portfolio de Thomas Prudhomme (ThomasTP), étudiant informaticien au CFPT Genève: web, cybersécurité, IoT et cloud à Genève, Lausanne et Vaud." />
+    <meta
+      name="description"
+      content="Portfolio de Thomas Prudhomme (ThomasTP), étudiant informaticien au CFPT Genève: web, cybersécurité, IoT et cloud à Genève, Lausanne et Vaud."
+    />
     <meta name="author" content="Thomas Prudhomme" />
-    <meta name="keywords" content="Thomas Prudhomme, Thomas Prud'homme, Thomas P, ThomasTP, Thomas-TP, Prudhomme, informaticien Genève, informaticien Lausanne, informaticien Vaud, développeur web Genève, CFPT Informatique" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      name="keywords"
+      content="Thomas Prudhomme, Thomas Prud'homme, Thomas P, ThomasTP, Thomas-TP, Prudhomme, informaticien Genève, informaticien Lausanne, informaticien Vaud, développeur web Genève, CFPT Informatique"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
 
     <!-- Canonical & Language Alternates -->
     <link rel="canonical" href="https://thomastp.ch/" />
@@ -30,13 +39,35 @@
 
     <!-- Anti-FOUC: apply theme class before the first paint -->
     <script>
-      (function(){try{var s=localStorage.getItem('vite-ui-theme');var t=s==='dark'||s==='light'?s:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.classList.add(t);document.documentElement.style.backgroundColor=t==='dark'?'#000000':'#ffffff';}catch(e){}})()
+      (function () {
+        try {
+          var s = localStorage.getItem('vite-ui-theme');
+          var t =
+            s === 'dark' || s === 'light'
+              ? s
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
+          document.documentElement.classList.add(t);
+          document.documentElement.style.backgroundColor = t === 'dark' ? '#000000' : '#ffffff';
+        } catch (e) {}
+      })();
     </script>
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon.png" />
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" media="(prefers-color-scheme: dark)" />
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon-light.svg" media="(prefers-color-scheme: light)" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/icons/favicon.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/icons/favicon-light.svg"
+      media="(prefers-color-scheme: light)"
+    />
     <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
     <link rel="shortcut icon" href="/icons/favicon.ico" />
     <link rel="apple-touch-icon" href="/icons/favicon.png" />
@@ -46,8 +77,14 @@
     <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://thomastp.ch/" />
     <meta property="og:site_name" content="Thomas Prudhomme – Portfolio" />
-    <meta property="og:title" content="Thomas Prudhomme | Informaticien & Développeur Web – Genève" />
-    <meta property="og:description" content="Projets React, Rust, ethical hacking et IoT par Thomas Prudhomme, étudiant informaticien au CFPT Genève. Disponible pour stages et freelance de Genève à Lausanne." />
+    <meta
+      property="og:title"
+      content="Thomas Prudhomme | Informaticien & Développeur Web – Genève"
+    />
+    <meta
+      property="og:description"
+      content="Projets React, Rust, ethical hacking et IoT par Thomas Prudhomme, étudiant informaticien au CFPT Genève. Disponible pour stages et freelance de Genève à Lausanne."
+    />
     <meta property="og:image" content="https://thomastp.ch/images/og-image.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -62,119 +99,216 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@ThomasTP_dev" />
     <meta name="twitter:creator" content="@ThomasTP_dev" />
-    <meta name="twitter:title" content="Thomas Prudhomme | Informaticien & Développeur Web – Genève" />
-    <meta name="twitter:description" content="Portfolio de Thomas Prudhomme, aussi ThomasTP et Thomas P. Projets web, cybersécurité, IoT et cloud à Genève, Lausanne et dans le canton de Vaud." />
+    <meta
+      name="twitter:title"
+      content="Thomas Prudhomme | Informaticien & Développeur Web – Genève"
+    />
+    <meta
+      name="twitter:description"
+      content="Portfolio de Thomas Prudhomme, aussi ThomasTP et Thomas P. Projets web, cybersécurité, IoT et cloud à Genève, Lausanne et dans le canton de Vaud."
+    />
     <meta name="twitter:image" content="https://thomastp.ch/images/og-image.webp" />
 
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="https://api.github.com" />
 
     <!-- Preload LCP hero image -->
-    <link rel="preload" as="image" href="/images/photo.webp?v=20260501" type="image/webp" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/photo.webp?v=20260501"
+      type="image/webp"
+      fetchpriority="high"
+    />
 
     <!-- Critical inline CSS for skeleton (renders before external CSS loads) -->
     <style>
       /* Prevent background flash while JS loads */
-      html,body,#root{min-height:100%;background:#ffffff;margin:0}
-      .dark,.dark body,.dark #root{background:#000000}
-      html{color-scheme:light}
-      html.dark{color-scheme:dark}
-      #lcp-prerender{min-height:100vh;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:96px 24px 56px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#18181b;background:#fff}
-      .dark #lcp-prerender{color:#fafafa;background:#000}
-      #lcp-prerender .seo-shell{max-width:920px}
-      #lcp-prerender h1{margin:0 0 18px;font-size:clamp(42px,7vw,84px);line-height:1;font-weight:800;letter-spacing:0}
-      #lcp-prerender p{max-width:760px;margin:0 0 16px;font-size:18px;line-height:1.65;color:#52525b}
-      .dark #lcp-prerender p{color:#d4d4d8}
-      #lcp-prerender nav{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
-      #lcp-prerender a{color:inherit;text-decoration:underline;text-underline-offset:4px}
-      #lcp-prerender .seo-links{font-size:15px}
+      html,
+      body,
+      #root {
+        min-height: 100%;
+        background: #ffffff;
+        margin: 0;
+      }
+      .dark,
+      .dark body,
+      .dark #root {
+        background: #000000;
+      }
+      html {
+        color-scheme: light;
+      }
+      html.dark {
+        color-scheme: dark;
+      }
+      #lcp-prerender {
+        min-height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 96px 24px 56px;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+        color: #18181b;
+        background: #fff;
+      }
+      .dark #lcp-prerender {
+        color: #fafafa;
+        background: #000;
+      }
+      #lcp-prerender .seo-shell {
+        max-width: 920px;
+      }
+      #lcp-prerender h1 {
+        margin: 0 0 18px;
+        font-size: clamp(42px, 7vw, 84px);
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+      #lcp-prerender p {
+        max-width: 760px;
+        margin: 0 0 16px;
+        font-size: 18px;
+        line-height: 1.65;
+        color: #52525b;
+      }
+      .dark #lcp-prerender p {
+        color: #d4d4d8;
+      }
+      #lcp-prerender nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 28px;
+      }
+      #lcp-prerender a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+      #lcp-prerender .seo-links {
+        font-size: 15px;
+      }
     </style>
 
     <!-- Google Fonts: Bruno Ace (display) + Inter (body) — load async, never block rendering -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <noscript
+      ><link
+        href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    /></noscript>
 
     <!-- Force scroll to top on every load -->
     <script>
-      if('scrollRestoration' in history) history.scrollRestoration='manual';
-      window.scrollTo(0,0);
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      window.scrollTo(0, 0);
     </script>
 
     <!-- JSON-LD Structured Data (SEO + GEO) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://thomastp.ch/#website",
-          "name": "Thomas Prudhomme – Portfolio",
-          "alternateName": ["ThomasTP", "Thomas-TP", "Thomas P.", "Thomas Prud'homme"],
-          "url": "https://thomastp.ch/",
-          "inLanguage": "fr-CH",
-          "publisher": { "@id": "https://thomastp.ch/#person" }
-        },
-        {
-          "@type": "ProfilePage",
-          "@id": "https://thomastp.ch/#profilepage",
-          "url": "https://thomastp.ch/",
-          "name": "Thomas Prudhomme – Portfolio d'informaticien à Genève",
-          "isPartOf": { "@id": "https://thomastp.ch/#website" },
-          "mainEntity": { "@id": "https://thomastp.ch/#person" },
-          "inLanguage": "fr-CH",
-          "dateCreated": "2024-03-01T00:00:00+01:00",
-          "dateModified": "2026-05-02T14:30:00+02:00"
-        },
-        {
-          "@type": "Person",
-          "@id": "https://thomastp.ch/#person",
-          "name": "Thomas Prudhomme",
-          "alternateName": ["Thomas Prud'homme", "Thomas P.", "ThomasTP", "Thomas-TP", "Prudhomme"],
-          "url": "https://thomastp.ch/",
-          "image": "https://thomastp.ch/images/og-image.webp",
-          "jobTitle": "Étudiant informaticien / Computer Science Student",
-          "description": "Thomas Prudhomme est un étudiant informaticien au CFPT Genève, aussi connu sous ThomasTP et Thomas P. Il travaille sur le développement web, la cybersécurité, l'IoT et le cloud dans la région Genève, Lausanne et Vaud.",
-          "email": "mailto:thomas@prudhomme.li",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Genève",
-            "addressRegion": "GE",
-            "addressCountry": "CH"
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://thomastp.ch/#website",
+            "name": "Thomas Prudhomme – Portfolio",
+            "alternateName": ["ThomasTP", "Thomas-TP", "Thomas P.", "Thomas Prud'homme"],
+            "url": "https://thomastp.ch/",
+            "inLanguage": "fr-CH",
+            "publisher": { "@id": "https://thomastp.ch/#person" }
           },
-          "homeLocation": {
-            "@type": "Place",
-            "name": "Genève, Suisse"
+          {
+            "@type": "ProfilePage",
+            "@id": "https://thomastp.ch/#profilepage",
+            "url": "https://thomastp.ch/",
+            "name": "Thomas Prudhomme – Portfolio d'informaticien à Genève",
+            "isPartOf": { "@id": "https://thomastp.ch/#website" },
+            "mainEntity": { "@id": "https://thomastp.ch/#person" },
+            "inLanguage": "fr-CH",
+            "dateCreated": "2024-03-01T00:00:00+01:00",
+            "dateModified": "2026-05-02T14:30:00+02:00"
           },
-          "alumniOf": {
-            "@type": "EducationalOrganization",
-            "name": "Geneva Institute of Technology",
-            "alternateName": "CFPT Informatique",
+          {
+            "@type": "Person",
+            "@id": "https://thomastp.ch/#person",
+            "name": "Thomas Prudhomme",
+            "alternateName": [
+              "Thomas Prud'homme",
+              "Thomas P.",
+              "ThomasTP",
+              "Thomas-TP",
+              "Prudhomme"
+            ],
+            "url": "https://thomastp.ch/",
+            "image": "https://thomastp.ch/images/og-image.webp",
+            "jobTitle": "Étudiant informaticien / Computer Science Student",
+            "description": "Thomas Prudhomme est un étudiant informaticien au CFPT Genève, aussi connu sous ThomasTP et Thomas P. Il travaille sur le développement web, la cybersécurité, l'IoT et le cloud dans la région Genève, Lausanne et Vaud.",
+            "email": "mailto:thomas@prudhomme.li",
             "address": {
               "@type": "PostalAddress",
-              "addressLocality": "Geneva",
+              "addressLocality": "Genève",
+              "addressRegion": "GE",
               "addressCountry": "CH"
-            }
-          },
-          "knowsAbout": [
-            "Web Development", "React", "TypeScript", "Rust", "Three.js",
-            "Cybersecurity", "Ethical Hacking", "Cloud Computing",
-            "Internet of Things", "GSAP", "Cloudflare Workers", "Tauri",
-            "Informaticien Genève", "Informaticien Lausanne", "Informaticien Vaud"
-          ],
-          "knowsLanguage": [
-            { "@type": "Language", "name": "French", "alternateName": "fr" },
-            { "@type": "Language", "name": "English", "alternateName": "en" }
-          ],
-          "sameAs": [
-            "https://github.com/Thomas-TP",
-            "https://www.linkedin.com/in/thomas-tp/",
-            "https://www.credly.com/users/thomas-prudhomme",
-            "https://links.thomastp.ch"
-          ]
-        }
-      ]
-    }
+            },
+            "homeLocation": {
+              "@type": "Place",
+              "name": "Genève, Suisse"
+            },
+            "alumniOf": {
+              "@type": "EducationalOrganization",
+              "name": "Geneva Institute of Technology",
+              "alternateName": "CFPT Informatique",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Geneva",
+                "addressCountry": "CH"
+              }
+            },
+            "knowsAbout": [
+              "Web Development",
+              "React",
+              "TypeScript",
+              "Rust",
+              "Three.js",
+              "Cybersecurity",
+              "Ethical Hacking",
+              "Cloud Computing",
+              "Internet of Things",
+              "GSAP",
+              "Cloudflare Workers",
+              "Tauri",
+              "Informaticien Genève",
+              "Informaticien Lausanne",
+              "Informaticien Vaud"
+            ],
+            "knowsLanguage": [
+              { "@type": "Language", "name": "French", "alternateName": "fr" },
+              { "@type": "Language", "name": "English", "alternateName": "en" }
+            ],
+            "sameAs": [
+              "https://github.com/Thomas-TP",
+              "https://www.linkedin.com/in/thomas-tp/",
+              "https://www.credly.com/users/thomas-prudhomme",
+              "https://links.thomastp.ch"
+            ]
+          }
+        ]
+      }
     </script>
   </head>
   <body>
@@ -182,17 +316,16 @@
       <div class="seo-shell">
         <h1>Thomas Prudhomme</h1>
         <p>
-          Portfolio de Thomas Prudhomme, aussi connu sous ThomasTP et Thomas-TP,
-          étudiant informaticien au Geneva Institute of Technology, CFPT Informatique
-          à Genève. Il développe des projets web, cloud, cybersécurité et IoT avec
-          React, TypeScript, Rust, Tauri, Three.js, GSAP, Cloudflare Workers et Bun.
+          Portfolio de Thomas Prudhomme, aussi connu sous ThomasTP et Thomas-TP, étudiant
+          informaticien au Geneva Institute of Technology, CFPT Informatique à Genève. Il développe
+          des projets web, cloud, cybersécurité et IoT avec React, TypeScript, Rust, Tauri,
+          Three.js, GSAP, Cloudflare Workers et Bun.
         </p>
         <p>
-          Basé en Suisse romande, Thomas travaille sur des expériences interactives,
-          des interfaces performantes, des outils open source et des prototypes
-          techniques pour Genève, Lausanne, Vaud et l'arc lémanique. Ses projets
-          incluent X-clone, Tank.io, PowerShell Empire Automation et TomBoard, une
-          soundboard Windows open source construite avec Rust et Tauri.
+          Basé en Suisse romande, Thomas travaille sur des expériences interactives, des interfaces
+          performantes, des outils open source et des prototypes techniques pour Genève, Lausanne,
+          Vaud et l'arc lémanique. Ses projets incluent X-clone, Tank.io, PowerShell Empire
+          Automation et TomBoard, une soundboard Windows open source construite avec Rust et Tauri.
         </p>
         <p>
           Ce site présente son profil, ses compétences, ses projets publics, ses liens

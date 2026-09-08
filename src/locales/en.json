@@ -1,269 +1,269 @@
 {
-    "seo": {
-        "title": "Thomas Prudhomme | Computer Science Student in Geneva & Lausanne",
-        "description": "Portfolio of Thomas Prudhomme (ThomasTP), Computer Science student in Geneva: web development, cybersecurity, IoT and cloud in Geneva, Lausanne and Vaud.",
-        "keywords": "Thomas Prudhomme, Thomas Prud'homme, Thomas P, ThomasTP, Thomas-TP, Prudhomme, computer science Geneva, IT Geneva, IT Lausanne, IT Vaud, web developer Geneva",
-        "og_title": "Thomas Prudhomme | Web Developer & Computer Science – Geneva",
-        "og_description": "React, Rust, ethical hacking and IoT projects by Thomas Prudhomme, Computer Science student at Geneva Institute of Technology. Available from Geneva to Lausanne."
+  "seo": {
+    "title": "Thomas Prudhomme | Computer Science Student in Geneva & Lausanne",
+    "description": "Portfolio of Thomas Prudhomme (ThomasTP), Computer Science student in Geneva: web development, cybersecurity, IoT and cloud in Geneva, Lausanne and Vaud.",
+    "keywords": "Thomas Prudhomme, Thomas Prud'homme, Thomas P, ThomasTP, Thomas-TP, Prudhomme, computer science Geneva, IT Geneva, IT Lausanne, IT Vaud, web developer Geneva",
+    "og_title": "Thomas Prudhomme | Web Developer & Computer Science – Geneva",
+    "og_description": "React, Rust, ethical hacking and IoT projects by Thomas Prudhomme, Computer Science student at Geneva Institute of Technology. Available from Geneva to Lausanne."
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "skip_content": "Skip to content",
+  "hero": {
+    "name": "Thomas Prudhomme",
+    "role_prefix": "Future Computer Scientist at ",
+    "school": "Geneva Institute of Technology",
+    "roles": ["Computer Science Student", "Geneva IT Student", "Lausanne Web Developer"],
+    "view_cv": "View CV",
+    "contact_me": "Contact Me",
+    "scroll": "Scroll"
+  },
+  "cv": {
+    "subtitle": "Curriculum Vitæ",
+    "print": "Print",
+    "download": "Download"
+  },
+  "bento": {
+    "header_about": "About Me",
+    "header_desc": "I'm Thomas Prudhomme, also known as ThomasTP or Thomas P.: a Computer Science student in Geneva, available for web, cloud, IoT and cybersecurity projects across the Lake Geneva region.",
+    "web_dev": {
+      "title": "Web Development",
+      "desc": "Building responsive, modern web applications.",
+      "searching": "Searching..."
     },
-    "navbar": {
-        "home": "Home",
-        "about": "About",
-        "projects": "Projects",
-        "contact": "Contact",
-        "github": "GitHub",
-        "linkedin": "LinkedIn"
+    "backend": {
+      "title": "Backend & Systems",
+      "desc": "Experience with PowerShell scripting and system automation."
     },
-    "skip_content": "Skip to content",
-    "hero": {
-        "name": "Thomas Prudhomme",
-        "role_prefix": "Future Computer Scientist at ",
-        "school": "Geneva Institute of Technology",
-        "roles": ["Computer Science Student", "Geneva IT Student", "Lausanne Web Developer"],
-        "view_cv": "View CV",
-        "contact_me": "Contact Me",
-        "scroll": "Scroll"
+    "iot": {
+      "title": "IoT & Smart Home",
+      "desc": "Creating seamless connected experiences.",
+      "lamp": "Lamp",
+      "tv": "TV",
+      "oven": "Oven"
     },
-    "cv": {
-        "subtitle": "Curriculum Vitæ",
-        "print": "Print",
-        "download": "Download"
+    "student": {
+      "title": "Student at Geneva IT",
+      "desc": "Pursuing my CFC in Computer Science.",
+      "start": "START",
+      "diploma": "DIPLOMA",
+      "school_entry": "School Entry",
+      "development": "Development",
+      "specialization": "Specialization",
+      "internship": "Internship",
+      "graduation": "Graduation"
     },
-    "bento": {
-        "header_about": "About Me",
-        "header_desc": "I'm Thomas Prudhomme, also known as ThomasTP or Thomas P.: a Computer Science student in Geneva, available for web, cloud, IoT and cybersecurity projects across the Lake Geneva region.",
-        "web_dev": {
-            "title": "Web Development",
-            "desc": "Building responsive, modern web applications.",
-            "searching": "Searching..."
-        },
-        "backend": {
-            "title": "Backend & Systems",
-            "desc": "Experience with PowerShell scripting and system automation."
-        },
-        "iot": {
-            "title": "IoT & Smart Home",
-            "desc": "Creating seamless connected experiences.",
-            "lamp": "Lamp",
-            "tv": "TV",
-            "oven": "Oven"
-        },
-        "student": {
-            "title": "Student at Geneva IT",
-            "desc": "Pursuing my CFC in Computer Science.",
-            "start": "START",
-            "diploma": "DIPLOMA",
-            "school_entry": "School Entry",
-            "development": "Development",
-            "specialization": "Specialization",
-            "internship": "Internship",
-            "graduation": "Graduation"
-        },
-        "certifications": {
-            "title": "Certifications",
-            "desc": "View my verified achievement badges and professional certifications on Credly. Validating expertise in cloud computing, cybersecurity, and software development.",
-            "verified": "Verified by Credly",
-            "view_profile": "View Profile"
-        }
-    },
-    "tech_stack": {
-        "title": "My Tech Stack"
-    },
-    "projects": {
-        "title": "Projects",
-        "subtitle": "A collection of projects exploring web development, game design, and cybersecurity.",
-        "view_all": "View all repositories",
-        "view_project": "View Project",
-        "swipe_hint": "Swipe to explore",
-        "items": {
-            "x_clone": {
-                "description": "A full-featured Twitter/X clone with AI chat capabilities (Grok integration). Built with vanilla web technologies to master the fundamentals."
-            },
-            "tank_io": {
-                "description": "A fast-paced multiplayer tank battle game built with React and HTML5 Canvas. Features real-time gameplay optimizations and responsive controls."
-            },
-            "empire": {
-                "description": "A modern modification of the Empire post-exploitation framework. Enhanced for automated security testing and educational red-teaming scenarios."
-            },
-            "tomboard": {
-                "description": "An open-source soundboard for Windows — a free, lightweight Voicemod alternative. Real-time voice changer, dual audio output to a virtual mic, drag-and-drop sound organization, and global hotkeys. Built with Rust and Tauri."
-            }
-        }
-    },
-    "calyroc": {
-        "eyebrow": "Independent web studio",
-        "title": "Calyroc",
-        "lead": "Calyroc is my web studio: fast, custom-built sites for independents, SMEs and startups, delivered without detours. Fixed quotes, direct contact with me from the first brief to launch — no project manager, no hidden costs.",
-        "pillars": {
-            "pricing": {
-                "title": "Fixed, transparent pricing",
-                "desc": "A price set upfront, no scope creep — starting at CHF 1,490 versus CHF 6,000–12,000 at a traditional agency."
-            },
-            "direct": {
-                "title": "Direct access",
-                "desc": "You work with me directly, from the first conversation to delivery — no project manager in between."
-            },
-            "perf": {
-                "title": "Performance-first, modern stack",
-                "desc": "Fast sites tuned for Core Web Vitals, on the same Cloudflare edge stack as this portfolio."
-            }
-        },
-        "stages_label": "4 clear stages",
-        "stats": {
-            "price": "Fixed quote from",
-            "stages": "Project stages",
-            "revisions": "Revisions included",
-            "languages": "Studio languages"
-        },
-        "browser_url": "calyroc.com",
-        "report_label": "Studio overview",
-        "cta": "Explore calyroc.com"
-    },
-    "swiss3design": {
-        "eyebrow": "E-commerce platform",
-        "title": "Swiss3Design",
-        "lead": "Swiss3Design is a complete online store I designed and built: multicolor 3D-printed design objects with up to 4 simultaneous colors, crafted piece by piece in Gland, Switzerland. From the product configurator to Stripe checkout, the whole platform runs on the Cloudflare edge.",
-        "pillars": {
-            "print": {
-                "title": "Multicolor printing",
-                "desc": "Up to 4 colors printed in a single piece with AMS technology — no assembly, no painting."
-            },
-            "custom": {
-                "title": "Custom quotes",
-                "desc": "Upload a 3D file and get a personalized quote within 48 hours, from concept to finished object."
-            },
-            "stack": {
-                "title": "Full-stack e-commerce",
-                "desc": "Customer accounts, Stripe checkout, order tracking and an admin backend — built solo on Next.js and Cloudflare Workers."
-            }
-        },
-        "colors_label": "Up to 4 colors",
-        "stats": {
-            "colors": "Simultaneous colors",
-            "quote": "Quote turnaround",
-            "shipping": "Free shipping from",
-            "swiss": "Swiss made"
-        },
-        "browser_url": "swiss3design.ch",
-        "report_label": "Store overview",
-        "cta": "Explore swiss3design.ch"
-    },
-    "contact": {
-        "title": "Let's work together",
-        "desc": "Have a project in mind or just want to chat? Send me a message.",
-        "say_hello": "Say Hello",
-        "form": {
-            "name": "Name",
-            "name_placeholder": "Your name",
-            "email": "Email",
-            "email_placeholder": "your@email.com",
-            "message": "Message",
-            "message_placeholder": "Tell me about your project...",
-            "send": "Send message",
-            "sending": "Sending...",
-            "success": "Message sent! I'll get back to you shortly.",
-            "error": "Something went wrong. Please try again or email me directly.",
-            "error_required": "This field is required.",
-            "error_email": "Please enter a valid email address."
-        }
-    },
-    "ask": {
-        "launcher": "Ask Thomas",
-        "launcher_subtitle": "Portfolio assistant",
-        "dialog_label": "Ask Thomas chat",
-        "title": "Ask Thomas",
-        "subtitle": "Thomas's portfolio AI assistant",
-        "status": "online",
-        "empty_title": "What would you like to know about Thomas?",
-        "empty_body": "Ask about his background, stack, projects, certifications, or the best way to reach him.",
-        "suggestions": [
-            "What's his technical stack?",
-            "Tell me about TomBoard",
-            "Is he available for an internship?",
-            "How can I contact him quickly?"
-        ],
-        "capabilities": [
-            "Background and CFC track",
-            "Projects and stack",
-            "CV, GitHub, and contact",
-            "Verified certifications"
-        ],
-        "placeholder": "Write your question...",
-        "message_label": "Message",
-        "thinking": "Ask Thomas is thinking",
-        "recording": "Recording",
-        "transcribing": "Transcribing...",
-        "disclaimer": "AI-generated answers",
-        "footer_note": "AI can make mistakes, verify important details.",
-        "send": "Send",
-        "voice": "Voice input",
-        "stop_recording": "Stop recording",
-        "listen": "Listen",
-        "playing": "Playing",
-        "copy": "Copy",
-        "copied": "Copied",
-        "clear": "Clear conversation",
-        "close": "Close",
-        "minimize": "Minimize",
-        "regenerate": "Send last question again",
-        "errors": {
-            "generic": "I can't answer right now. Please try again in a moment.",
-            "rate_limit": "Rate limit reached. Please try again a little later.",
-            "too_long": "Your message is too long. Keep it under 500 characters.",
-            "microphone": "The microphone is unavailable or access was denied.",
-            "transcription": "Transcription failed. You can type your question instead.",
-            "tts": "Voice playback could not start.",
-            "copy": "Could not copy the message."
-        }
-    },
-    "footer": {
-        "rights": "All rights reserved.",
-        "privacy": "Privacy Policy",
-        "terms": "Terms",
-        "crafted_by": "Crafted & built by"
-    },
-    "privacy_modal": {
-        "title": "Privacy Policy",
-        "last_updated": "Last updated: April 2026",
-        "section1_title": "1. Information Collection",
-        "section1_text": "This portfolio is a static website. No personal data is stored in any database, no login is required, and no cookies are used for tracking. Anonymous usage statistics are collected via Cloudflare Web Analytics (see Section 4).",
-        "section2_title": "2. External Links",
-        "section2_text": "This website contains links to external platforms (GitHub, LinkedIn, Credly). Please note that these external sites have their own privacy policies, and I am not responsible for the content or privacy practices of these third-party services.",
-        "section3_title": "3. Contact Form",
-        "section3_text": "If you use the contact form, your name, email address, and message are transmitted via a Cloudflare Worker and delivered using the Resend API. This data is not stored in any database and is used solely to reply to your inquiry. Direct communication is kept strictly confidential.",
-        "section4_title": "4. Analytics",
-        "section4_text": "This site uses Cloudflare Web Analytics, a privacy-friendly, cookie-free service. It collects anonymous data: pages visited, country of origin (IP is not stored), browser type, device type, and Core Web Vitals. No personal data is collected, no cookies are set, and no cross-site tracking is performed.",
-        "section5_title": "5. AI Chat Assistant (Ask Thomas)",
-        "section5_text": "This site features an AI assistant powered by Cloudflare Workers AI (Meta Llama 3.3 70B). When you use the chat, your message and the last few turns of conversation are sent to Cloudflare's AI infrastructure for processing. These messages are not stored in any database and are used solely to generate a response. Your conversation history is stored locally in your browser (localStorage) and never transmitted to any server. A per-IP rate limit (12 messages/hour) is enforced via a Cloudflare KV store (IP address, counter, TTL). Voice input: if you use the microphone button, your audio is sent to Cloudflare Workers AI (OpenAI Whisper) for transcription — the audio is processed in real time and not stored. Text-to-speech playback uses Cloudflare Workers AI to generate audio from the assistant's response; no personal data is involved. A semantic knowledge base (Cloudflare Vectorize) may augment responses with relevant portfolio content — no personal data is stored in or retrieved from this index. No personal data beyond the message content itself is collected.",
-        "github_note": "This website is hosted on GitHub Pages. GitHub may collect technical logs (IP addresses) for security and maintenance purposes. Cloudflare processes anonymous analytics data in accordance with their privacy policy.",
-        "close": "Close"
-    },
-    "terms_modal": {
-        "title": "Terms of Service",
-        "last_updated": "Last updated: April 2026",
-        "section1_title": "1. Introduction",
-        "section1_text": "Welcome to my portfolio. By accessing this website, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, please do not use this website.",
-        "section2_title": "2. Intellectual Property",
-        "section2_text": "The content, design, and specific code implementations displayed on this portfolio are the intellectual property of Thomas P., unless otherwise stated (e.g., open-source libraries used).",
-        "section2_sub": "You may view, download, and copy materials for personal, non-commercial use, provided you acknowledge the source.",
-        "section3_title": "3. Disclaimer",
-        "section3_text": "The projects and code examples provided here are for educational and demonstration purposes. They are provided \"as is\" without warranty of any kind, express or implied. I am not liable for any damages arising from the use of the code or information on this site. The AI chat assistant (Ask Thomas) generates responses automatically and may contain inaccuracies. Its responses do not constitute professional, legal, or contractual commitments. Voice features (speech-to-text and text-to-speech) are provided for convenience and may contain transcription or pronunciation errors.",
-        "section4_title": "4. Governing Law",
-        "section4_text": "These terms shall be governed by and construed in accordance with the laws of Switzerland. Any disputes relating to these terms will be subject to the exclusive jurisdiction of the courts of Geneva.",
-        "close": "Accept & Close"
-    },
-    "service_area": {
-        "label": "Service Area",
-        "badge": "Service Area",
-        "title": "Lake Geneva Arc",
-        "subtitle": "Computer Science student based in Geneva, available for projects, internships and collaborations in Lausanne, Vaud and across the Lake Geneva region.",
-        "summary": "Thomas Prudhomme (ThomasTP, Thomas P.) is based in Geneva and available for IT projects in Lausanne, Vaud and across the Lake Geneva region.",
-        "lake": "Lake Geneva",
-        "map_alt": "Schematic map of service area: Geneva, Nyon, Lausanne"
-    },
-    "notfound": {
-        "title": "Page Not Found",
-        "desc": "The page you are looking for does not exist or has been moved to another sector.",
-        "home": "Return to Base"
+    "certifications": {
+      "title": "Certifications",
+      "desc": "View my verified achievement badges and professional certifications on Credly. Validating expertise in cloud computing, cybersecurity, and software development.",
+      "verified": "Verified by Credly",
+      "view_profile": "View Profile"
     }
+  },
+  "tech_stack": {
+    "title": "My Tech Stack"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A collection of projects exploring web development, game design, and cybersecurity.",
+    "view_all": "View all repositories",
+    "view_project": "View Project",
+    "swipe_hint": "Swipe to explore",
+    "items": {
+      "x_clone": {
+        "description": "A full-featured Twitter/X clone with AI chat capabilities (Grok integration). Built with vanilla web technologies to master the fundamentals."
+      },
+      "tank_io": {
+        "description": "A fast-paced multiplayer tank battle game built with React and HTML5 Canvas. Features real-time gameplay optimizations and responsive controls."
+      },
+      "empire": {
+        "description": "A modern modification of the Empire post-exploitation framework. Enhanced for automated security testing and educational red-teaming scenarios."
+      },
+      "tomboard": {
+        "description": "An open-source soundboard for Windows — a free, lightweight Voicemod alternative. Real-time voice changer, dual audio output to a virtual mic, drag-and-drop sound organization, and global hotkeys. Built with Rust and Tauri."
+      }
+    }
+  },
+  "calyroc": {
+    "eyebrow": "Independent web studio",
+    "title": "Calyroc",
+    "lead": "Calyroc is my web studio: fast, custom-built sites for independents, SMEs and startups, delivered without detours. Fixed quotes, direct contact with me from the first brief to launch — no project manager, no hidden costs.",
+    "pillars": {
+      "pricing": {
+        "title": "Fixed, transparent pricing",
+        "desc": "A price set upfront, no scope creep — starting at CHF 1,490 versus CHF 6,000–12,000 at a traditional agency."
+      },
+      "direct": {
+        "title": "Direct access",
+        "desc": "You work with me directly, from the first conversation to delivery — no project manager in between."
+      },
+      "perf": {
+        "title": "Performance-first, modern stack",
+        "desc": "Fast sites tuned for Core Web Vitals, on the same Cloudflare edge stack as this portfolio."
+      }
+    },
+    "stages_label": "4 clear stages",
+    "stats": {
+      "price": "Fixed quote from",
+      "stages": "Project stages",
+      "revisions": "Revisions included",
+      "languages": "Studio languages"
+    },
+    "browser_url": "calyroc.com",
+    "report_label": "Studio overview",
+    "cta": "Explore calyroc.com"
+  },
+  "swiss3design": {
+    "eyebrow": "E-commerce platform",
+    "title": "Swiss3Design",
+    "lead": "Swiss3Design is a complete online store I designed and built: multicolor 3D-printed design objects with up to 4 simultaneous colors, crafted piece by piece in Gland, Switzerland. From the product configurator to Stripe checkout, the whole platform runs on the Cloudflare edge.",
+    "pillars": {
+      "print": {
+        "title": "Multicolor printing",
+        "desc": "Up to 4 colors printed in a single piece with AMS technology — no assembly, no painting."
+      },
+      "custom": {
+        "title": "Custom quotes",
+        "desc": "Upload a 3D file and get a personalized quote within 48 hours, from concept to finished object."
+      },
+      "stack": {
+        "title": "Full-stack e-commerce",
+        "desc": "Customer accounts, Stripe checkout, order tracking and an admin backend — built solo on Next.js and Cloudflare Workers."
+      }
+    },
+    "colors_label": "Up to 4 colors",
+    "stats": {
+      "colors": "Simultaneous colors",
+      "quote": "Quote turnaround",
+      "shipping": "Free shipping from",
+      "swiss": "Swiss made"
+    },
+    "browser_url": "swiss3design.ch",
+    "report_label": "Store overview",
+    "cta": "Explore swiss3design.ch"
+  },
+  "contact": {
+    "title": "Let's work together",
+    "desc": "Have a project in mind or just want to chat? Send me a message.",
+    "say_hello": "Say Hello",
+    "form": {
+      "name": "Name",
+      "name_placeholder": "Your name",
+      "email": "Email",
+      "email_placeholder": "your@email.com",
+      "message": "Message",
+      "message_placeholder": "Tell me about your project...",
+      "send": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent! I'll get back to you shortly.",
+      "error": "Something went wrong. Please try again or email me directly.",
+      "error_required": "This field is required.",
+      "error_email": "Please enter a valid email address."
+    }
+  },
+  "ask": {
+    "launcher": "Ask Thomas",
+    "launcher_subtitle": "Portfolio assistant",
+    "dialog_label": "Ask Thomas chat",
+    "title": "Ask Thomas",
+    "subtitle": "Thomas's portfolio AI assistant",
+    "status": "online",
+    "empty_title": "What would you like to know about Thomas?",
+    "empty_body": "Ask about his background, stack, projects, certifications, or the best way to reach him.",
+    "suggestions": [
+      "What's his technical stack?",
+      "Tell me about TomBoard",
+      "Is he available for an internship?",
+      "How can I contact him quickly?"
+    ],
+    "capabilities": [
+      "Background and CFC track",
+      "Projects and stack",
+      "CV, GitHub, and contact",
+      "Verified certifications"
+    ],
+    "placeholder": "Write your question...",
+    "message_label": "Message",
+    "thinking": "Ask Thomas is thinking",
+    "recording": "Recording",
+    "transcribing": "Transcribing...",
+    "disclaimer": "AI-generated answers",
+    "footer_note": "AI can make mistakes, verify important details.",
+    "send": "Send",
+    "voice": "Voice input",
+    "stop_recording": "Stop recording",
+    "listen": "Listen",
+    "playing": "Playing",
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear conversation",
+    "close": "Close",
+    "minimize": "Minimize",
+    "regenerate": "Send last question again",
+    "errors": {
+      "generic": "I can't answer right now. Please try again in a moment.",
+      "rate_limit": "Rate limit reached. Please try again a little later.",
+      "too_long": "Your message is too long. Keep it under 500 characters.",
+      "microphone": "The microphone is unavailable or access was denied.",
+      "transcription": "Transcription failed. You can type your question instead.",
+      "tts": "Voice playback could not start.",
+      "copy": "Could not copy the message."
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms",
+    "crafted_by": "Crafted & built by"
+  },
+  "privacy_modal": {
+    "title": "Privacy Policy",
+    "last_updated": "Last updated: April 2026",
+    "section1_title": "1. Information Collection",
+    "section1_text": "This portfolio is a static website. No personal data is stored in any database, no login is required, and no cookies are used for tracking. Anonymous usage statistics are collected via Cloudflare Web Analytics (see Section 4).",
+    "section2_title": "2. External Links",
+    "section2_text": "This website contains links to external platforms (GitHub, LinkedIn, Credly). Please note that these external sites have their own privacy policies, and I am not responsible for the content or privacy practices of these third-party services.",
+    "section3_title": "3. Contact Form",
+    "section3_text": "If you use the contact form, your name, email address, and message are transmitted via a Cloudflare Worker and delivered using the Resend API. This data is not stored in any database and is used solely to reply to your inquiry. Direct communication is kept strictly confidential.",
+    "section4_title": "4. Analytics",
+    "section4_text": "This site uses Cloudflare Web Analytics, a privacy-friendly, cookie-free service. It collects anonymous data: pages visited, country of origin (IP is not stored), browser type, device type, and Core Web Vitals. No personal data is collected, no cookies are set, and no cross-site tracking is performed.",
+    "section5_title": "5. AI Chat Assistant (Ask Thomas)",
+    "section5_text": "This site features an AI assistant powered by Cloudflare Workers AI (Meta Llama 3.3 70B). When you use the chat, your message and the last few turns of conversation are sent to Cloudflare's AI infrastructure for processing. These messages are not stored in any database and are used solely to generate a response. Your conversation history is stored locally in your browser (localStorage) and never transmitted to any server. A per-IP rate limit (12 messages/hour) is enforced via a Cloudflare KV store (IP address, counter, TTL). Voice input: if you use the microphone button, your audio is sent to Cloudflare Workers AI (OpenAI Whisper) for transcription — the audio is processed in real time and not stored. Text-to-speech playback uses Cloudflare Workers AI to generate audio from the assistant's response; no personal data is involved. A semantic knowledge base (Cloudflare Vectorize) may augment responses with relevant portfolio content — no personal data is stored in or retrieved from this index. No personal data beyond the message content itself is collected.",
+    "github_note": "This website is hosted on GitHub Pages. GitHub may collect technical logs (IP addresses) for security and maintenance purposes. Cloudflare processes anonymous analytics data in accordance with their privacy policy.",
+    "close": "Close"
+  },
+  "terms_modal": {
+    "title": "Terms of Service",
+    "last_updated": "Last updated: April 2026",
+    "section1_title": "1. Introduction",
+    "section1_text": "Welcome to my portfolio. By accessing this website, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, please do not use this website.",
+    "section2_title": "2. Intellectual Property",
+    "section2_text": "The content, design, and specific code implementations displayed on this portfolio are the intellectual property of Thomas P., unless otherwise stated (e.g., open-source libraries used).",
+    "section2_sub": "You may view, download, and copy materials for personal, non-commercial use, provided you acknowledge the source.",
+    "section3_title": "3. Disclaimer",
+    "section3_text": "The projects and code examples provided here are for educational and demonstration purposes. They are provided \"as is\" without warranty of any kind, express or implied. I am not liable for any damages arising from the use of the code or information on this site. The AI chat assistant (Ask Thomas) generates responses automatically and may contain inaccuracies. Its responses do not constitute professional, legal, or contractual commitments. Voice features (speech-to-text and text-to-speech) are provided for convenience and may contain transcription or pronunciation errors.",
+    "section4_title": "4. Governing Law",
+    "section4_text": "These terms shall be governed by and construed in accordance with the laws of Switzerland. Any disputes relating to these terms will be subject to the exclusive jurisdiction of the courts of Geneva.",
+    "close": "Accept & Close"
+  },
+  "service_area": {
+    "label": "Service Area",
+    "badge": "Service Area",
+    "title": "Lake Geneva Arc",
+    "subtitle": "Computer Science student based in Geneva, available for projects, internships and collaborations in Lausanne, Vaud and across the Lake Geneva region.",
+    "summary": "Thomas Prudhomme (ThomasTP, Thomas P.) is based in Geneva and available for IT projects in Lausanne, Vaud and across the Lake Geneva region.",
+    "lake": "Lake Geneva",
+    "map_alt": "Schematic map of service area: Geneva, Nyon, Lausanne"
+  },
+  "notfound": {
+    "title": "Page Not Found",
+    "desc": "The page you are looking for does not exist or has been moved to another sector.",
+    "home": "Return to Base"
+  }
 }

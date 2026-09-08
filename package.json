@@ -9,8 +9,8 @@
     "build:og": "bun run scripts/generate-og.ts",
     "indexnow": "bun run scripts/submit-indexnow.ts",
     "preview": "rsbuild preview",
-    "lint": "eslint .",
-    "format": "prettier --write ."
+    "lint": "oxlint .",
+    "format": "oxfmt --write ."
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -46,7 +46,6 @@
     "postcss": "8.5.28"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
     "@resvg/resvg-js": "^2.6.2",
     "@rsbuild/core": "^2.2.3",
     "@rsbuild/plugin-react": "^2.1.0",
@@ -54,14 +53,11 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "@types/three": "^0.185.4",
-    "@typescript-eslint/parser": "^8.70.0",
     "@unocss/config": "^66.10.0",
     "@unocss/postcss": "^66.10.0",
     "@unocss/preset-wind": "^66.10.0",
-    "eslint": "^10.10.0",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "globals": "^17.12.0",
-    "prettier": "^3.9.6",
+    "oxfmt": "^0.67.0",
+    "oxlint": "^1.82.0",
     "satori": "^0.33.4",
     "typescript": "^6.0.2"
   }

@@ -117,9 +117,9 @@ async function embed(texts: string[]): Promise<number[][]> {
 }
 
 async function upsertVectors(
-  vectors: Array<{ id: string; values: number[]; metadata: Record<string, string> }>,
+  vectors: Array<{ id: string; values: number[]; metadata: Record<string, string> }>
 ) {
-  const ndjson = vectors.map((v) => JSON.stringify(v)).join('\n');
+  const ndjson = vectors.map(v => JSON.stringify(v)).join('\n');
   const res = await fetch(`${API_BASE}/vectorize/v2/indexes/${INDEX_NAME}/upsert`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${API_TOKEN}`, 'Content-Type': 'application/x-ndjson' },
@@ -133,7 +133,7 @@ async function main() {
   console.log(`Seeding ${chunks.length} chunks into Vectorize index "${INDEX_NAME}"...`);
 
   console.log('Generating embeddings...');
-  const texts = chunks.map((c) => c.text);
+  const texts = chunks.map(c => c.text);
   const embeddings = await embed(texts);
   console.log(`  Got ${embeddings.length} embeddings (${embeddings[0].length} dimensions)`);
 

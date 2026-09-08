@@ -36,15 +36,15 @@
 
 ## Stack Confirmation
 
-| Layer | Tool | Version | Role |
-|---|---|---|---|
-| **Runtime & Package Manager** | [Bun](https://bun.sh) | `1.x` | JS runtime + `bun install` |
-| **Bundler / Compiler** | [Rsbuild](https://rsbuild.dev) + [Rspack](https://rspack.dev) | `1.3.x` | Rust-based webpack-compatible bundler |
-| **CSS Engine** | [UnoCSS](https://unocss.dev) | `66.x` | Atomic CSS, `presetWind`, PostCSS mode |
-| **UI Framework** | [React](https://react.dev) | `19.x` | Concurrent mode |
-| **Language** | [TypeScript](https://typescriptlang.org) | `6.x` | `strict` mode, `bundler` resolution |
-| **Hosting** | [Cloudflare Pages](https://pages.cloudflare.com) | — | Edge CDN, automatic deploys |
-| **Contact API** | [Cloudflare Workers](https://workers.cloudflare.com) | — | Serverless edge function |
+| Layer                         | Tool                                                          | Version | Role                                   |
+| ----------------------------- | ------------------------------------------------------------- | ------- | -------------------------------------- |
+| **Runtime & Package Manager** | [Bun](https://bun.sh)                                         | `1.x`   | JS runtime + `bun install`             |
+| **Bundler / Compiler**        | [Rsbuild](https://rsbuild.dev) + [Rspack](https://rspack.dev) | `1.3.x` | Rust-based webpack-compatible bundler  |
+| **CSS Engine**                | [UnoCSS](https://unocss.dev)                                  | `66.x`  | Atomic CSS, `presetWind`, PostCSS mode |
+| **UI Framework**              | [React](https://react.dev)                                    | `19.x`  | Concurrent mode                        |
+| **Language**                  | [TypeScript](https://typescriptlang.org)                      | `6.x`   | `strict` mode, `bundler` resolution    |
+| **Hosting**                   | [Cloudflare Pages](https://pages.cloudflare.com)              | —       | Edge CDN, automatic deploys            |
+| **Contact API**               | [Cloudflare Workers](https://workers.cloudflare.com)          | —       | Serverless edge function               |
 
 > **Confirmed:** `bun install` · `rsbuild` / `rspack` compiler · `unocss` design system
 
@@ -116,12 +116,12 @@ Browser Request
 
 ### Bundle Split Strategy (Rspack)
 
-| Chunk | Contents | Load mode |
-|---|---|---|
-| `vendor-three` | `three` + `@react-three/*` | async — Hero only |
-| `vendor-gsap` | `gsap` + `ScrollTrigger` | all pages |
-| `vendor-pdf` | `pdfjs-dist` + `react-pdf` | async — CV modal only |
-| `main` | App + components | eager |
+| Chunk          | Contents                   | Load mode             |
+| -------------- | -------------------------- | --------------------- |
+| `vendor-three` | `three` + `@react-three/*` | async — Hero only     |
+| `vendor-gsap`  | `gsap` + `ScrollTrigger`   | all pages             |
+| `vendor-pdf`   | `pdfjs-dist` + `react-pdf` | async — CV modal only |
+| `main`         | App + components           | eager                 |
 
 ---
 
@@ -134,7 +134,8 @@ Browser Request
 ├── 📄 uno.config.ts            # UnoCSS presetWind + theme tokens + shortcuts
 ├── 📄 postcss.config.mjs       # UnoCSS PostCSS plugin
 ├── 📄 tsconfig.json            # TypeScript strict + bundler resolution
-├── 📄 eslint.config.js         # ESLint flat config (v9)
+├── 📄 .oxlintrc.json           # Oxlint config
+├── 📄 .oxfmtrc.json            # Oxfmt config
 │
 ├── 📁 public/
 │   ├── _headers                # Cloudflare security headers
@@ -227,10 +228,10 @@ bun run build                 # prebuild (pdf worker copy) + rsbuild build
 bun run preview               # → http://localhost:4173
 
 # ── Linting ───────────────────────────────────────────────────────────────
-bun run lint                  # ESLint flat config (v9)
+bun run lint                  # Oxlint
 
 # ── Formatting ────────────────────────────────────────────────────────────
-bun run format                # Prettier — formats all files in place
+bun run format                # Oxfmt — formats all files in place
 
 # ── Cloudflare Worker ─────────────────────────────────────────────────────
 cd cloudflare-worker
@@ -246,59 +247,59 @@ wrangler tail                              # Stream live worker logs
 
 ### Core
 
-| Package | Version | Purpose |
-|---|---|---|
-| `react` | `19.2.4` | UI framework — concurrent mode |
-| `react-dom` | `19.2.4` | DOM renderer |
-| `typescript` | `6.0.2` | Static typing, strict mode |
-| `@rsbuild/core` | `1.3.x` | Build orchestrator (Rspack) |
-| `@rsbuild/plugin-react` | `1.3.x` | React / JSX transform |
-| `unocss` | `66.x` | Atomic CSS engine |
-| `@unocss/preset-wind` | `66.x` | Tailwind-compatible utility preset |
-| `@unocss/postcss` | `66.x` | PostCSS integration |
-| `@unocss/reset` | `66.x` | Tailwind v4 reset styles |
+| Package                 | Version  | Purpose                            |
+| ----------------------- | -------- | ---------------------------------- |
+| `react`                 | `19.2.4` | UI framework — concurrent mode     |
+| `react-dom`             | `19.2.4` | DOM renderer                       |
+| `typescript`            | `6.0.2`  | Static typing, strict mode         |
+| `@rsbuild/core`         | `1.3.x`  | Build orchestrator (Rspack)        |
+| `@rsbuild/plugin-react` | `1.3.x`  | React / JSX transform              |
+| `unocss`                | `66.x`   | Atomic CSS engine                  |
+| `@unocss/preset-wind`   | `66.x`   | Tailwind-compatible utility preset |
+| `@unocss/postcss`       | `66.x`   | PostCSS integration                |
+| `@unocss/reset`         | `66.x`   | Tailwind v4 reset styles           |
 
 ### UI & Animation
 
-| Package | Version | Purpose |
-|---|---|---|
-| `gsap` | `3.14.x` | Animations — scroll reveals, parallax, magnetic hover |
-| `@gsap/react` | `2.1.x` | React integration for GSAP |
-| `lenis` | `1.3.21` | Smooth inertia scroll (side-effect init) |
-| `three` | `0.183.x` | 3D WebGL rendering |
-| `@react-three/fiber` | `9.5.x` | React renderer for Three.js |
-| `@react-three/drei` | `10.7.x` | Three.js helpers (Points, Materials…) |
-| `lucide-react` | `1.7.0` | Outline icon set |
-| `react-icons` | `5.6.x` | Brand icons (GitHub, LinkedIn…) |
-| `simple-icons` | `16.14.x` | Tech stack SVG logos |
+| Package              | Version   | Purpose                                               |
+| -------------------- | --------- | ----------------------------------------------------- |
+| `gsap`               | `3.14.x`  | Animations — scroll reveals, parallax, magnetic hover |
+| `@gsap/react`        | `2.1.x`   | React integration for GSAP                            |
+| `lenis`              | `1.3.21`  | Smooth inertia scroll (side-effect init)              |
+| `three`              | `0.183.x` | 3D WebGL rendering                                    |
+| `@react-three/fiber` | `9.5.x`   | React renderer for Three.js                           |
+| `@react-three/drei`  | `10.7.x`  | Three.js helpers (Points, Materials…)                 |
+| `lucide-react`       | `1.7.0`   | Outline icon set                                      |
+| `react-icons`        | `5.6.x`   | Brand icons (GitHub, LinkedIn…)                       |
+| `simple-icons`       | `16.14.x` | Tech stack SVG logos                                  |
 
 ### Internationalisation & Content
 
-| Package | Version | Purpose |
-|---|---|---|
-| `i18next` | `26.x` | i18n framework |
-| `react-i18next` | `17.x` | React hooks (`useTranslation`) |
-| `i18next-browser-languagedetector` | `8.2.1` | Auto-detect browser language |
-| `pdfjs-dist` | `5.6.x` | PDF rendering (web worker) |
-| `react-pdf` | `10.4.x` | React PDF viewer component |
+| Package                            | Version  | Purpose                        |
+| ---------------------------------- | -------- | ------------------------------ |
+| `i18next`                          | `26.x`   | i18n framework                 |
+| `react-i18next`                    | `17.x`   | React hooks (`useTranslation`) |
+| `i18next-browser-languagedetector` | `8.2.1`  | Auto-detect browser language   |
+| `pdfjs-dist`                       | `5.6.x`  | PDF rendering (web worker)     |
+| `react-pdf`                        | `10.4.x` | React PDF viewer component     |
 
 ### Forms & Security
 
-| Package | Version | Purpose |
-|---|---|---|
-| `@marsidev/react-turnstile` | `1.5.x` | Cloudflare Turnstile CAPTCHA widget |
-| `class-variance-authority` | `0.7.x` | Component variant system |
-| `clsx` | `2.1.x` | Conditional class name helper |
-| `tailwind-merge` | `3.5.0` | Safely merge UnoCSS/Tailwind classes |
+| Package                     | Version | Purpose                              |
+| --------------------------- | ------- | ------------------------------------ |
+| `@marsidev/react-turnstile` | `1.5.x` | Cloudflare Turnstile CAPTCHA widget  |
+| `class-variance-authority`  | `0.7.x` | Component variant system             |
+| `clsx`                      | `2.1.x` | Conditional class name helper        |
+| `tailwind-merge`            | `3.5.0` | Safely merge UnoCSS/Tailwind classes |
 
 ### Dev Tooling
 
-| Tool | Purpose |
-|---|---|
-| `eslint 9.x` (flat config) | Linting |
-| `prettier 3.x` | Code formatting |
-| `@types/react 19.x` | React TypeScript types |
-| `@types/three` | Three.js TypeScript types |
+| Tool                | Purpose                   |
+| ------------------- | ------------------------- |
+| `oxlint`            | Linting                   |
+| `oxfmt`             | Code formatting           |
+| `@types/react 19.x` | React TypeScript types    |
+| `@types/three`      | Three.js TypeScript types |
 
 ---
 
@@ -308,11 +309,11 @@ wrangler tail                              # Stream live worker logs
 
 The site is deployed on **Cloudflare Pages** via Git integration.
 
-| Setting | Value |
-|---|---|
-| Build command | `bun run build` |
-| Output directory | `dist` |
-| Root directory | `/` |
+| Setting          | Value           |
+| ---------------- | --------------- |
+| Build command    | `bun run build` |
+| Output directory | `dist`          |
+| Root directory   | `/`             |
 
 Security headers are enforced via [`public/_headers`](public/_headers):
 
@@ -329,14 +330,14 @@ Security headers are enforced via [`public/_headers`](public/_headers):
 
 The contact form backend runs as a **Cloudflare Worker**.
 
-| Feature | Implementation |
-|---|---|
-| Email sending | Resend API |
-| CAPTCHA | Cloudflare Turnstile (server-side) |
-| Rate limiting | KV namespace (per-IP sliding window) |
+| Feature         | Implementation                       |
+| --------------- | ------------------------------------ |
+| Email sending   | Resend API                           |
+| CAPTCHA         | Cloudflare Turnstile (server-side)   |
+| Rate limiting   | KV namespace (per-IP sliding window) |
 | Spam protection | Honeypot field + fill-time heuristic |
-| i18n emails | EN / FR auto-reply |
-| Email themes | Dark / Light styled HTML templates |
+| i18n emails     | EN / FR auto-reply                   |
+| Email themes    | Dark / Light styled HTML templates   |
 
 ```bash
 cd cloudflare-worker
@@ -353,29 +354,29 @@ No `.env` is needed for the frontend — all config is build-time.
 
 The Cloudflare Worker requires two **Wrangler secrets** (never committed to the repo):
 
-| Secret | Description |
-|---|---|
-| `RESEND_API_KEY` | Resend API key for sending emails |
+| Secret                 | Description                             |
+| ---------------------- | --------------------------------------- |
+| `RESEND_API_KEY`       | Resend API key for sending emails       |
 | `TURNSTILE_SECRET_KEY` | Cloudflare Turnstile server-side secret |
 
 A **KV namespace** must be bound in `wrangler.toml`:
 
-| Binding | KV Namespace ID | Purpose |
-|---|---|---|
+| Binding      | KV Namespace ID                    | Purpose              |
+| ------------ | ---------------------------------- | -------------------- |
 | `RATE_LIMIT` | `898ccbfd2a1c4018b1bf4880ff7b2dfa` | Per-IP rate limiting |
 
 ---
 
 ## Security
 
-| Control | Implementation |
-|---|---|
-| CAPTCHA | Cloudflare Turnstile — server-side token verification in the Worker |
-| Rate limiting | KV sliding window per IP on the edge |
-| Spam | Honeypot field + minimum form-fill time heuristic |
-| HTTP headers | `X-Frame-Options: DENY`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` |
-| Framing | `DENY` — cannot be embedded in iframes |
-| Secrets | Wrangler secrets only — no `.env` or credentials in the repository |
+| Control       | Implementation                                                                             |
+| ------------- | ------------------------------------------------------------------------------------------ |
+| CAPTCHA       | Cloudflare Turnstile — server-side token verification in the Worker                        |
+| Rate limiting | KV sliding window per IP on the edge                                                       |
+| Spam          | Honeypot field + minimum form-fill time heuristic                                          |
+| HTTP headers  | `X-Frame-Options: DENY`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` |
+| Framing       | `DENY` — cannot be embedded in iframes                                                     |
+| Secrets       | Wrangler secrets only — no `.env` or credentials in the repository                         |
 
 ---
 

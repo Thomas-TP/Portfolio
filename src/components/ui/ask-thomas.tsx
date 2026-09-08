@@ -73,7 +73,10 @@ function renderInline(text: string, onAnchorNavigate?: (anchor: string) => void)
       parts.push(<em key={key++}>{m[3]}</em>);
     } else if (m[4]) {
       parts.push(
-        <code key={key++} className="rounded bg-foreground/10 px-1.5 py-0.5 font-mono text-[0.72rem]">
+        <code
+          key={key++}
+          className="rounded bg-foreground/10 px-1.5 py-0.5 font-mono text-[0.72rem]"
+        >
           {m[4]}
         </code>
       );
@@ -534,10 +537,7 @@ export function AskThomas() {
         if (!nextIsMobile) setMobileInputFocused(false);
         return;
       } else if (!activeInput) {
-        mobileBaselineHeightRef.current = Math.max(
-          mobileBaselineHeightRef.current,
-          currentHeight
-        );
+        mobileBaselineHeightRef.current = Math.max(mobileBaselineHeightRef.current, currentHeight);
       }
 
       const baseline = mobileBaselineHeightRef.current || currentHeight;
@@ -582,7 +582,8 @@ export function AskThomas() {
       const lower = message.toLowerCase();
       if (lower.includes('rate limit')) return t('ask.errors.rate_limit');
       if (lower.includes('too long') || lower.includes('max')) return t('ask.errors.too_long');
-      if (lower.includes('microphone') || lower.includes('micro')) return t('ask.errors.microphone');
+      if (lower.includes('microphone') || lower.includes('micro'))
+        return t('ask.errors.microphone');
       if (lower.includes('transcription')) return t('ask.errors.transcription');
       return t('ask.errors.generic');
     },
@@ -802,14 +803,14 @@ export function AskThomas() {
               </div>
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
-                  <h2 className="truncate text-[0.92rem] font-bold leading-tight">{t('ask.title')}</h2>
+                  <h2 className="truncate text-[0.92rem] font-bold leading-tight">
+                    {t('ask.title')}
+                  </h2>
                   <span className="hidden rounded-full bg-emerald-500/10 px-2 py-0.5 text-[0.58rem] font-semibold uppercase tracking-wide text-emerald-600 dark:text-emerald-400 sm:inline">
                     {t('ask.status')}
                   </span>
                 </div>
-                <p className="truncate text-[0.68rem] text-muted-foreground">
-                  {t('ask.subtitle')}
-                </p>
+                <p className="truncate text-[0.68rem] text-muted-foreground">{t('ask.subtitle')}</p>
               </div>
             </div>
 
@@ -926,7 +927,9 @@ export function AskThomas() {
                         <Sparkles size={13} />
                       </div>
                     )}
-                    <div className={`max-w-[82%] ${isUser ? 'items-end' : 'items-start'} flex flex-col`}>
+                    <div
+                      className={`max-w-[82%] ${isUser ? 'items-end' : 'items-start'} flex flex-col`}
+                    >
                       <div
                         className={`rounded-2xl px-3.5 py-2.5 ${
                           isUser

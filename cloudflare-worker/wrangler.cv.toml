@@ -5,6 +5,4 @@ account_id = "b88f99010692662e118a9869f47767e4"
 workers_dev = false
 preview_urls = false
 
-routes = [
-  { pattern = "cv.thomastp.ch/", zone_name = "thomastp.ch" }
-]
+routes = [{ pattern = "cv.thomastp.ch/", zone_name = "thomastp.ch" }]

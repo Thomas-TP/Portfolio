@@ -137,7 +137,7 @@ function ShaderQuad({ paused, isDark }: { paused: boolean; isDark: boolean }) {
       uIsDark: { value: isDark ? 1 : 0 },
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
+    []
   );
 
   useEffect(() => {
@@ -188,10 +188,9 @@ export function HeroShader() {
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0 },
-    );
+    const obs = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), {
+      threshold: 0,
+    });
     obs.observe(el);
     return () => obs.disconnect();
   }, []);

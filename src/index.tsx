@@ -8,7 +8,8 @@ import './i18n';
 // Suppress until R3F ships the fix.
 const _consoleWarn = console.warn.bind(console);
 console.warn = (...args: unknown[]) => {
-  if (typeof args[0] === 'string' && args[0].includes('Clock') && args[0].includes('deprecated')) return;
+  if (typeof args[0] === 'string' && args[0].includes('Clock') && args[0].includes('deprecated'))
+    return;
   _consoleWarn(...args);
 };
 import './globals.css';
@@ -17,5 +18,5 @@ import { App } from './App';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 );

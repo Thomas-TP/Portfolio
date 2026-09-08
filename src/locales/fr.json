@@ -1,269 +1,269 @@
 {
-    "seo": {
-        "title": "Thomas Prudhomme | Informaticien Genève, Lausanne & Vaud",
-        "description": "Portfolio de Thomas Prudhomme (ThomasTP), étudiant informaticien au CFPT Genève: web, cybersécurité, IoT et cloud à Genève, Lausanne et Vaud.",
-        "keywords": "Thomas Prudhomme, Thomas Prud'homme, Thomas P, ThomasTP, Thomas-TP, Prudhomme, informaticien Genève, informaticien Lausanne, informaticien Vaud, développeur web Genève, CFPT Informatique",
-        "og_title": "Thomas Prudhomme | Informaticien & Développeur Web – Genève",
-        "og_description": "Projets React, Rust, ethical hacking et IoT par Thomas Prudhomme, étudiant informaticien au CFPT Genève. Disponible pour stages et freelance de Genève à Lausanne."
+  "seo": {
+    "title": "Thomas Prudhomme | Informaticien Genève, Lausanne & Vaud",
+    "description": "Portfolio de Thomas Prudhomme (ThomasTP), étudiant informaticien au CFPT Genève: web, cybersécurité, IoT et cloud à Genève, Lausanne et Vaud.",
+    "keywords": "Thomas Prudhomme, Thomas Prud'homme, Thomas P, ThomasTP, Thomas-TP, Prudhomme, informaticien Genève, informaticien Lausanne, informaticien Vaud, développeur web Genève, CFPT Informatique",
+    "og_title": "Thomas Prudhomme | Informaticien & Développeur Web – Genève",
+    "og_description": "Projets React, Rust, ethical hacking et IoT par Thomas Prudhomme, étudiant informaticien au CFPT Genève. Disponible pour stages et freelance de Genève à Lausanne."
+  },
+  "navbar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "contact": "Contact",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "skip_content": "Aller au contenu principal",
+  "hero": {
+    "name": "Thomas Prudhomme",
+    "role_prefix": "Futur Informaticien à ",
+    "school": "Geneva Institute of Technology",
+    "roles": ["Étudiant en informatique", "Informaticien Genève", "Développeur web Lausanne"],
+    "view_cv": "Voir le CV",
+    "contact_me": "Me Contacter",
+    "scroll": "Défiler"
+  },
+  "cv": {
+    "subtitle": "Curriculum Vitæ",
+    "print": "Imprimer",
+    "download": "Télécharger"
+  },
+  "bento": {
+    "header_about": "À Propos",
+    "header_desc": "Je suis Thomas Prudhomme, aussi connu sous ThomasTP ou Thomas P. : étudiant informaticien à Genève, disponible pour des projets web, cloud, IoT et cybersécurité sur l'arc lémanique.",
+    "web_dev": {
+      "title": "Développement Web",
+      "desc": "Création d'applications web modernes et réactives.",
+      "searching": "Recherche..."
     },
-    "navbar": {
-        "home": "Accueil",
-        "about": "À propos",
-        "projects": "Projets",
-        "contact": "Contact",
-        "github": "GitHub",
-        "linkedin": "LinkedIn"
+    "backend": {
+      "title": "Backend & Systèmes",
+      "desc": "Expérience en scripting PowerShell et automatisation système."
     },
-    "skip_content": "Aller au contenu principal",
-    "hero": {
-        "name": "Thomas Prudhomme",
-        "role_prefix": "Futur Informaticien à ",
-        "school": "Geneva Institute of Technology",
-        "roles": ["Étudiant en informatique", "Informaticien Genève", "Développeur web Lausanne"],
-        "view_cv": "Voir le CV",
-        "contact_me": "Me Contacter",
-        "scroll": "Défiler"
+    "iot": {
+      "title": "IoT & Maison Connectée",
+      "desc": "Création d'expériences connectées fluides.",
+      "lamp": "Lampe",
+      "tv": "TV",
+      "oven": "Four"
     },
-    "cv": {
-        "subtitle": "Curriculum Vitæ",
-        "print": "Imprimer",
-        "download": "Télécharger"
+    "student": {
+      "title": "Étudiant en Info",
+      "desc": "En formation pour le CFC d'Informaticien.",
+      "start": "DÉBUT",
+      "diploma": "DIPLÔME",
+      "school_entry": "Rentrée",
+      "development": "Développement",
+      "specialization": "Spécialisation",
+      "internship": "Stage",
+      "graduation": "Graduation"
     },
-    "bento": {
-        "header_about": "À Propos",
-        "header_desc": "Je suis Thomas Prudhomme, aussi connu sous ThomasTP ou Thomas P. : étudiant informaticien à Genève, disponible pour des projets web, cloud, IoT et cybersécurité sur l'arc lémanique.",
-        "web_dev": {
-            "title": "Développement Web",
-            "desc": "Création d'applications web modernes et réactives.",
-            "searching": "Recherche..."
-        },
-        "backend": {
-            "title": "Backend & Systèmes",
-            "desc": "Expérience en scripting PowerShell et automatisation système."
-        },
-        "iot": {
-            "title": "IoT & Maison Connectée",
-            "desc": "Création d'expériences connectées fluides.",
-            "lamp": "Lampe",
-            "tv": "TV",
-            "oven": "Four"
-        },
-        "student": {
-            "title": "Étudiant en Info",
-            "desc": "En formation pour le CFC d'Informaticien.",
-            "start": "DÉBUT",
-            "diploma": "DIPLÔME",
-            "school_entry": "Rentrée",
-            "development": "Développement",
-            "specialization": "Spécialisation",
-            "internship": "Stage",
-            "graduation": "Graduation"
-        },
-        "certifications": {
-            "title": "Certifications",
-            "desc": "Voir mes badges et certifications vérifiés sur Credly. Validant l'expertise en cloud, cybersécurité et développement logiciel.",
-            "verified": "Vérifié par Credly",
-            "view_profile": "Voir Profil"
-        }
-    },
-    "tech_stack": {
-        "title": "Ma Stack Technique"
-    },
-    "projects": {
-        "title": "Projets",
-        "subtitle": "Une collection de projets explorant le développement web, le game design et la cybersécurité.",
-        "view_all": "Voir tous les dépôts",
-        "view_project": "Voir le projet",
-        "swipe_hint": "Glissez pour explorer",
-        "items": {
-            "x_clone": {
-                "description": "Un clone complet de Twitter/X avec chat IA (intégration Grok). Construit avec des technologies web vanilla pour maîtriser les fondamentaux."
-            },
-            "tank_io": {
-                "description": "Un jeu de bataille de tanks multijoueur rapide construit avec React et HTML5 Canvas."
-            },
-            "empire": {
-                "description": "Une modification moderne du framework post-exploitation Empire. Amélioré pour les tests de sécurité automatisés."
-            },
-            "tomboard": {
-                "description": "Soundboard open-source pour Windows — une alternative gratuite et légère à Voicemod. Voice changer en temps réel, sortie audio double vers un micro virtuel, organisation des sons en glisser-déposer et raccourcis globaux. Construit avec Rust et Tauri."
-            }
-        }
-    },
-    "calyroc": {
-        "eyebrow": "Studio web indépendant",
-        "title": "Calyroc",
-        "lead": "Calyroc est mon studio web : des sites rapides et sur-mesure pour indépendants, PME et startups, livrés sans détour. Devis fixe, contact direct avec moi du premier brief à la mise en ligne — sans chef de projet ni surcoût caché.",
-        "pillars": {
-            "pricing": {
-                "title": "Devis fixe et transparent",
-                "desc": "Un prix annoncé dès le départ, sans dépassement — dès 1490.- CHF, contre 6000 à 12000.- CHF en agence."
-            },
-            "direct": {
-                "title": "Contact direct",
-                "desc": "Vous travaillez avec moi directement, du premier échange à la livraison — pas de chef de projet intermédiaire."
-            },
-            "perf": {
-                "title": "Performance et stack moderne",
-                "desc": "Sites rapides et optimisés pour les Core Web Vitals, sur la même stack edge Cloudflare que ce portfolio."
-            }
-        },
-        "stages_label": "4 étapes claires",
-        "stats": {
-            "price": "Devis fixe dès",
-            "stages": "Étapes du projet",
-            "revisions": "Révisions incluses",
-            "languages": "Langues du studio"
-        },
-        "browser_url": "calyroc.com",
-        "report_label": "Aperçu du studio",
-        "cta": "Découvrir calyroc.com"
-    },
-    "swiss3design": {
-        "eyebrow": "Plateforme e-commerce",
-        "title": "Swiss3Design",
-        "lead": "Swiss3Design est une boutique en ligne complète que j'ai conçue et développée : des objets design imprimés en 3D jusqu'à 4 couleurs simultanées, fabriqués pièce par pièce à Gland. Du configurateur produit au paiement Stripe, toute la plateforme tourne sur l'edge Cloudflare.",
-        "pillars": {
-            "print": {
-                "title": "Impression multicolore",
-                "desc": "Jusqu'à 4 couleurs imprimées en une seule pièce grâce à la technologie AMS, sans assemblage ni peinture."
-            },
-            "custom": {
-                "title": "Devis sur mesure",
-                "desc": "Upload d'un fichier 3D et devis personnalisé sous 48h, du concept à l'objet fini."
-            },
-            "stack": {
-                "title": "E-commerce complet",
-                "desc": "Comptes clients, paiement Stripe, suivi de commande et back-office — développé en solo sur Next.js et Cloudflare Workers."
-            }
-        },
-        "colors_label": "Jusqu'à 4 couleurs",
-        "stats": {
-            "colors": "Couleurs simultanées",
-            "quote": "Délai de devis",
-            "shipping": "Livraison offerte dès",
-            "swiss": "Fabriqué en Suisse"
-        },
-        "browser_url": "swiss3design.ch",
-        "report_label": "Aperçu boutique",
-        "cta": "Découvrir swiss3design.ch"
-    },
-    "contact": {
-        "title": "Travaillons ensemble",
-        "desc": "Vous avez un projet en tête ou voulez simplement discuter ? Envoyez-moi un message.",
-        "say_hello": "Dire Bonjour",
-        "form": {
-            "name": "Nom",
-            "name_placeholder": "Votre nom",
-            "email": "E-mail",
-            "email_placeholder": "votre@email.com",
-            "message": "Message",
-            "message_placeholder": "Parlez-moi de votre projet...",
-            "send": "Envoyer le message",
-            "sending": "Envoi en cours...",
-            "success": "Message envoyé ! Je vous répondrai dans les plus brefs délais.",
-            "error": "Une erreur est survenue. Réessayez ou contactez-moi directement par e-mail.",
-            "error_required": "Ce champ est requis.",
-            "error_email": "Veuillez entrer une adresse e-mail valide."
-        }
-    },
-    "ask": {
-        "launcher": "Ask Thomas",
-        "launcher_subtitle": "Assistant portfolio",
-        "dialog_label": "Discussion Ask Thomas",
-        "title": "Ask Thomas",
-        "subtitle": "Assistant IA du portfolio de Thomas",
-        "status": "en ligne",
-        "empty_title": "Que voulez-vous savoir sur Thomas ?",
-        "empty_body": "Posez une question sur son parcours, sa stack, ses projets, ses certifications ou les meilleures façons de le contacter.",
-        "suggestions": [
-            "Quelle est sa stack technique ?",
-            "Parle-moi de TomBoard",
-            "Est-il disponible pour un stage ?",
-            "Comment le contacter rapidement ?"
-        ],
-        "capabilities": [
-            "Parcours et CFC",
-            "Projets et stack",
-            "CV, GitHub et contact",
-            "Certifications vérifiées"
-        ],
-        "placeholder": "Écrivez votre question...",
-        "message_label": "Message",
-        "thinking": "Ask Thomas réfléchit",
-        "recording": "Enregistrement en cours",
-        "transcribing": "Transcription...",
-        "disclaimer": "Réponses générées par IA",
-        "footer_note": "L'IA peut se tromper, vérifiez les infos importantes.",
-        "send": "Envoyer",
-        "voice": "Entrée vocale",
-        "stop_recording": "Arrêter l'enregistrement",
-        "listen": "Écouter",
-        "playing": "Lecture",
-        "copy": "Copier",
-        "copied": "Copié",
-        "clear": "Effacer la conversation",
-        "close": "Fermer",
-        "minimize": "Réduire",
-        "regenerate": "Renvoyer la dernière question",
-        "errors": {
-            "generic": "Impossible de répondre pour le moment. Réessayez dans un instant.",
-            "rate_limit": "Limite atteinte. Réessayez un peu plus tard.",
-            "too_long": "Votre message est trop long. Gardez-le sous 500 caractères.",
-            "microphone": "Le microphone n'est pas disponible ou l'accès a été refusé.",
-            "transcription": "La transcription a échoué. Vous pouvez écrire votre question à la place.",
-            "tts": "La lecture vocale n'a pas pu démarrer.",
-            "copy": "Impossible de copier le message."
-        }
-    },
-    "footer": {
-        "rights": "Tous droits réservés.",
-        "privacy": "Politique de confidentialité",
-        "terms": "Conditions d'utilisation",
-        "crafted_by": "Conçu & développé par"
-    },
-    "privacy_modal": {
-        "title": "Politique de Confidentialité",
-        "last_updated": "Dernière mise à jour : Avril 2026",
-        "section1_title": "1. Collecte d'Informations",
-        "section1_text": "Ce portfolio est un site statique. Aucune donnée personnelle n'est stockée dans une base de données, aucun compte n'est requis et aucun cookie de suivi n'est utilisé. Des statistiques anonymes sont collectées via Cloudflare Web Analytics (voir Section 4).",
-        "section2_title": "2. Liens Externes",
-        "section2_text": "Ce site contient des liens vers des plateformes externes (GitHub, LinkedIn, Credly). Veuillez noter que ces sites ont leurs propres politiques de confidentialité, et je ne suis pas responsable de leurs pratiques.",
-        "section3_title": "3. Formulaire de Contact",
-        "section3_text": "Si vous utilisez le formulaire de contact, votre nom, adresse e-mail et message sont transmis via un Cloudflare Worker et envoyés via l'API Resend. Ces données ne sont pas stockées dans une base de données et sont utilisées uniquement pour répondre à votre message.",
-        "section4_title": "4. Analytique",
-        "section4_text": "Ce site utilise Cloudflare Web Analytics, un service respectueux de la vie privée, sans cookies. Il collecte des données anonymes : pages visitées, pays d'origine (l'IP n'est pas stockée), type de navigateur, type d'appareil et Core Web Vitals. Aucune donnée personnelle n'est collectée et aucun suivi inter-sites n'est effectué.",
-        "section5_title": "5. Assistant IA (Ask Thomas)",
-        "section5_text": "Ce site intègre un assistant IA propulsé par Cloudflare Workers AI (Meta Llama 3.3 70B). Lorsque vous utilisez le chat, votre message et les derniers échanges sont transmis à l'infrastructure IA de Cloudflare pour générer une réponse. Ces messages ne sont pas stockés dans une base de données. L'historique de conversation est conservé localement dans votre navigateur (localStorage) et n'est jamais transmis à un serveur. Une limite de 12 messages/heure par adresse IP est appliquée via un store Cloudflare KV (IP, compteur, TTL). Entrée vocale : si vous utilisez le bouton microphone, votre audio est envoyé à Cloudflare Workers AI (OpenAI Whisper) pour transcription — l'audio est traité en temps réel et n'est pas stocké. La synthèse vocale utilise Cloudflare Workers AI pour générer l'audio de la réponse ; aucune donnée personnelle n'est impliquée. Un index sémantique (Cloudflare Vectorize) peut enrichir les réponses avec du contenu pertinent du portfolio — aucune donnée personnelle n'y est stockée. Aucune donnée personnelle au-delà du contenu du message n'est collectée.",
-        "github_note": "Ce site est hébergé sur GitHub Pages. GitHub peut collecter des logs techniques (adresses IP) à des fins de sécurité. Cloudflare traite des données analytiques anonymes conformément à sa politique de confidentialité.",
-        "close": "Fermer"
-    },
-    "terms_modal": {
-        "title": "Conditions d'Utilisation",
-        "last_updated": "Dernière mise à jour : Avril 2026",
-        "section1_title": "1. Introduction",
-        "section1_text": "Bienvenue sur mon portfolio. En accédant à ce site, vous acceptez d'être lié par ces Conditions d'Utilisation. Si vous n'êtes pas d'accord, veuillez ne pas utiliser ce site.",
-        "section2_title": "2. Propriété Intellectuelle",
-        "section2_text": "Le contenu, le design et les implémentations de code spécifiques affichés sur ce portfolio sont la propriété intellectuelle de Thomas P.",
-        "section2_sub": "Vous pouvez consulter, télécharger et copier des documents pour un usage personnel et non commercial, à condition de citer la source.",
-        "section3_title": "3. Avertissement",
-        "section3_text": "Les projets et exemples de code fournis ici le sont à des fins éducatives et de démonstration. Ils sont fournis \"tels quels\" sans garantie d'aucune sorte. Je ne suis pas responsable des dommages résultant de l'utilisation du code. L'assistant IA (Ask Thomas) génère des réponses automatiquement et peut contenir des inexactitudes. Ses réponses ne constituent pas des engagements professionnels, juridiques ou contractuels. Les fonctionnalités vocales (reconnaissance et synthèse vocale) sont fournies à titre de commodité et peuvent contenir des erreurs de transcription ou de prononciation.",
-        "section4_title": "4. Droit Applicable",
-        "section4_text": "Ces conditions sont régies et interprétées conformément aux lois de la Suisse. Tout litige relatif à ces conditions sera soumis à la compétence exclusive des tribunaux de Genève.",
-        "close": "Accepter & Fermer"
-    },
-    "service_area": {
-        "label": "Zone d'activité",
-        "badge": "Zone d'activité",
-        "title": "Arc Lémanique",
-        "subtitle": "Informaticien basé à Genève, disponible pour des projets, stages et collaborations à Lausanne, dans le canton de Vaud et sur l'ensemble de l'arc lémanique.",
-        "summary": "Thomas Prudhomme (ThomasTP, Thomas P.) est basé à Genève et disponible comme informaticien pour des missions à Lausanne, dans le canton de Vaud et sur l'arc lémanique.",
-        "lake": "Lac Léman",
-        "map_alt": "Carte schématique de la zone d'activité : Genève, Nyon, Lausanne"
-    },
-    "notfound": {
-        "title": "Page Non Trouvée",
-        "desc": "La page que vous recherchez n'existe pas ou a été déplacée vers un autre secteur.",
-        "home": "Retour à la Base"
+    "certifications": {
+      "title": "Certifications",
+      "desc": "Voir mes badges et certifications vérifiés sur Credly. Validant l'expertise en cloud, cybersécurité et développement logiciel.",
+      "verified": "Vérifié par Credly",
+      "view_profile": "Voir Profil"
     }
+  },
+  "tech_stack": {
+    "title": "Ma Stack Technique"
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Une collection de projets explorant le développement web, le game design et la cybersécurité.",
+    "view_all": "Voir tous les dépôts",
+    "view_project": "Voir le projet",
+    "swipe_hint": "Glissez pour explorer",
+    "items": {
+      "x_clone": {
+        "description": "Un clone complet de Twitter/X avec chat IA (intégration Grok). Construit avec des technologies web vanilla pour maîtriser les fondamentaux."
+      },
+      "tank_io": {
+        "description": "Un jeu de bataille de tanks multijoueur rapide construit avec React et HTML5 Canvas."
+      },
+      "empire": {
+        "description": "Une modification moderne du framework post-exploitation Empire. Amélioré pour les tests de sécurité automatisés."
+      },
+      "tomboard": {
+        "description": "Soundboard open-source pour Windows — une alternative gratuite et légère à Voicemod. Voice changer en temps réel, sortie audio double vers un micro virtuel, organisation des sons en glisser-déposer et raccourcis globaux. Construit avec Rust et Tauri."
+      }
+    }
+  },
+  "calyroc": {
+    "eyebrow": "Studio web indépendant",
+    "title": "Calyroc",
+    "lead": "Calyroc est mon studio web : des sites rapides et sur-mesure pour indépendants, PME et startups, livrés sans détour. Devis fixe, contact direct avec moi du premier brief à la mise en ligne — sans chef de projet ni surcoût caché.",
+    "pillars": {
+      "pricing": {
+        "title": "Devis fixe et transparent",
+        "desc": "Un prix annoncé dès le départ, sans dépassement — dès 1490.- CHF, contre 6000 à 12000.- CHF en agence."
+      },
+      "direct": {
+        "title": "Contact direct",
+        "desc": "Vous travaillez avec moi directement, du premier échange à la livraison — pas de chef de projet intermédiaire."
+      },
+      "perf": {
+        "title": "Performance et stack moderne",
+        "desc": "Sites rapides et optimisés pour les Core Web Vitals, sur la même stack edge Cloudflare que ce portfolio."
+      }
+    },
+    "stages_label": "4 étapes claires",
+    "stats": {
+      "price": "Devis fixe dès",
+      "stages": "Étapes du projet",
+      "revisions": "Révisions incluses",
+      "languages": "Langues du studio"
+    },
+    "browser_url": "calyroc.com",
+    "report_label": "Aperçu du studio",
+    "cta": "Découvrir calyroc.com"
+  },
+  "swiss3design": {
+    "eyebrow": "Plateforme e-commerce",
+    "title": "Swiss3Design",
+    "lead": "Swiss3Design est une boutique en ligne complète que j'ai conçue et développée : des objets design imprimés en 3D jusqu'à 4 couleurs simultanées, fabriqués pièce par pièce à Gland. Du configurateur produit au paiement Stripe, toute la plateforme tourne sur l'edge Cloudflare.",
+    "pillars": {
+      "print": {
+        "title": "Impression multicolore",
+        "desc": "Jusqu'à 4 couleurs imprimées en une seule pièce grâce à la technologie AMS, sans assemblage ni peinture."
+      },
+      "custom": {
+        "title": "Devis sur mesure",
+        "desc": "Upload d'un fichier 3D et devis personnalisé sous 48h, du concept à l'objet fini."
+      },
+      "stack": {
+        "title": "E-commerce complet",
+        "desc": "Comptes clients, paiement Stripe, suivi de commande et back-office — développé en solo sur Next.js et Cloudflare Workers."
+      }
+    },
+    "colors_label": "Jusqu'à 4 couleurs",
+    "stats": {
+      "colors": "Couleurs simultanées",
+      "quote": "Délai de devis",
+      "shipping": "Livraison offerte dès",
+      "swiss": "Fabriqué en Suisse"
+    },
+    "browser_url": "swiss3design.ch",
+    "report_label": "Aperçu boutique",
+    "cta": "Découvrir swiss3design.ch"
+  },
+  "contact": {
+    "title": "Travaillons ensemble",
+    "desc": "Vous avez un projet en tête ou voulez simplement discuter ? Envoyez-moi un message.",
+    "say_hello": "Dire Bonjour",
+    "form": {
+      "name": "Nom",
+      "name_placeholder": "Votre nom",
+      "email": "E-mail",
+      "email_placeholder": "votre@email.com",
+      "message": "Message",
+      "message_placeholder": "Parlez-moi de votre projet...",
+      "send": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé ! Je vous répondrai dans les plus brefs délais.",
+      "error": "Une erreur est survenue. Réessayez ou contactez-moi directement par e-mail.",
+      "error_required": "Ce champ est requis.",
+      "error_email": "Veuillez entrer une adresse e-mail valide."
+    }
+  },
+  "ask": {
+    "launcher": "Ask Thomas",
+    "launcher_subtitle": "Assistant portfolio",
+    "dialog_label": "Discussion Ask Thomas",
+    "title": "Ask Thomas",
+    "subtitle": "Assistant IA du portfolio de Thomas",
+    "status": "en ligne",
+    "empty_title": "Que voulez-vous savoir sur Thomas ?",
+    "empty_body": "Posez une question sur son parcours, sa stack, ses projets, ses certifications ou les meilleures façons de le contacter.",
+    "suggestions": [
+      "Quelle est sa stack technique ?",
+      "Parle-moi de TomBoard",
+      "Est-il disponible pour un stage ?",
+      "Comment le contacter rapidement ?"
+    ],
+    "capabilities": [
+      "Parcours et CFC",
+      "Projets et stack",
+      "CV, GitHub et contact",
+      "Certifications vérifiées"
+    ],
+    "placeholder": "Écrivez votre question...",
+    "message_label": "Message",
+    "thinking": "Ask Thomas réfléchit",
+    "recording": "Enregistrement en cours",
+    "transcribing": "Transcription...",
+    "disclaimer": "Réponses générées par IA",
+    "footer_note": "L'IA peut se tromper, vérifiez les infos importantes.",
+    "send": "Envoyer",
+    "voice": "Entrée vocale",
+    "stop_recording": "Arrêter l'enregistrement",
+    "listen": "Écouter",
+    "playing": "Lecture",
+    "copy": "Copier",
+    "copied": "Copié",
+    "clear": "Effacer la conversation",
+    "close": "Fermer",
+    "minimize": "Réduire",
+    "regenerate": "Renvoyer la dernière question",
+    "errors": {
+      "generic": "Impossible de répondre pour le moment. Réessayez dans un instant.",
+      "rate_limit": "Limite atteinte. Réessayez un peu plus tard.",
+      "too_long": "Votre message est trop long. Gardez-le sous 500 caractères.",
+      "microphone": "Le microphone n'est pas disponible ou l'accès a été refusé.",
+      "transcription": "La transcription a échoué. Vous pouvez écrire votre question à la place.",
+      "tts": "La lecture vocale n'a pas pu démarrer.",
+      "copy": "Impossible de copier le message."
+    }
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "crafted_by": "Conçu & développé par"
+  },
+  "privacy_modal": {
+    "title": "Politique de Confidentialité",
+    "last_updated": "Dernière mise à jour : Avril 2026",
+    "section1_title": "1. Collecte d'Informations",
+    "section1_text": "Ce portfolio est un site statique. Aucune donnée personnelle n'est stockée dans une base de données, aucun compte n'est requis et aucun cookie de suivi n'est utilisé. Des statistiques anonymes sont collectées via Cloudflare Web Analytics (voir Section 4).",
+    "section2_title": "2. Liens Externes",
+    "section2_text": "Ce site contient des liens vers des plateformes externes (GitHub, LinkedIn, Credly). Veuillez noter que ces sites ont leurs propres politiques de confidentialité, et je ne suis pas responsable de leurs pratiques.",
+    "section3_title": "3. Formulaire de Contact",
+    "section3_text": "Si vous utilisez le formulaire de contact, votre nom, adresse e-mail et message sont transmis via un Cloudflare Worker et envoyés via l'API Resend. Ces données ne sont pas stockées dans une base de données et sont utilisées uniquement pour répondre à votre message.",
+    "section4_title": "4. Analytique",
+    "section4_text": "Ce site utilise Cloudflare Web Analytics, un service respectueux de la vie privée, sans cookies. Il collecte des données anonymes : pages visitées, pays d'origine (l'IP n'est pas stockée), type de navigateur, type d'appareil et Core Web Vitals. Aucune donnée personnelle n'est collectée et aucun suivi inter-sites n'est effectué.",
+    "section5_title": "5. Assistant IA (Ask Thomas)",
+    "section5_text": "Ce site intègre un assistant IA propulsé par Cloudflare Workers AI (Meta Llama 3.3 70B). Lorsque vous utilisez le chat, votre message et les derniers échanges sont transmis à l'infrastructure IA de Cloudflare pour générer une réponse. Ces messages ne sont pas stockés dans une base de données. L'historique de conversation est conservé localement dans votre navigateur (localStorage) et n'est jamais transmis à un serveur. Une limite de 12 messages/heure par adresse IP est appliquée via un store Cloudflare KV (IP, compteur, TTL). Entrée vocale : si vous utilisez le bouton microphone, votre audio est envoyé à Cloudflare Workers AI (OpenAI Whisper) pour transcription — l'audio est traité en temps réel et n'est pas stocké. La synthèse vocale utilise Cloudflare Workers AI pour générer l'audio de la réponse ; aucune donnée personnelle n'est impliquée. Un index sémantique (Cloudflare Vectorize) peut enrichir les réponses avec du contenu pertinent du portfolio — aucune donnée personnelle n'y est stockée. Aucune donnée personnelle au-delà du contenu du message n'est collectée.",
+    "github_note": "Ce site est hébergé sur GitHub Pages. GitHub peut collecter des logs techniques (adresses IP) à des fins de sécurité. Cloudflare traite des données analytiques anonymes conformément à sa politique de confidentialité.",
+    "close": "Fermer"
+  },
+  "terms_modal": {
+    "title": "Conditions d'Utilisation",
+    "last_updated": "Dernière mise à jour : Avril 2026",
+    "section1_title": "1. Introduction",
+    "section1_text": "Bienvenue sur mon portfolio. En accédant à ce site, vous acceptez d'être lié par ces Conditions d'Utilisation. Si vous n'êtes pas d'accord, veuillez ne pas utiliser ce site.",
+    "section2_title": "2. Propriété Intellectuelle",
+    "section2_text": "Le contenu, le design et les implémentations de code spécifiques affichés sur ce portfolio sont la propriété intellectuelle de Thomas P.",
+    "section2_sub": "Vous pouvez consulter, télécharger et copier des documents pour un usage personnel et non commercial, à condition de citer la source.",
+    "section3_title": "3. Avertissement",
+    "section3_text": "Les projets et exemples de code fournis ici le sont à des fins éducatives et de démonstration. Ils sont fournis \"tels quels\" sans garantie d'aucune sorte. Je ne suis pas responsable des dommages résultant de l'utilisation du code. L'assistant IA (Ask Thomas) génère des réponses automatiquement et peut contenir des inexactitudes. Ses réponses ne constituent pas des engagements professionnels, juridiques ou contractuels. Les fonctionnalités vocales (reconnaissance et synthèse vocale) sont fournies à titre de commodité et peuvent contenir des erreurs de transcription ou de prononciation.",
+    "section4_title": "4. Droit Applicable",
+    "section4_text": "Ces conditions sont régies et interprétées conformément aux lois de la Suisse. Tout litige relatif à ces conditions sera soumis à la compétence exclusive des tribunaux de Genève.",
+    "close": "Accepter & Fermer"
+  },
+  "service_area": {
+    "label": "Zone d'activité",
+    "badge": "Zone d'activité",
+    "title": "Arc Lémanique",
+    "subtitle": "Informaticien basé à Genève, disponible pour des projets, stages et collaborations à Lausanne, dans le canton de Vaud et sur l'ensemble de l'arc lémanique.",
+    "summary": "Thomas Prudhomme (ThomasTP, Thomas P.) est basé à Genève et disponible comme informaticien pour des missions à Lausanne, dans le canton de Vaud et sur l'arc lémanique.",
+    "lake": "Lac Léman",
+    "map_alt": "Carte schématique de la zone d'activité : Genève, Nyon, Lausanne"
+  },
+  "notfound": {
+    "title": "Page Non Trouvée",
+    "desc": "La page que vous recherchez n'existe pas ou a été déplacée vers un autre secteur.",
+    "home": "Retour à la Base"
+  }
 }

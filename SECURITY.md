@@ -9,8 +9,8 @@ This repository is owned and maintained exclusively by Thomas Prud'homme (`@Thom
 Security fixes are handled on the default branch only.
 
 | Version | Supported |
-| --- | --- |
-| `main` | Yes |
+| ------- | --------- |
+| `main`  | Yes       |
 
 ## Reporting a Vulnerability
 

@@ -25,10 +25,7 @@ export function CVModal({ isOpen, onClose }: CVModalProps) {
   const cvLang = (i18n.resolvedLanguage ?? i18n.language).toLowerCase().startsWith('fr')
     ? 'fr'
     : 'en';
-  const cvPath =
-    cvLang === 'fr'
-      ? `${cvBaseUrl}/cv-fr.pdf`
-      : `${cvBaseUrl}/cv-en.pdf`;
+  const cvPath = cvLang === 'fr' ? `${cvBaseUrl}/cv-fr.pdf` : `${cvBaseUrl}/cv-en.pdf`;
 
   const [mounted, setMounted] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
@@ -127,8 +124,14 @@ export function CVModal({ isOpen, onClose }: CVModalProps) {
 
   const prevPage = useCallback(() => setCurrentPage(p => Math.max(1, p - 1)), []);
   const nextPage = useCallback(() => setCurrentPage(p => Math.min(numPages, p + 1)), [numPages]);
-  const zoomOut = useCallback(() => setZoom(value => Math.max(1, Number((value - 0.15).toFixed(2)))), []);
-  const zoomIn = useCallback(() => setZoom(value => Math.min(2.2, Number((value + 0.15).toFixed(2)))), []);
+  const zoomOut = useCallback(
+    () => setZoom(value => Math.max(1, Number((value - 0.15).toFixed(2)))),
+    []
+  );
+  const zoomIn = useCallback(
+    () => setZoom(value => Math.min(2.2, Number((value + 0.15).toFixed(2)))),
+    []
+  );
   const resetZoom = useCallback(() => setZoom(1), []);
   const mobileAvailableHeight = Math.max(240, viewportSize.height - 96);
   const fitPageWidth = Math.max(
