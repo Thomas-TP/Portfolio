@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=42&pause=1000&color=FFFFFF&center=true&vCenter=true&width=620&height=80&lines=Thomas+P.+%E2%80%94+Portfolio;Bun+%C2%B7+Rsbuild+%C2%B7+UnoCSS;React+19+%C2%B7+TypeScript+6">
-  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=42&pause=1000&color=000000&center=true&vCenter=true&width=620&height=80&lines=Thomas+P.+%E2%80%94+Portfolio;Bun+%C2%B7+Rsbuild+%C2%B7+UnoCSS;React+19+%C2%B7+TypeScript+6">
-  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=42&pause=1000&color=FFFFFF&center=true&vCenter=true&width=620&height=80&lines=Thomas+P.+%E2%80%94+Portfolio;Bun+%C2%B7+Rsbuild+%C2%B7+UnoCSS;React+19+%C2%B7+TypeScript+6" alt="Thomas P. Portfolio" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=42&pause=1000&color=FFFFFF&center=true&vCenter=true&width=620&height=80&lines=Thomas+P.+%E2%80%94+Portfolio;Bun+%C2%B7+Rsbuild+%C2%B7+UnoCSS;React+19+%C2%B7+TypeScript+7">
+  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=42&pause=1000&color=000000&center=true&vCenter=true&width=620&height=80&lines=Thomas+P.+%E2%80%94+Portfolio;Bun+%C2%B7+Rsbuild+%C2%B7+UnoCSS;React+19+%C2%B7+TypeScript+7">
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=42&pause=1000&color=FFFFFF&center=true&vCenter=true&width=620&height=80&lines=Thomas+P.+%E2%80%94+Portfolio;Bun+%C2%B7+Rsbuild+%C2%B7+UnoCSS;React+19+%C2%B7+TypeScript+7" alt="Thomas P. Portfolio" />
 </picture>
 
 <br/>
@@ -13,7 +13,7 @@
 [![Rsbuild](https://img.shields.io/badge/Rsbuild%2FRspack-1.3-000?style=for-the-badge&logo=webpack&logoColor=white)](https://rsbuild.dev)
 [![UnoCSS](https://img.shields.io/badge/UnoCSS-66.x-000?style=for-the-badge&logo=unocss&logoColor=white)](https://unocss.dev)
 [![React](https://img.shields.io/badge/React-19-000?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-6-000?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-7-000?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare_Pages-deployed-000?style=for-the-badge&logo=cloudflarepages&logoColor=white)](https://pages.cloudflare.com)
 
 </div>
@@ -42,7 +42,7 @@
 | **Bundler / Compiler**        | [Rsbuild](https://rsbuild.dev) + [Rspack](https://rspack.dev) | `1.3.x` | Rust-based webpack-compatible bundler  |
 | **CSS Engine**                | [UnoCSS](https://unocss.dev)                                  | `66.x`  | Atomic CSS, `presetWind`, PostCSS mode |
 | **UI Framework**              | [React](https://react.dev)                                    | `19.x`  | Concurrent mode                        |
-| **Language**                  | [TypeScript](https://typescriptlang.org)                      | `6.x`   | `strict` mode, `bundler` resolution    |
+| **Language**                  | [TypeScript](https://typescriptlang.org)                      | `7.x`   | `strict` mode, `bundler` resolution    |
 | **Hosting**                   | [Cloudflare Pages](https://pages.cloudflare.com)              | —       | Edge CDN, automatic deploys            |
 | **Contact API**               | [Cloudflare Workers](https://workers.cloudflare.com)          | —       | Serverless edge function               |
 

@@ -1,3 +1,5 @@
+export {};
+
 const host = 'thomastp.ch';
 const key = '868956aab9774265b45be51ee46672bb';
 const keyLocation = `https://${host}/${key}.txt`;

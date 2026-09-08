@@ -17,7 +17,7 @@ Personal portfolio for Thomas Prudhomme, a Computer Science student at Geneva In
 | Bundler       | Rsbuild 2 + Rspack                      | Rust-based, webpack-compatible. Config: `rsbuild.config.ts`                    |
 | CSS           | UnoCSS (presetWind, PostCSS mode)       | Tailwind-compatible utilities. Config: `uno.config.ts`                         |
 | Framework     | React 19                                | Concurrent mode, extensive use of `lazy()` + `Suspense`                        |
-| Language      | TypeScript 6                            | Strict mode, `bundler` module resolution, path alias `@/*` → `./src/*`         |
+| Language      | TypeScript 7                            | Strict mode, `bundler` module resolution, path alias `@/*` → `./src/*`         |
 | Animation     | GSAP 3 + ScrollTrigger                  | Lazy-loaded via `src/lib/gsap-init.ts`. Custom hooks in `src/hooks/useGsap.ts` |
 | 3D            | Three.js + react-three-fiber            | Hero background particles, loaded async                                        |
 | Smooth scroll | Lenis                                   | Side-effect init in `ClientLayout.tsx`, no wrapper component                   |
