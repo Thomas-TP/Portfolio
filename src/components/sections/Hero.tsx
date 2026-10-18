@@ -367,7 +367,11 @@ export function Hero() {
             <p className="hero-education">
               {t('hero.role_prefix')} <span>{t('hero.school')}</span>.
             </p>
-            <div className="hero-typing" aria-label={Array.isArray(roles) ? roles.join('. ') : ''}>
+            <div
+              className="hero-typing"
+              role="group"
+              aria-label={Array.isArray(roles) ? roles.join('. ') : ''}
+            >
               <span className="hero-typing-marker" aria-hidden="true">
                 ↳
               </span>
