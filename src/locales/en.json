@@ -1,10 +1,10 @@
 {
   "seo": {
-    "title": "Thomas Prudhomme | Computer Science Student in Geneva & Lausanne",
-    "description": "Portfolio of Thomas Prudhomme (ThomasTP), Computer Science student in Geneva: web development, cybersecurity, IoT and cloud in Geneva, Lausanne and Vaud.",
-    "keywords": "Thomas Prudhomme, Thomas Prud'homme, Thomas P, ThomasTP, Thomas-TP, Prudhomme, computer science Geneva, IT Geneva, IT Lausanne, IT Vaud, web developer Geneva",
-    "og_title": "Thomas Prudhomme | Web Developer & Computer Science – Geneva",
-    "og_description": "React, Rust, ethical hacking and IoT projects by Thomas Prudhomme, Computer Science student at Geneva Institute of Technology. Available from Geneva to Lausanne."
+    "title": "Thomas Prudhomme | IT Operations & Infrastructure — Gland",
+    "description": "Thomas Prudhomme, a third-year Swiss CFC IT student at Geneva Institute of Technology. Based in Gland, seeking a work-study internship between Geneva and Vevey.",
+    "keywords": "Thomas Prudhomme, ThomasTP, Swiss CFC, IT operations, infrastructure, systems, networks, cloud, work-study internship, Gland, Geneva, Lausanne, Vevey",
+    "og_title": "Thomas Prudhomme | IT Operations & Infrastructure",
+    "og_description": "Third-year Swiss CFC IT student at Geneva Institute of Technology. Seeking a work-study internship between Geneva and Vevey. Based in Gland."
   },
   "navbar": {
     "home": "Home",
@@ -17,12 +17,17 @@
   "skip_content": "Skip to content",
   "hero": {
     "name": "Thomas Prudhomme",
-    "role_prefix": "Future Computer Scientist at ",
+    "role_prefix": "Third-year Swiss CFC IT student at",
     "school": "Geneva Institute of Technology",
-    "roles": ["Computer Science Student", "Geneva IT Student", "Lausanne Web Developer"],
-    "view_cv": "View CV",
-    "contact_me": "Contact Me",
-    "scroll": "Scroll"
+    "roles": [
+      "IT Operations & Infrastructure",
+      "Seeking a work-study internship",
+      "Systems, networks, cloud & automation"
+    ],
+    "view_cv": "View my CV",
+    "contact_me": "Contact me",
+    "scroll": "Scroll",
+    "availability": "Based in Gland · Available now · Geneva to Vevey"
   },
   "cv": {
     "subtitle": "Curriculum Vitæ",
@@ -31,7 +36,7 @@
   },
   "bento": {
     "header_about": "About Me",
-    "header_desc": "I'm Thomas Prudhomme, also known as ThomasTP or Thomas P.: a Computer Science student in Geneva, available for web, cloud, IoT and cybersecurity projects across the Lake Geneva region.",
+    "header_desc": "I’m Thomas Prudhomme, a third-year Swiss CFC IT student specialising in operations and infrastructure at Geneva Institute of Technology. Based in Gland, I’m seeking a work-study internship between Geneva and Vevey and developing my personal projects.",
     "web_dev": {
       "title": "Web Development",
       "desc": "Building responsive, modern web applications.",
@@ -50,7 +55,7 @@
     },
     "student": {
       "title": "Student at Geneva IT",
-      "desc": "Pursuing my CFC in Computer Science.",
+      "desc": "Third-year Swiss CFC IT programme, specialising in operations and infrastructure.",
       "start": "START",
       "diploma": "DIPLOMA",
       "school_entry": "School Entry",
@@ -61,7 +66,7 @@
     },
     "certifications": {
       "title": "Certifications",
-      "desc": "View my verified achievement badges and professional certifications on Credly. Validating expertise in cloud computing, cybersecurity, and software development.",
+      "desc": "Explore my earned badges on Credly, including their issuing organisations and the associated IT, cloud and cybersecurity skills.",
       "verified": "Verified by Credly",
       "view_profile": "View Profile"
     }
@@ -256,8 +261,8 @@
     "label": "Service Area",
     "badge": "Service Area",
     "title": "Lake Geneva Arc",
-    "subtitle": "Computer Science student based in Geneva, available for projects, internships and collaborations in Lausanne, Vaud and across the Lake Geneva region.",
-    "summary": "Thomas Prudhomme (ThomasTP, Thomas P.) is based in Geneva and available for IT projects in Lausanne, Vaud and across the Lake Geneva region.",
+    "subtitle": "Based in Gland, seeking a work-study internship in IT operations and infrastructure between Geneva and Vevey.",
+    "summary": "Thomas Prudhomme is a third-year Swiss CFC IT student at Geneva Institute of Technology. Based in Gland, he is available now for a work-study internship between Geneva and Vevey.",
     "lake": "Lake Geneva",
     "map_alt": "Schematic map of service area: Geneva, Nyon, Lausanne"
   },

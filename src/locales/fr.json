@@ -1,10 +1,10 @@
 {
   "seo": {
-    "title": "Thomas Prudhomme | Informaticien Genève, Lausanne & Vaud",
-    "description": "Portfolio de Thomas Prudhomme (ThomasTP), étudiant informaticien au CFPT Genève: web, cybersécurité, IoT et cloud à Genève, Lausanne et Vaud.",
-    "keywords": "Thomas Prudhomme, Thomas Prud'homme, Thomas P, ThomasTP, Thomas-TP, Prudhomme, informaticien Genève, informaticien Lausanne, informaticien Vaud, développeur web Genève, CFPT Informatique",
-    "og_title": "Thomas Prudhomme | Informaticien & Développeur Web – Genève",
-    "og_description": "Projets React, Rust, ethical hacking et IoT par Thomas Prudhomme, étudiant informaticien au CFPT Genève. Disponible pour stages et freelance de Genève à Lausanne."
+    "title": "Thomas Prudhomme | Exploitation & infrastructure IT — Gland",
+    "description": "Thomas Prudhomme, en troisième année de CFC d’informaticien à Geneva Institute of Technology. Basé à Gland, en recherche de stage en alternance entre Genève et Vevey.",
+    "keywords": "Thomas Prudhomme, ThomasTP, CFC informaticien, exploitation, infrastructure, systèmes, réseaux, cloud, stage alternance, Gland, Genève, Lausanne, Vevey",
+    "og_title": "Thomas Prudhomme | Exploitation & infrastructure IT",
+    "og_description": "En troisième année de CFC d’informaticien à Geneva Institute of Technology. Recherche de stage en alternance entre Genève et Vevey. Basé à Gland."
   },
   "navbar": {
     "home": "Accueil",
@@ -17,12 +17,17 @@
   "skip_content": "Aller au contenu principal",
   "hero": {
     "name": "Thomas Prudhomme",
-    "role_prefix": "Futur Informaticien à ",
+    "role_prefix": "En troisième année de CFC d’informaticien à",
     "school": "Geneva Institute of Technology",
-    "roles": ["Étudiant en informatique", "Informaticien Genève", "Développeur web Lausanne"],
-    "view_cv": "Voir le CV",
-    "contact_me": "Me Contacter",
-    "scroll": "Défiler"
+    "roles": [
+      "Exploitation & infrastructure informatique",
+      "Recherche de stage en alternance",
+      "Systèmes, réseaux, cloud & automatisation"
+    ],
+    "view_cv": "Consulter mon CV",
+    "contact_me": "Me contacter",
+    "scroll": "Défiler",
+    "availability": "Basé à Gland · Disponible dès maintenant · Genève à Vevey"
   },
   "cv": {
     "subtitle": "Curriculum Vitæ",
@@ -31,7 +36,7 @@
   },
   "bento": {
     "header_about": "À Propos",
-    "header_desc": "Je suis Thomas Prudhomme, aussi connu sous ThomasTP ou Thomas P. : étudiant informaticien à Genève, disponible pour des projets web, cloud, IoT et cybersécurité sur l'arc lémanique.",
+    "header_desc": "Je suis Thomas Prudhomme, en troisième année de CFC d’informaticien, orientation exploitation et infrastructure, à Geneva Institute of Technology. Basé à Gland, je recherche un stage en alternance entre Genève et Vevey et développe mes projets personnels.",
     "web_dev": {
       "title": "Développement Web",
       "desc": "Création d'applications web modernes et réactives.",
@@ -50,7 +55,7 @@
     },
     "student": {
       "title": "Étudiant en Info",
-      "desc": "En formation pour le CFC d'Informaticien.",
+      "desc": "Troisième année de CFC d’informaticien, orientation exploitation et infrastructure.",
       "start": "DÉBUT",
       "diploma": "DIPLÔME",
       "school_entry": "Rentrée",
@@ -61,7 +66,7 @@
     },
     "certifications": {
       "title": "Certifications",
-      "desc": "Voir mes badges et certifications vérifiés sur Credly. Validant l'expertise en cloud, cybersécurité et développement logiciel.",
+      "desc": "Retrouvez sur Credly les badges obtenus, leurs organismes émetteurs et les compétences associées en informatique, cloud et cybersécurité.",
       "verified": "Vérifié par Credly",
       "view_profile": "Voir Profil"
     }
@@ -256,8 +261,8 @@
     "label": "Zone d'activité",
     "badge": "Zone d'activité",
     "title": "Arc Lémanique",
-    "subtitle": "Informaticien basé à Genève, disponible pour des projets, stages et collaborations à Lausanne, dans le canton de Vaud et sur l'ensemble de l'arc lémanique.",
-    "summary": "Thomas Prudhomme (ThomasTP, Thomas P.) est basé à Genève et disponible comme informaticien pour des missions à Lausanne, dans le canton de Vaud et sur l'arc lémanique.",
+    "subtitle": "Basé à Gland, je recherche un stage en alternance en exploitation et infrastructure informatique entre Genève et Vevey.",
+    "summary": "Thomas Prudhomme est en troisième année de CFC d’informaticien à Geneva Institute of Technology. Basé à Gland, il est disponible dès maintenant pour un stage en alternance entre Genève et Vevey.",
     "lake": "Lac Léman",
     "map_alt": "Carte schématique de la zone d'activité : Genève, Nyon, Lausanne"
   },

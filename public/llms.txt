@@ -1,16 +1,16 @@
 # Thomas Prudhomme – Portfolio
 
-> Personal portfolio of Thomas Prudhomme, a Computer Science student at the Geneva Institute of Technology (CFPT Informatique), Switzerland. Specializing in Web Development, Cybersecurity, IoT, and Cloud Computing. Available for internships and freelance work in the Lake Geneva region.
+> Personal portfolio of Thomas Prudhomme, a third-year Swiss CFC IT student at Geneva Institute of Technology, specialising in operations and infrastructure. Based in Gland and available now for a work-study internship between Geneva and Vevey.
 
 ## Identity
 
 - **Name:** Thomas Prudhomme
 - **Also searched as:** Thomas Prud'homme, Thomas P., ThomasTP, Thomas-TP, Prudhomme
-- **Location:** Geneva, Switzerland (available across the Lake Geneva region: Geneva – Nyon – Lausanne – Vaud)
-- **Status:** Computer Science student, Swiss CFC track (specialization year 2026, graduation 2028)
+- **Location:** Gland, Vaud, Switzerland (internship search: Geneva to Vevey)
+- **Status:** Third-year Swiss CFC IT student in 2026, expected graduation 2028
 - **CFC orientation:** Informaticien exploitation et infrastructure
-- **Languages:** French (native), English (B2/fluent), German (school level)
-- **Availability:** Looking to continue the CFC in company/alternance from July 2026 across the Lake Geneva region
+- **Languages:** French (native), English (B2), German (school level)
+- **Availability:** Available now for a work-study internship as part of the CFC, between Geneva and Vevey
 
 ## Contact
 

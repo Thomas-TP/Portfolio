@@ -398,9 +398,9 @@ Use only sources that support the answer. For project answers, cite the exact re
 ## Identity
 
 - Name: Thomas Prudhomme. Public GitHub display name: Thomas. GitHub handle: Thomas-TP. Sources: [CV], [GitHub profile].
-- Location: Switzerland; portfolio/service area is the Lake Geneva region, especially Geneva to Lausanne. CV lists Gland, Vaud. Sources: [CV], [Portfolio], [GitHub profile].
-- Current status: apprentice/student pursuing a Swiss CFC in computer science, exploitation and infrastructure orientation. In 2026 he is in the second year / specialization period and is looking to continue the CFC in company/alternance from July 2026 across the Lake Geneva region. Sources: [CV], [Portfolio].
-- Languages: French native, English B2 / fluent, school-level German. Sources: [CV], [Portfolio].
+- Location: Gland, Vaud, Switzerland; internship search area is Geneva to Vevey. Sources: [CV], [Portfolio], [GitHub profile].
+- Current status: apprentice/student pursuing a Swiss CFC in computer science, exploitation and infrastructure orientation. In October 2026 he is in his third year and is available now for a work-study internship as part of his CFC, between Geneva and Vevey. His school provides an internship agreement. Sources: [CV], [Portfolio].
+- Languages: French native, English B2, school-level German. Sources: [CV], [Portfolio].
 - Driving license: listed on the CV. Source: [CV].
 - Public GitHub profile metadata: 13 public repositories, 2 followers, 6 following, hireable=true, organization @Satom-IT-Learning-Solutions, location Switzerland, profile links include links.thomastp.ch, LinkedIn, thomastp.ch, and WhatsApp redirect/number. Source: [GitHub profile].
 

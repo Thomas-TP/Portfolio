@@ -25,7 +25,7 @@ export function CVModal({ isOpen, onClose }: CVModalProps) {
   const cvLang = (i18n.resolvedLanguage ?? i18n.language).toLowerCase().startsWith('fr')
     ? 'fr'
     : 'en';
-  const cvPath = cvLang === 'fr' ? `${cvBaseUrl}/cv-fr.pdf` : `${cvBaseUrl}/cv-en.pdf`;
+  const cvPath = cvLang === 'fr' ? `${cvBaseUrl}/cv-fr.pdf?v=20261018` : `${cvBaseUrl}/cv-en.pdf?v=20261018`;
 
   const [mounted, setMounted] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);

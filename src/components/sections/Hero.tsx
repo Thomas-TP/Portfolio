@@ -318,30 +318,22 @@ export function Hero() {
                 <GlitchText text={t('hero.name')} />
               </h1>
 
-              <p className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed mb-10 font-light mx-auto md:mx-0">
+              <p className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed mb-4 font-light mx-auto md:mx-0">
                 {t('hero.role_prefix')}{' '}
                 <span className="text-foreground font-medium">{t('hero.school')}</span>.
-                <br className="hidden md:block" />
+                <br />
                 <span className="text-foreground font-medium">
                   {typedRole}
                   <span className="inline-block w-[2px] h-[1.1em] bg-foreground align-middle ml-0.5 animate-pulse" />
                 </span>
               </p>
+              <p className="text-sm text-muted-foreground mb-6">{t('hero.availability')}</p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center">
-                <button
-                  ref={askBtnRef as React.Ref<HTMLButtonElement>}
-                  onClick={openAskThomas}
-                  className="group bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity flex items-center gap-2 cursor-pointer"
-                >
-                  <SparklesIcon size={18} />
-                  {t('ask.launcher')}
-                </button>
-
+              <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center flex-wrap">
                 <button
                   ref={cvBtnRef as React.Ref<HTMLButtonElement>}
                   onClick={() => setCvOpen(true)}
-                  className="group px-8 py-4 rounded-full border border-border hover:bg-muted/50 transition-colors text-foreground flex items-center gap-2 cursor-pointer"
+                  className="group bg-primary text-primary-foreground px-6 py-4 rounded-full font-medium hover:opacity-90 transition-opacity flex items-center gap-2 cursor-pointer"
                 >
                   <FileTextIcon size={18} />
                   {t('hero.view_cv', 'Voir le CV')}
@@ -365,6 +357,15 @@ export function Hero() {
                 >
                   {t('hero.contact_me')}
                 </a>
+
+                <button
+                  ref={askBtnRef as React.Ref<HTMLButtonElement>}
+                  onClick={openAskThomas}
+                  className="group px-4 py-3 rounded-full text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2 cursor-pointer"
+                >
+                  <SparklesIcon size={18} />
+                  {t('ask.launcher')}
+                </button>
               </div>
             </div>
 

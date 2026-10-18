@@ -14,8 +14,8 @@
 const ACCOUNT_ID = process.env.CF_ACCOUNT_ID;
 const API_TOKEN = process.env.CF_API_TOKEN;
 const INDEX_NAME = 'portfolio-knowledge';
-const CV_FR_URL = 'https://thomastp.ch/documents/cv-fr.pdf?v=20260502';
-const CV_EN_URL = 'https://thomastp.ch/documents/cv-en.pdf?v=20260502';
+const CV_FR_URL = 'https://thomastp.ch/documents/cv-fr.pdf?v=20261018';
+const CV_EN_URL = 'https://thomastp.ch/documents/cv-en.pdf?v=20261018';
 const CV_SOURCES = `CV FR ${CV_FR_URL}; CV EN ${CV_EN_URL}`;
 
 if (!ACCOUNT_ID || !API_TOKEN) {
@@ -33,7 +33,7 @@ const chunks: Chunk[] = [
   {
     id: 'bio',
     category: 'identity',
-    text: `Sources: ${CV_SOURCES}; Portfolio https://thomastp.ch/llms.txt; GitHub profile https://github.com/Thomas-TP. Thomas Prudhomme is a Swiss CFC computer science apprentice/student in exploitation and infrastructure at Geneva Institute of Technology. In 2026 he is in the second year / specialization period and is looking to continue the CFC in company/alternance from July 2026 across the Lake Geneva region. Public GitHub handle: Thomas-TP. GitHub display name: Thomas. Location: Switzerland / Lake Geneva region.`,
+    text: `Sources: ${CV_SOURCES}; Portfolio https://thomastp.ch/llms.txt; GitHub profile https://github.com/Thomas-TP. Thomas Prudhomme is a Swiss CFC computer science apprentice/student in exploitation and infrastructure at Geneva Institute of Technology. In October 2026 he is in his third year and is available now for a work-study internship as part of his CFC, between Geneva and Vevey. His school provides an internship agreement. Public GitHub handle: Thomas-TP. GitHub display name: Thomas. Location: Switzerland / Lake Geneva region.`,
   },
   {
     id: 'education',
@@ -93,7 +93,7 @@ const chunks: Chunk[] = [
   {
     id: 'contact',
     category: 'contact',
-    text: `Sources: Portfolio https://thomastp.ch/llms.txt; ${CV_SOURCES}; Link hub https://links.thomastp.ch. Contact Thomas: portfolio email thomas@prudhomme.li, contact form https://thomastp.ch/#contact, all links https://links.thomastp.ch, GitHub https://github.com/Thomas-TP, LinkedIn https://www.linkedin.com/in/thomas-tp/, Credly https://www.credly.com/users/thomas-prudhomme, CV PDFs ${CV_FR_URL} and ${CV_EN_URL}. CV email: T+CV@prudhomme.li.`,
+    text: `Sources: Portfolio https://thomastp.ch/llms.txt; ${CV_SOURCES}; Link hub https://links.thomastp.ch. Contact Thomas: portfolio email thomas@prudhomme.li, contact form https://thomastp.ch/#contact, all links https://links.thomastp.ch, GitHub https://github.com/Thomas-TP, LinkedIn https://www.linkedin.com/in/thomas-tp/, Credly https://www.credly.com/users/thomas-prudhomme, CV PDFs ${CV_FR_URL} and ${CV_EN_URL}. CV email: thomas@prudhomme.li.`,
   },
   {
     id: 'source-rules',
