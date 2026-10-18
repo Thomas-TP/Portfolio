@@ -1,3 +1,4 @@
+import { visibleGsapContext } from '@/lib/visible-gsap-context';
 import { Mail, Send, CheckCircle, AlertCircle, Copy, Check, Link as LinkIcon } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
@@ -186,24 +187,28 @@ export function Contact() {
     loadGsap().then(({ gsap }) => {
       if (!active || !el.isConnected) return;
       const start = window.innerWidth < 768 ? 'top 98%' : 'top 85%';
-      ctx = gsap.context(() => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, scale: 0.95 },
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 0.6,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: el,
-              start,
-              once: true,
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      }, el);
+      ctx = visibleGsapContext(
+        gsap,
+        () => {
+          gsap.fromTo(
+            el,
+            { opacity: 0, scale: 0.95 },
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 0.6,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: el,
+                start,
+                once: true,
+                toggleActions: 'play none none none',
+              },
+            }
+          );
+        },
+        el
+      );
     });
 
     return () => {
@@ -228,148 +233,152 @@ export function Contact() {
     loadGsap().then(({ gsap, ScrollTrigger }) => {
       if (!active || !svg.isConnected) return;
       const labels = container?.querySelectorAll('.city-label') ?? [];
-      ctx = gsap.context(() => {
-        const tl = gsap.timeline({ paused: true });
-        const rippleTweens: Array<{ play: (from?: number) => void }> = [];
-        let played = false;
-        const playMap = () => {
-          if (played) return;
-          played = true;
+      ctx = visibleGsapContext(
+        gsap,
+        () => {
+          const tl = gsap.timeline({ paused: true });
+          const rippleTweens: Array<{ play: (from?: number) => void }> = [];
+          let played = false;
+          const playMap = () => {
+            if (played) return;
+            played = true;
 
-          // Shore path draws — measured here, right before playback, rather
-          // than at mount. The section is behind `cv-auto` (content-visibility:
-          // auto), so while it's off-screen getTotalLength() can hand back a
-          // stale/zero length; that made some paths skip the draw-in reveal
-          // and pop in fully solid instead of animating in sequence.
-          const shores = svg.querySelectorAll('.shore-path');
-          shores.forEach((path, i) => {
-            const pathEl = path as SVGPathElement;
-            const length = pathEl.getTotalLength();
+            // Shore path draws — measured here, right before playback, rather
+            // than at mount. The section is behind `cv-auto` (content-visibility:
+            // auto), so while it's off-screen getTotalLength() can hand back a
+            // stale/zero length; that made some paths skip the draw-in reveal
+            // and pop in fully solid instead of animating in sequence.
+            const shores = svg.querySelectorAll('.shore-path');
+            shores.forEach((path, i) => {
+              const pathEl = path as SVGPathElement;
+              const length = pathEl.getTotalLength();
+              tl.fromTo(
+                pathEl,
+                { strokeDasharray: length, strokeDashoffset: length },
+                {
+                  strokeDashoffset: 0,
+                  duration: i === 0 ? 1.2 : 1.6,
+                  ease: 'power2.inOut',
+                },
+                0.1 + i * 0.2
+              );
+            });
+
+            tl.play();
+            rippleTweens.forEach(tween => tween.play(0));
+          };
+
+          tl.fromTo(svg, { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0);
+
+          // Lake body fade
+          const lakeEl = svg.querySelector('.lake-body');
+          if (lakeEl)
             tl.fromTo(
-              pathEl,
-              { strokeDasharray: length, strokeDashoffset: length },
+              lakeEl,
+              { opacity: 0 },
               {
-                strokeDashoffset: 0,
-                duration: i === 0 ? 1.2 : 1.6,
-                ease: 'power2.inOut',
+                opacity: 1,
+                duration: 0.8,
               },
-              0.1 + i * 0.2
+              0.5
+            );
+
+          // Lake label text
+          const lakeLabel = svg.querySelector('.lake-label-text');
+          if (lakeLabel)
+            tl.fromTo(
+              lakeLabel,
+              { opacity: 0 },
+              {
+                opacity: 1,
+                duration: 0.5,
+              },
+              1.2
+            );
+
+          // City dots
+          const cityDots = svg.querySelectorAll('.city-dot');
+          const cityInners = svg.querySelectorAll('.city-inner');
+          const cityRipples = svg.querySelectorAll('.city-ripple');
+
+          cityDots.forEach((dot, i) => {
+            tl.fromTo(
+              dot,
+              { attr: { r: 0 } },
+              {
+                attr: { r: 6 },
+                duration: 0.5,
+                ease: 'back.out(3)',
+              },
+              0.6 + i * 0.25
             );
           });
 
-          tl.play();
-          rippleTweens.forEach(tween => tween.play(0));
-        };
-
-        tl.fromTo(svg, { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0);
-
-        // Lake body fade
-        const lakeEl = svg.querySelector('.lake-body');
-        if (lakeEl)
-          tl.fromTo(
-            lakeEl,
-            { opacity: 0 },
-            {
-              opacity: 1,
-              duration: 0.8,
-            },
-            0.5
-          );
-
-        // Lake label text
-        const lakeLabel = svg.querySelector('.lake-label-text');
-        if (lakeLabel)
-          tl.fromTo(
-            lakeLabel,
-            { opacity: 0 },
-            {
-              opacity: 1,
-              duration: 0.5,
-            },
-            1.2
-          );
-
-        // City dots
-        const cityDots = svg.querySelectorAll('.city-dot');
-        const cityInners = svg.querySelectorAll('.city-inner');
-        const cityRipples = svg.querySelectorAll('.city-ripple');
-
-        cityDots.forEach((dot, i) => {
-          tl.fromTo(
-            dot,
-            { attr: { r: 0 } },
-            {
-              attr: { r: 6 },
-              duration: 0.5,
-              ease: 'back.out(3)',
-            },
-            0.6 + i * 0.25
-          );
-        });
-
-        cityInners.forEach((dot, i) => {
-          tl.fromTo(
-            dot,
-            { attr: { r: 0 } },
-            {
-              attr: { r: 2.5 },
-              duration: 0.5,
-              ease: 'back.out(3)',
-            },
-            0.7 + i * 0.25
-          );
-        });
-
-        cityRipples.forEach((ripple, i) => {
-          rippleTweens.push(
-            gsap.fromTo(
-              ripple,
-              { attr: { r: 6 }, opacity: 0.4 },
+          cityInners.forEach((dot, i) => {
+            tl.fromTo(
+              dot,
+              { attr: { r: 0 } },
               {
-                attr: { r: 18 },
-                opacity: 0,
-                duration: 2.8,
-                delay: i * 0.3,
-                repeat: -1,
-                repeatDelay: 2.2,
-                ease: 'power2.out',
-                paused: true,
-              }
-            )
-          );
-        });
+                attr: { r: 2.5 },
+                duration: 0.5,
+                ease: 'back.out(3)',
+              },
+              0.7 + i * 0.25
+            );
+          });
 
-        if (labels.length)
-          tl.fromTo(
-            labels,
-            { opacity: 0 },
-            {
-              opacity: 1,
-              duration: 0.3,
-              stagger: 0.25,
+          cityRipples.forEach((ripple, i) => {
+            rippleTweens.push(
+              gsap.fromTo(
+                ripple,
+                { attr: { r: 6 }, opacity: 0.4 },
+                {
+                  attr: { r: 18 },
+                  opacity: 0,
+                  duration: 2.8,
+                  delay: i * 0.3,
+                  repeat: -1,
+                  repeatDelay: 2.2,
+                  ease: 'power2.out',
+                  paused: true,
+                }
+              )
+            );
+          });
+
+          if (labels.length)
+            tl.fromTo(
+              labels,
+              { opacity: 0 },
+              {
+                opacity: 1,
+                duration: 0.3,
+                stagger: 0.25,
+              },
+              0.9
+            );
+
+          ScrollTrigger.create({
+            trigger,
+            start,
+            once: true,
+            onEnter: playMap,
+            onEnterBack: playMap,
+          });
+
+          observer = new IntersectionObserver(
+            entries => {
+              if (entries.some(entry => entry.isIntersecting)) playMap();
             },
-            0.9
+            { rootMargin: '0px 0px 35% 0px', threshold: 0 }
           );
+          observer.observe(trigger);
 
-        ScrollTrigger.create({
-          trigger,
-          start,
-          once: true,
-          onEnter: playMap,
-          onEnterBack: playMap,
-        });
-
-        observer = new IntersectionObserver(
-          entries => {
-            if (entries.some(entry => entry.isIntersecting)) playMap();
-          },
-          { rootMargin: '0px 0px 35% 0px', threshold: 0 }
-        );
-        observer.observe(trigger);
-
-        const rect = trigger.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 1.05 && rect.bottom > -80) playMap();
-      }, trigger);
+          const rect = trigger.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 1.05 && rect.bottom > -80) playMap();
+        },
+        trigger
+      );
       refreshGsap = () => ScrollTrigger.refresh();
       refreshGsap();
     });

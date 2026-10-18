@@ -1,3 +1,4 @@
+import { visibleGsapContext } from '@/lib/visible-gsap-context';
 import {
   useState,
   useEffect,
@@ -293,77 +294,81 @@ const TomBoardPCMockup = () => {
     let ctx: { revert: () => void } | undefined;
     loadGsap().then(({ gsap }) => {
       if (!el.isConnected) return;
-      ctx = gsap.context(() => {
-        const padsEl = padsRef.current;
-        const waveEl = waveRef.current;
-        const glowEl = glowRef.current;
-        if (!padsEl || !waveEl || !glowEl) return;
+      ctx = visibleGsapContext(
+        gsap,
+        () => {
+          const padsEl = padsRef.current;
+          const waveEl = waveRef.current;
+          const glowEl = glowRef.current;
+          if (!padsEl || !waveEl || !glowEl) return;
 
-        const pads = Array.from(padsEl.querySelectorAll<HTMLElement>('.tb-pad'));
-        const icons = Array.from(padsEl.querySelectorAll<HTMLElement>('.tb-icon'));
-        const bars = Array.from(waveEl.querySelectorAll<HTMLElement>('.tb-bar'));
+          const pads = Array.from(padsEl.querySelectorAll<HTMLElement>('.tb-pad'));
+          const icons = Array.from(padsEl.querySelectorAll<HTMLElement>('.tb-icon'));
+          const bars = Array.from(waveEl.querySelectorAll<HTMLElement>('.tb-bar'));
 
-        gsap.set(bars, { transformOrigin: 'center bottom', scaleY: 0.2 });
+          gsap.set(bars, { transformOrigin: 'center bottom', scaleY: 0.2 });
 
-        gsap.to(glowEl, {
-          opacity: 0.55,
-          scale: 1.1,
-          duration: 4,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-        });
-
-        const tl = gsap.timeline({ repeat: -1 });
-        pads.forEach((pad, i) => {
-          const icon = icons[i];
-          tl.to(bars, {
-            scaleY: () => 0.15 + Math.random() * 0.15,
-            duration: 0.35,
-            stagger: { each: 0.012, from: 'random' },
+          gsap.to(glowEl, {
+            opacity: 0.55,
+            scale: 1.1,
+            duration: 4,
+            repeat: -1,
+            yoyo: true,
             ease: 'sine.inOut',
-          })
-            .to(pad, {
-              backgroundColor: 'rgba(255,255,255,0.18)',
-              borderColor: 'rgba(255,255,255,0.45)',
-              scale: 0.95,
-              duration: 0.08,
-              ease: 'power2.out',
+          });
+
+          const tl = gsap.timeline({ repeat: -1 });
+          pads.forEach((pad, i) => {
+            const icon = icons[i];
+            tl.to(bars, {
+              scaleY: () => 0.15 + Math.random() * 0.15,
+              duration: 0.35,
+              stagger: { each: 0.012, from: 'random' },
+              ease: 'sine.inOut',
             })
-            .to(icon, { opacity: 1, scale: 1.15, duration: 0.1 }, '<')
-            .to(
-              bars,
-              {
-                scaleY: () => 0.6 + Math.random() * 0.4,
-                duration: 0.1,
-                stagger: { each: 0.008, from: 'random' },
+              .to(pad, {
+                backgroundColor: 'rgba(255,255,255,0.18)',
+                borderColor: 'rgba(255,255,255,0.45)',
+                scale: 0.95,
+                duration: 0.08,
                 ease: 'power2.out',
-              },
-              '<'
-            )
-            .to(pad, { scale: 1, duration: 0.2 })
-            .to(
-              bars,
-              {
-                scaleY: () => 0.35 + Math.random() * 0.25,
-                duration: 0.25,
-                stagger: { each: 0.012, from: 'random' },
-                ease: 'sine.inOut',
-              },
-              '<'
-            )
-            .to(
-              pad,
-              {
-                backgroundColor: 'rgba(255,255,255,0.04)',
-                borderColor: 'rgba(255,255,255,0.12)',
-                duration: 0.45,
-              },
-              '+=0.15'
-            )
-            .to(icon, { opacity: 0.55, scale: 1, duration: 0.4 }, '<');
-        });
-      }, el);
+              })
+              .to(icon, { opacity: 1, scale: 1.15, duration: 0.1 }, '<')
+              .to(
+                bars,
+                {
+                  scaleY: () => 0.6 + Math.random() * 0.4,
+                  duration: 0.1,
+                  stagger: { each: 0.008, from: 'random' },
+                  ease: 'power2.out',
+                },
+                '<'
+              )
+              .to(pad, { scale: 1, duration: 0.2 })
+              .to(
+                bars,
+                {
+                  scaleY: () => 0.35 + Math.random() * 0.25,
+                  duration: 0.25,
+                  stagger: { each: 0.012, from: 'random' },
+                  ease: 'sine.inOut',
+                },
+                '<'
+              )
+              .to(
+                pad,
+                {
+                  backgroundColor: 'rgba(255,255,255,0.04)',
+                  borderColor: 'rgba(255,255,255,0.12)',
+                  duration: 0.45,
+                },
+                '+=0.15'
+              )
+              .to(icon, { opacity: 0.55, scale: 1, duration: 0.4 }, '<');
+          });
+        },
+        el
+      );
     });
     return () => ctx?.revert();
   }, []);
@@ -456,25 +461,29 @@ const XCloneVisual = () => {
     let ctx: { revert: () => void } | undefined;
     loadGsap().then(({ gsap }) => {
       if (!el.isConnected) return;
-      ctx = gsap.context(() => {
-        const tl = gsap.timeline({ repeat: -1, ease: 'sine.inOut' });
-        tl.fromTo(topLogo, { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 1.6 }, 0)
-          .fromTo(mirror, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 1.6 }, 0)
-          .fromTo(bottomLogo, { opacity: 0, y: 40 }, { opacity: 0.4, y: 0, duration: 1.6 }, 0)
-          .to({}, { duration: 0.8 })
-          .to(topLogo, { opacity: 0, y: -40, duration: 1.6 })
-          .to(mirror, { scaleX: 0, opacity: 0, duration: 1.6 }, '<')
-          .to(bottomLogo, { opacity: 0, y: 40, duration: 1.6 }, '<');
+      ctx = visibleGsapContext(
+        gsap,
+        () => {
+          const tl = gsap.timeline({ repeat: -1, ease: 'sine.inOut' });
+          tl.fromTo(topLogo, { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 1.6 }, 0)
+            .fromTo(mirror, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 1.6 }, 0)
+            .fromTo(bottomLogo, { opacity: 0, y: 40 }, { opacity: 0.4, y: 0, duration: 1.6 }, 0)
+            .to({}, { duration: 0.8 })
+            .to(topLogo, { opacity: 0, y: -40, duration: 1.6 })
+            .to(mirror, { scaleX: 0, opacity: 0, duration: 1.6 }, '<')
+            .to(bottomLogo, { opacity: 0, y: 40, duration: 1.6 }, '<');
 
-        gsap.to(glow, {
-          opacity: 0.8,
-          scale: 1.1,
-          duration: 4,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-        });
-      }, el);
+          gsap.to(glow, {
+            opacity: 0.8,
+            scale: 1.1,
+            duration: 4,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+          });
+        },
+        el
+      );
     });
 
     return () => ctx?.revert();
@@ -529,46 +538,50 @@ const TankIoVisual = () => {
     let ctx: { revert: () => void } | undefined;
     loadGsap().then(({ gsap }) => {
       if (!el.isConnected) return;
-      ctx = gsap.context(() => {
-        gsap.to(leftTank, { y: -15, duration: 2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-        gsap.to(rightTank, { y: 20, duration: 2.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+      ctx = visibleGsapContext(
+        gsap,
+        () => {
+          gsap.to(leftTank, { y: -15, duration: 2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+          gsap.to(rightTank, { y: 20, duration: 2.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
 
-        const leftTl = gsap.timeline({ repeat: -1, repeatDelay: 1.6 });
-        leftTl
-          .to(leftBody, { x: -4, duration: 0.1, ease: 'power2.out' })
-          .to(leftBody, { x: 0, duration: 0.15 })
-          .fromTo(
-            leftShot,
-            { opacity: 0, left: '80px', scale: 0.5 },
-            { opacity: 1, left: '200px', scale: 1, duration: 0.3, ease: 'none' },
-            0.05
-          )
-          .to(leftShot, { opacity: 0, scale: 0.8, duration: 0.1 })
-          .fromTo(
-            impactLeft,
-            { scale: 0.95, opacity: 1 },
-            { scale: 1.5, opacity: 0, duration: 0.4 },
-            0.35
-          );
+          const leftTl = gsap.timeline({ repeat: -1, repeatDelay: 1.6 });
+          leftTl
+            .to(leftBody, { x: -4, duration: 0.1, ease: 'power2.out' })
+            .to(leftBody, { x: 0, duration: 0.15 })
+            .fromTo(
+              leftShot,
+              { opacity: 0, left: '80px', scale: 0.5 },
+              { opacity: 1, left: '200px', scale: 1, duration: 0.3, ease: 'none' },
+              0.05
+            )
+            .to(leftShot, { opacity: 0, scale: 0.8, duration: 0.1 })
+            .fromTo(
+              impactLeft,
+              { scale: 0.95, opacity: 1 },
+              { scale: 1.5, opacity: 0, duration: 0.4 },
+              0.35
+            );
 
-        const rightTl = gsap.timeline({ repeat: -1, repeatDelay: 1.6, delay: 1 });
-        rightTl
-          .to(rightBody, { x: 4, duration: 0.1, ease: 'power2.out' })
-          .to(rightBody, { x: 0, duration: 0.15 })
-          .fromTo(
-            rightShot,
-            { opacity: 0, right: '80px', scale: 0.5 },
-            { opacity: 1, right: '200px', scale: 1, duration: 0.3, ease: 'none' },
-            0.05
-          )
-          .to(rightShot, { opacity: 0, scale: 0.8, duration: 0.1 })
-          .fromTo(
-            impactRight,
-            { scale: 0.95, opacity: 1 },
-            { scale: 1.5, opacity: 0, duration: 0.4 },
-            0.35
-          );
-      }, el);
+          const rightTl = gsap.timeline({ repeat: -1, repeatDelay: 1.6, delay: 1 });
+          rightTl
+            .to(rightBody, { x: 4, duration: 0.1, ease: 'power2.out' })
+            .to(rightBody, { x: 0, duration: 0.15 })
+            .fromTo(
+              rightShot,
+              { opacity: 0, right: '80px', scale: 0.5 },
+              { opacity: 1, right: '200px', scale: 1, duration: 0.3, ease: 'none' },
+              0.05
+            )
+            .to(rightShot, { opacity: 0, scale: 0.8, duration: 0.1 })
+            .fromTo(
+              impactRight,
+              { scale: 0.95, opacity: 1 },
+              { scale: 1.5, opacity: 0, duration: 0.4 },
+              0.35
+            );
+        },
+        el
+      );
     });
 
     return () => ctx?.revert();
@@ -775,66 +788,70 @@ export function Projects() {
     loadGsap().then(({ gsap, ScrollTrigger }) => {
       if (!el.isConnected) return;
       const start = window.innerWidth < 768 ? 'top 98%' : 'top 88%';
-      ctx = gsap.context(() => {
-        const title = el.querySelector('.projects-title') as HTMLElement | null;
-        const subtitle = el.querySelector('.projects-subtitle') as HTMLElement | null;
-        const link = el.querySelector('.projects-github-link') as HTMLElement | null;
+      ctx = visibleGsapContext(
+        gsap,
+        () => {
+          const title = el.querySelector('.projects-title') as HTMLElement | null;
+          const subtitle = el.querySelector('.projects-subtitle') as HTMLElement | null;
+          const link = el.querySelector('.projects-github-link') as HTMLElement | null;
 
-        if (title) {
-          const words = (title.textContent || '').split(' ');
-          title.innerHTML = words
-            .map(
-              w =>
-                `<span class="proj-word inline-block"><span class="proj-word-inner inline-block">${w}</span></span>`
-            )
-            .join(' ');
-          const inners = title.querySelectorAll('.proj-word-inner');
-          gsap.fromTo(
-            inners,
-            { y: '110%', rotateX: -40, opacity: 0 },
-            {
-              y: '0%',
-              rotateX: 0,
-              opacity: 1,
-              duration: 0.8,
-              stagger: 0.06,
-              ease: 'power3.out',
-              delay: 0.1,
-              scrollTrigger: { trigger: el, start, once: true },
-            }
-          );
-        }
-        if (subtitle) {
-          gsap.fromTo(
-            subtitle,
-            { opacity: 0, y: 18 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.7,
-              ease: 'power3.out',
-              delay: 0.35,
-              scrollTrigger: { trigger: el, start, once: true },
-            }
-          );
-        }
-        if (link) {
-          gsap.fromTo(
-            link,
-            { opacity: 0, x: 20 },
-            {
-              opacity: 1,
-              x: 0,
-              duration: 0.6,
-              ease: 'power3.out',
-              delay: 0.45,
-              scrollTrigger: { trigger: el, start, once: true },
-            }
-          );
-        }
+          if (title) {
+            const words = (title.textContent || '').split(' ');
+            title.innerHTML = words
+              .map(
+                w =>
+                  `<span class="proj-word inline-block"><span class="proj-word-inner inline-block">${w}</span></span>`
+              )
+              .join(' ');
+            const inners = title.querySelectorAll('.proj-word-inner');
+            gsap.fromTo(
+              inners,
+              { y: '110%', rotateX: -40, opacity: 0 },
+              {
+                y: '0%',
+                rotateX: 0,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.06,
+                ease: 'power3.out',
+                delay: 0.1,
+                scrollTrigger: { trigger: el, start, once: true },
+              }
+            );
+          }
+          if (subtitle) {
+            gsap.fromTo(
+              subtitle,
+              { opacity: 0, y: 18 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                ease: 'power3.out',
+                delay: 0.35,
+                scrollTrigger: { trigger: el, start, once: true },
+              }
+            );
+          }
+          if (link) {
+            gsap.fromTo(
+              link,
+              { opacity: 0, x: 20 },
+              {
+                opacity: 1,
+                x: 0,
+                duration: 0.6,
+                ease: 'power3.out',
+                delay: 0.45,
+                scrollTrigger: { trigger: el, start, once: true },
+              }
+            );
+          }
 
-        void ScrollTrigger;
-      }, el);
+          void ScrollTrigger;
+        },
+        el
+      );
     });
     return () => ctx?.revert();
   }, []);
@@ -847,7 +864,7 @@ export function Projects() {
     loadGsap().then(({ gsap, ScrollTrigger }) => {
       if (!stage.isConnected) return;
       const start = window.innerWidth < 768 ? 'top 98%' : 'top 92%';
-      ctx = gsap.context(() => {
+      ctx = visibleGsapContext(gsap, () => {
         gsap.fromTo(
           stage,
           { opacity: 0, y: 40 },
@@ -1005,17 +1022,21 @@ export function Projects() {
     let ctx: { revert: () => void } | undefined;
     loadGsap().then(({ gsap }) => {
       if (!el.isConnected || hasInteracted) return;
-      ctx = gsap.context(() => {
-        const left = el.querySelector('.swipe-hint-left');
-        const right = el.querySelector('.swipe-hint-right');
-        gsap.to(left, { x: -6, duration: 0.9, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-        gsap.to(right, { x: 6, duration: 0.9, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-        gsap.fromTo(
-          el,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.6, delay: 0.4, ease: 'power2.out' }
-        );
-      }, el);
+      ctx = visibleGsapContext(
+        gsap,
+        () => {
+          const left = el.querySelector('.swipe-hint-left');
+          const right = el.querySelector('.swipe-hint-right');
+          gsap.to(left, { x: -6, duration: 0.9, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+          gsap.to(right, { x: 6, duration: 0.9, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+          gsap.fromTo(
+            el,
+            { opacity: 0 },
+            { opacity: 1, duration: 0.6, delay: 0.4, ease: 'power2.out' }
+          );
+        },
+        el
+      );
     });
     return () => ctx?.revert();
   }, [hasInteracted]);
@@ -1027,9 +1048,13 @@ export function Projects() {
     let ctx: { revert: () => void } | undefined;
     loadGsap().then(({ gsap }) => {
       if (!el.isConnected) return;
-      ctx = gsap.context(() => {
-        gsap.to(el, { opacity: 0, duration: 0.4, ease: 'power2.out', pointerEvents: 'none' });
-      }, el);
+      ctx = visibleGsapContext(
+        gsap,
+        () => {
+          gsap.to(el, { opacity: 0, duration: 0.4, ease: 'power2.out', pointerEvents: 'none' });
+        },
+        el
+      );
     });
     return () => ctx?.revert();
   }, [hasInteracted]);

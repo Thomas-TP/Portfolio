@@ -1,3 +1,4 @@
+import { visibleGsapContext } from '@/lib/visible-gsap-context';
 import { useRef, useEffect } from 'react';
 import type { ComponentType } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -117,33 +118,39 @@ function MarqueeRow({ items, reverse = false }: { items: Tech[]; reverse?: boole
     const el = trackRef.current;
     if (!el) return;
 
-    let tween: { kill: () => void } | undefined;
+    let context: { revert: () => void } | undefined;
     let active = true;
 
     loadGsap().then(({ gsap }) => {
       if (!active || !el.isConnected) return;
-      const half = el.scrollWidth / 2;
+      context = visibleGsapContext(
+        gsap,
+        () => {
+          const half = el.scrollWidth / 2;
 
-      gsap.set(el, { x: reverse ? -half : 0 });
+          gsap.set(el, { x: reverse ? -half : 0 });
 
-      tween = gsap.to(el, {
-        x: reverse ? 0 : -half,
-        duration: 60,
-        ease: 'none',
-        repeat: -1,
-        modifiers: {
-          x: gsap.utils.unitize((x: number) => {
-            return reverse
-              ? (((parseFloat(String(x)) % half) + half) % half) - half
-              : parseFloat(String(x)) % half;
-          }),
+          gsap.to(el, {
+            x: reverse ? 0 : -half,
+            duration: 60,
+            ease: 'none',
+            repeat: -1,
+            modifiers: {
+              x: gsap.utils.unitize((x: number) => {
+                return reverse
+                  ? (((parseFloat(String(x)) % half) + half) % half) - half
+                  : parseFloat(String(x)) % half;
+              }),
+            },
+          });
         },
-      });
+        el
+      );
     });
 
     return () => {
       active = false;
-      tween?.kill();
+      context?.revert();
     };
   }, [reverse]);
 
@@ -171,19 +178,27 @@ export function TechStack() {
 
     loadGsap().then(({ gsap }) => {
       if (!active || !el.isConnected) return;
-      ctx = gsap.context(() => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: 'power3.out',
-            scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
-          }
-        );
-      }, el);
+      ctx = visibleGsapContext(
+        gsap,
+        () => {
+          gsap.fromTo(
+            el,
+            { opacity: 0, y: 20 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 85%',
+                toggleActions: 'play none none none',
+              },
+            }
+          );
+        },
+        el
+      );
     });
 
     return () => {

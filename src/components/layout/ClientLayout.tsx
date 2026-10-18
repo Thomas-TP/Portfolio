@@ -34,7 +34,12 @@ function useDeferredLenis(disabled: boolean) {
 
     import('lenis').then(({ default: Lenis }) => {
       if (!active) return;
-      lenis = new Lenis();
+      // Retain smooth scrolling with less input latency, especially at 120/144 Hz.
+      lenis = new Lenis({
+        autoRaf: false,
+        anchors: false,
+        wheel: { lerp: 0.18 },
+      });
       const loop = (time: number) => {
         lenis!.raf(time);
         raf = requestAnimationFrame(loop);

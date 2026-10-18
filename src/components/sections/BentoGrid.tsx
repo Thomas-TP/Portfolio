@@ -1,3 +1,4 @@
+import { visibleGsapContext } from '@/lib/visible-gsap-context';
 import { type ReactNode, useState, useRef, useEffect, forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { loadGsap } from '@/lib/gsap-init';
@@ -857,58 +858,62 @@ function CertificationsBlock() {
     loadGsap().then(({ gsap }) => {
       const svg = svgRef.current;
       if (!svg) return;
-      ctx = gsap.context(() => {
-        // Hexagons breathing
-        svg.querySelectorAll<SVGPolygonElement>('.hex-shape').forEach((el, i) => {
-          gsap.to(el, {
-            scale: 1.06,
-            opacity: 0.9,
-            duration: 2.2 + i * 0.3,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: i * 0.2,
-            transformOrigin: 'center center',
+      ctx = visibleGsapContext(
+        gsap,
+        () => {
+          // Hexagons breathing
+          svg.querySelectorAll<SVGPolygonElement>('.hex-shape').forEach((el, i) => {
+            gsap.to(el, {
+              scale: 1.06,
+              opacity: 0.9,
+              duration: 2.2 + i * 0.3,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay: i * 0.2,
+              transformOrigin: 'center center',
+            });
           });
-        });
 
-        // Particles floating
-        svg.querySelectorAll<SVGCircleElement>('.float-particle').forEach((el, i) => {
-          gsap.to(el, {
-            y: -8 + (i % 2 === 0 ? 4 : 0),
-            x: i % 2 === 0 ? 5 : -5,
-            duration: 2 + i * 0.4,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: i * 0.3,
+          // Particles floating
+          svg.querySelectorAll<SVGCircleElement>('.float-particle').forEach((el, i) => {
+            gsap.to(el, {
+              y: -8 + (i % 2 === 0 ? 4 : 0),
+              x: i % 2 === 0 ? 5 : -5,
+              duration: 2 + i * 0.4,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay: i * 0.3,
+            });
           });
-        });
 
-        // Connection lines subtle pulse
-        svg.querySelectorAll<SVGLineElement>('.conn-line').forEach((el, i) => {
-          gsap.to(el, {
-            opacity: 0.15,
-            duration: 1.8 + i * 0.2,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: i * 0.15,
+          // Connection lines subtle pulse
+          svg.querySelectorAll<SVGLineElement>('.conn-line').forEach((el, i) => {
+            gsap.to(el, {
+              opacity: 0.15,
+              duration: 1.8 + i * 0.2,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay: i * 0.15,
+            });
           });
-        });
 
-        // Glow orb gentle breathing
-        if (glowOrbRef.current) {
-          gsap.to(glowOrbRef.current, {
-            scale: 1.15,
-            opacity: 0.4,
-            duration: 3,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-          });
-        }
-      }, svg);
+          // Glow orb gentle breathing
+          if (glowOrbRef.current) {
+            gsap.to(glowOrbRef.current, {
+              scale: 1.15,
+              opacity: 0.4,
+              duration: 3,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+            });
+          }
+        },
+        svg
+      );
     });
     return () => ctx?.revert();
   }, [shouldReduceMotion]);
@@ -1170,7 +1175,7 @@ export function AboutBento() {
   useEffect(() => {
     let ctx: { revert: () => void } | undefined;
     loadGsap().then(({ gsap, ScrollTrigger }) => {
-      ctx = gsap.context(() => {
+      ctx = visibleGsapContext(gsap, () => {
         // — Header reveal
         if (headerRef.current) {
           const title = headerRef.current.querySelector('.about-title') as HTMLElement | null;
