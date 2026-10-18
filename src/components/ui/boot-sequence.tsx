@@ -88,8 +88,10 @@ export function BootSequence({ onExitStart, onComplete }: BootSequenceProps) {
       <div
         className="absolute left-0 right-0 h-28 bg-gradient-to-b from-transparent via-foreground/10 to-transparent opacity-60 pointer-events-none"
         style={{
-          top: `${-18 + progress * 104}%`,
-          transition: 'top 80ms linear',
+          top: '-18%',
+          transform: `translateY(${progress * 104}vh)`,
+          transition: 'transform 80ms linear',
+          willChange: 'transform',
         }}
       />
       <div

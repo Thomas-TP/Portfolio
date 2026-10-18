@@ -1,20 +1,14 @@
-import { useRef, useMemo, useState, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import * as THREE from 'three';
+import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '@/components/ui/theme-provider';
 
-/**
- * Mouse-reactive liquid blueprint shader.
- * Renders a full-screen quad through an orthographic camera. Vertex shader
- * is trivial; the fragment uses layered simplex noise distorted toward the
- * mouse to create a flowing iso-line pattern. Theme-aware.
- */
-
-const vertexShader = /* glsl */ `
+// A single full-screen quad needs no scene graph. Keep the exact original
+// fragment shader and mouse interpolation, while avoiding a full 3D engine.
+const vertexShader = `
+attribute vec2 position;
 varying vec2 vUv;
 void main() {
-  vUv = uv;
-  gl_Position = vec4(position.xy, 0.0, 1.0);
+  vUv = position * 0.5 + 0.5;
+  gl_Position = vec4(position, 0.0, 1.0);
 }
 `;
 
@@ -102,120 +96,173 @@ void main() {
 }
 `;
 
-function ShaderQuad({ paused, isDark }: { paused: boolean; isDark: boolean }) {
-  const matRef = useRef<THREE.ShaderMaterial>(null);
-  const { size, invalidate } = useThree();
-
-  // Smoothed mouse target — lerps each frame for that liquid feel
-  const target = useRef({ x: 0.5, y: 0.5 });
-  const current = useRef({ x: 0.5, y: 0.5 });
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      target.current.x = e.clientX / window.innerWidth;
-      // Flip Y so 0 is top in CSS, matching shader uv convention
-      target.current.y = 1 - e.clientY / window.innerHeight;
-      invalidate();
-    };
-    window.addEventListener('mousemove', onMove, { passive: true });
-    return () => window.removeEventListener('mousemove', onMove);
-  }, [invalidate]);
-
-  // Update isDark uniform when theme changes
-  useEffect(() => {
-    if (matRef.current) {
-      (matRef.current.uniforms.uIsDark.value as number) = isDark ? 1 : 0;
-      invalidate();
-    }
-  }, [isDark, invalidate]);
-
-  const uniforms = useMemo(
-    () => ({
-      uTime: { value: 0 },
-      uMouse: { value: new THREE.Vector2(0.5, 0.5) },
-      uResolution: { value: new THREE.Vector2(size.width, size.height) },
-      uIsDark: { value: isDark ? 1 : 0 },
-    }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  );
-
-  useEffect(() => {
-    uniforms.uResolution.value.set(size.width, size.height);
-    invalidate();
-  }, [size, uniforms, invalidate]);
-
-  useFrame((_, delta) => {
-    if (paused || !matRef.current) return;
-    // Lerp toward the target mouse — snappy follow so the halo reacts crisply
-    // to motion. Ambient drift stays slow (controlled in the shader by uTime),
-    // so the contrast between still-cursor and moving-cursor feels alive.
-    current.current.x += (target.current.x - current.current.x) * Math.min(1, delta * 6);
-    current.current.y += (target.current.y - current.current.y) * Math.min(1, delta * 6);
-
-    uniforms.uMouse.value.set(current.current.x, current.current.y);
-    uniforms.uTime.value += delta;
-    invalidate();
-  });
-
-  return (
-    <mesh frustumCulled={false}>
-      <planeGeometry args={[2, 2]} />
-      <shaderMaterial
-        ref={matRef}
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-        uniforms={uniforms}
-        depthTest={false}
-        depthWrite={false}
-      />
-    </mesh>
-  );
-}
-
 export function HeroShader() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(true);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [contextVersion, setContextVersion] = useState(0);
   const { theme } = useTheme();
 
-  const isDark = useMemo(() => {
-    if (typeof document === 'undefined') return false;
-    if (theme === 'dark') return true;
-    if (theme === 'light') return false;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  }, [theme]);
-
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), {
-      threshold: 0,
+    const canvas = canvasRef.current;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
+    const gl = canvas.getContext('webgl', {
+      alpha: false,
+      antialias: false,
+      depth: false,
+      stencil: false,
     });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+    if (!gl) return; // The existing CSS background remains available without WebGL.
+
+    const shaders: WebGLShader[] = [];
+    const compile = (type: number, source: string) => {
+      const shader = gl.createShader(type);
+      if (!shader) return null;
+      shaders.push(shader);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      return gl.getShaderParameter(shader, gl.COMPILE_STATUS) ? shader : null;
+    };
+    const vertex = compile(gl.VERTEX_SHADER, vertexShader);
+    const fragment = compile(gl.FRAGMENT_SHADER, fragmentShader);
+    const program = gl.createProgram();
+    if (!vertex || !fragment || !program) {
+      shaders.forEach(shader => gl.deleteShader(shader));
+      if (program) gl.deleteProgram(program);
+      return;
+    }
+    gl.attachShader(program, vertex);
+    gl.attachShader(program, fragment);
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      shaders.forEach(shader => gl.deleteShader(shader));
+      gl.deleteProgram(program);
+      return;
+    }
+    gl.useProgram(program);
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
+      gl.STATIC_DRAW
+    );
+    const position = gl.getAttribLocation(program, 'position');
+    gl.enableVertexAttribArray(position);
+    gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+    const timeUniform = gl.getUniformLocation(program, 'uTime');
+    const mouseUniform = gl.getUniformLocation(program, 'uMouse');
+    const resolutionUniform = gl.getUniformLocation(program, 'uResolution');
+    const darkUniform = gl.getUniformLocation(program, 'uIsDark');
+    const systemDark = matchMedia('(prefers-color-scheme: dark)');
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    let visible = true;
+    let lost = false;
+    let frame = 0;
+    let lastTime = 0;
+    let elapsed = 0;
+    const target = { x: 0.5, y: 0.5 };
+    const current = { ...target };
+
+    const paint = (now: number) => {
+      frame = 0;
+      if (lost || !visible || document.hidden) {
+        lastTime = 0;
+        return;
+      }
+      const delta = lastTime ? Math.min((now - lastTime) / 1000, 0.1) : 0;
+      lastTime = now;
+      if (!reducedMotion.matches) elapsed += delta;
+      current.x += (target.x - current.x) * Math.min(1, delta * 6);
+      current.y += (target.y - current.y) * Math.min(1, delta * 6);
+      gl.uniform1f(timeUniform, elapsed);
+      gl.uniform2f(mouseUniform, current.x, current.y);
+      gl.uniform1f(
+        darkUniform,
+        theme === 'dark' || (theme !== 'light' && systemDark.matches) ? 1 : 0
+      );
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
+      if (!reducedMotion.matches) frame = requestAnimationFrame(paint);
+    };
+    const schedule = () => {
+      if (!frame && !lost && visible && !document.hidden) frame = requestAnimationFrame(paint);
+    };
+    const resize = () => {
+      const { width, height } = container.getBoundingClientRect();
+      const ratio = Math.min(Math.max(devicePixelRatio || 1, 1), 1.5);
+      canvas.width = Math.max(1, Math.round(width * ratio));
+      canvas.height = Math.max(1, Math.round(height * ratio));
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.uniform2f(resolutionUniform, width, height);
+      schedule();
+    };
+    const onMove = (event: MouseEvent) => {
+      target.x = event.clientX / innerWidth;
+      target.y = 1 - event.clientY / innerHeight;
+      schedule();
+    };
+    const onVisibility = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(frame);
+        frame = 0;
+        lastTime = 0;
+      } else schedule();
+    };
+    const onLost = (event: Event) => {
+      event.preventDefault();
+      lost = true;
+      cancelAnimationFrame(frame);
+      frame = 0;
+      container.classList.remove('hero3d-ready');
+    };
+    const onRestored = () => setContextVersion(version => version + 1);
+    const resizeObserver = new ResizeObserver(resize);
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) schedule();
+      else {
+        cancelAnimationFrame(frame);
+        frame = 0;
+        lastTime = 0;
+      }
+    });
+    resizeObserver.observe(container);
+    visibilityObserver.observe(container);
+    window.addEventListener('mousemove', onMove, { passive: true });
+    document.addEventListener('visibilitychange', onVisibility);
+    systemDark.addEventListener('change', schedule);
+    reducedMotion.addEventListener('change', schedule);
+    canvas.addEventListener('webglcontextlost', onLost);
+    canvas.addEventListener('webglcontextrestored', onRestored);
+    resize();
+    container.classList.add('hero3d-ready');
+    return () => {
+      cancelAnimationFrame(frame);
+      resizeObserver.disconnect();
+      visibilityObserver.disconnect();
+      window.removeEventListener('mousemove', onMove);
+      document.removeEventListener('visibilitychange', onVisibility);
+      systemDark.removeEventListener('change', schedule);
+      reducedMotion.removeEventListener('change', schedule);
+      canvas.removeEventListener('webglcontextlost', onLost);
+      canvas.removeEventListener('webglcontextrestored', onRestored);
+      gl.deleteBuffer(buffer);
+      gl.deleteProgram(program);
+      shaders.forEach(shader => gl.deleteShader(shader));
+    };
+  }, [theme, contextVersion]);
 
   return (
     <div
       ref={containerRef}
+      aria-hidden="true"
       className="absolute inset-x-0 top-0 h-[150vh] z-[-1] pointer-events-none flex items-center justify-center overflow-hidden hero3d-fade"
       style={{
         maskImage: 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)',
         WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)',
       }}
     >
-      <Canvas
-        orthographic
-        camera={{ position: [0, 0, 1], near: 0, far: 1, zoom: 1 }}
-        frameloop="demand"
-        className="!h-full !w-full"
-        dpr={[1, 1.5]}
-        onCreated={() => {
-          containerRef.current?.classList.add('hero3d-ready');
-        }}
-      >
-        <ShaderQuad paused={!visible} isDark={isDark} />
-      </Canvas>
+      <canvas ref={canvasRef} className="h-full w-full" />
     </div>
   );
 }

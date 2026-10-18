@@ -9,10 +9,6 @@ export function LanguageToggle() {
   const prevLang = useRef(isEn);
 
   useEffect(() => {
-    loadGsap();
-  }, []); // preload
-
-  useEffect(() => {
     if (prevLang.current === isEn) return;
     prevLang.current = isEn;
 
@@ -53,13 +49,15 @@ export function LanguageToggle() {
     <button
       onClick={toggleLanguage}
       className="relative flex items-center justify-center p-2 md:p-3 rounded-full text-muted-foreground hover:text-foreground hover:bg-foreground/10 transition-all duration-300 cursor-pointer"
-      aria-label="Toggle language"
+      aria-label={isEn ? 'EN — Switch to French' : 'FR — Passer en anglais'}
     >
       <span ref={labelRef} className="absolute font-mono text-sm font-light select-none">
         {isEn ? 'EN' : 'FR'}
       </span>
       {/* Invisible spacer to maintain button size */}
-      <span className="font-mono text-sm font-light opacity-0 select-none">EN</span>
+      <span aria-hidden="true" className="font-mono text-sm font-light opacity-0 select-none">
+        EN
+      </span>
     </button>
   );
 }

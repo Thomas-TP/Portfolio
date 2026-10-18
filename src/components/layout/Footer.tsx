@@ -85,7 +85,7 @@ export function Footer() {
       </div>
 
       <div className="container mx-auto px-4 mt-6 flex justify-center">
-        <p className="flex items-center gap-1.5 text-xs text-muted-foreground/70">
+        <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
           {t('footer.crafted_by')}
           <a
             href="https://calyroc.com"
@@ -94,7 +94,9 @@ export function Footer() {
             className="inline-flex items-center hover:opacity-80 transition-opacity"
           >
             <img
-              src="/images/calyroc-logo.png"
+              src="/images/calyroc-logo.webp"
+              width={320}
+              height={89}
               alt="Calyroc"
               loading="lazy"
               decoding="async"

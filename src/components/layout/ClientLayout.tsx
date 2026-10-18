@@ -28,10 +28,12 @@ function usePrefersReducedMotion() {
 function useDeferredLenis(disabled: boolean) {
   useEffect(() => {
     if (disabled) return;
+    let active = true;
     let lenis: Lenis | null = null;
     let raf: number;
 
     import('lenis').then(({ default: Lenis }) => {
+      if (!active) return;
       lenis = new Lenis();
       const loop = (time: number) => {
         lenis!.raf(time);
@@ -41,6 +43,7 @@ function useDeferredLenis(disabled: boolean) {
     });
 
     return () => {
+      active = false;
       if (lenis) lenis.destroy();
       cancelAnimationFrame(raf);
     };

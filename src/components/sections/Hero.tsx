@@ -322,9 +322,16 @@ export function Hero() {
                 {t('hero.role_prefix')}{' '}
                 <span className="text-foreground font-medium">{t('hero.school')}</span>.
                 <br />
-                <span className="text-foreground font-medium">
-                  {typedRole}
-                  <span className="inline-block w-[2px] h-[1.1em] bg-foreground align-middle ml-0.5 animate-pulse" />
+                <span className="text-foreground font-medium grid">
+                  <span aria-hidden="true" className="invisible col-start-1 row-start-1">
+                    {Array.isArray(roles)
+                      ? roles.reduce((a, b) => (a.length > b.length ? a : b), '')
+                      : ''}
+                  </span>
+                  <span className="col-start-1 row-start-1">
+                    {typedRole}
+                    <span className="inline-block w-[2px] h-[1.1em] bg-foreground align-middle ml-0.5 animate-pulse" />
+                  </span>
                 </span>
               </p>
               <p className="text-sm text-muted-foreground mb-6">{t('hero.availability')}</p>
@@ -383,7 +390,9 @@ export function Hero() {
                 <div className="hero-avatar-orbit hero-avatar-orbit-b" />
                 <div className="hero-avatar-card">
                   <img
-                    src="/images/photo.webp?v=20260501"
+                    src="/images/photo-576.webp"
+                    srcSet="/images/photo-384.webp 384w, /images/photo-576.webp 576w, /images/photo-864.webp 864w"
+                    sizes="(min-width: 1024px) 288px, (min-width: 768px) 240px, 192px"
                     alt="Thomas Prudhomme"
                     width={576}
                     height={624}

@@ -8,7 +8,7 @@ compatibility_date = "2026-04-21"
 
 [[kv_namespaces]]
 binding = "RATE_LIMIT"
-id = "898ccbfd2a1c4018b1bf4880ff7b2dfa"
+id = "f58b2e1a39df4781800a6e06cf3cd04c"
 
 # Smart Placement — positions the Worker closer to backend services
 # (Resend API, Workers AI) instead of the nearest edge to the visitor.

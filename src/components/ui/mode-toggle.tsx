@@ -8,10 +8,10 @@ export function ModeToggle() {
   const [mounted, setMounted] = useState(false);
   const sunRef = useRef<HTMLDivElement>(null);
   const moonRef = useRef<HTMLDivElement>(null);
+  const previousDark = useRef<boolean | null>(null);
 
   useEffect(() => {
     setMounted(true);
-    loadGsap(); // preload
   }, []);
 
   // Resolve the actual applied theme (system → infer from DOM class)
@@ -23,6 +23,11 @@ export function ModeToggle() {
   // Animate icon swap
   useEffect(() => {
     if (!mounted) return;
+    if (previousDark.current === null || previousDark.current === resolvedDark) {
+      previousDark.current = resolvedDark;
+      return;
+    }
+    previousDark.current = resolvedDark;
     const gsap = getGsap();
     if (!gsap) {
       // gsap not loaded yet, try async

@@ -116,7 +116,9 @@ function StudioVisual() {
         {/* Hero — wordmark + stage dots + skeleton copy + CTA */}
         <div className="px-6 pt-8 pb-6 flex flex-col items-center text-center gap-4">
           <img
-            src="/images/calyroc-logo.png"
+            src="/images/calyroc-logo.webp"
+            width={320}
+            height={89}
             alt="Calyroc"
             loading="lazy"
             decoding="async"

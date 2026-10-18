@@ -116,7 +116,9 @@ function ShopVisual() {
         {/* Hero — wordmark + colorway swatches + skeleton copy + CTA */}
         <div className="px-6 pt-8 pb-6 flex flex-col items-center text-center gap-4">
           <img
-            src="/images/swiss3design-logo.png"
+            src="/images/swiss3design-logo.webp"
+            width={320}
+            height={80}
             alt="Swiss3Design"
             loading="lazy"
             decoding="async"

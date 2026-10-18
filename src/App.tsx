@@ -16,14 +16,8 @@ function isUnknownPath(): boolean {
   return p !== '' && p !== '/index.html';
 }
 
-function isPerformanceAudit(): boolean {
-  if (typeof navigator === 'undefined') return false;
-  return /Chrome-Lighthouse|Lighthouse|PageSpeed/i.test(navigator.userAgent);
-}
-
 export function App() {
   const [unknown] = useState(isUnknownPath);
-  const [skipBoot] = useState(isPerformanceAudit);
   useDocumentMeta();
 
   useEffect(() => {
@@ -68,7 +62,7 @@ export function App() {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <GsapProvider>
-        {!skipBoot && <BootSequence />}
+        <BootSequence />
         <div className="min-h-screen">
           <ClientLayout>
             <Home />

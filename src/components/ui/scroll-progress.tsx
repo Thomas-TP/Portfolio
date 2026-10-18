@@ -10,28 +10,36 @@ export function ScrollProgress() {
 
     let cleanup: (() => void) | undefined;
 
-    loadGsap().then(({ gsap, ScrollTrigger }) => {
-      if (!el.isConnected) return;
+    let active = true;
+    const init = () => {
+      void loadGsap().then(({ gsap, ScrollTrigger }) => {
+        if (!active || !el.isConnected) return;
 
-      const st = gsap.to(el, {
-        scaleX: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: document.documentElement,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.3,
-        },
-      });
-
-      cleanup = () => {
-        ScrollTrigger.getAll().forEach(t => {
-          if (t.vars.trigger === document.documentElement) t.kill();
+        const st = gsap.to(el, {
+          scaleX: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: document.documentElement,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.3,
+          },
         });
-      };
-    });
 
-    return () => cleanup?.();
+        cleanup = () => {
+          ScrollTrigger.getAll().forEach(t => {
+            if (t.vars.trigger === document.documentElement) t.kill();
+          });
+        };
+      });
+    };
+    window.addEventListener('scroll', init, { once: true, passive: true });
+    if (scrollY > 0) init();
+    return () => {
+      active = false;
+      window.removeEventListener('scroll', init);
+      cleanup?.();
+    };
   }, []);
 
   return (

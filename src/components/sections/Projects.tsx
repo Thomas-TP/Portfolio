@@ -1333,7 +1333,7 @@ export function Projects() {
               }}
               role="button"
               tabIndex={isActive ? -1 : 0}
-              aria-label={isActive ? `${project.title} — current project` : `Show ${project.title}`}
+              aria-label={`${String(i + 1).padStart(2, '0')} / ${String(projects.length).padStart(2, '0')} ${project.title}`}
               onKeyDown={e => {
                 if (!isActive && (e.key === 'Enter' || e.key === ' ')) {
                   e.preventDefault();
@@ -1341,7 +1341,7 @@ export function Projects() {
                 }
               }}
             >
-              <div className="absolute inset-0">
+              <div aria-hidden="true" className="absolute inset-0">
                 <div className="absolute inset-0 bg-grid-white/[0.05] pointer-events-none z-10" />
                 {project.visual}
               </div>
@@ -1381,10 +1381,15 @@ export function Projects() {
         >
           <div
             ref={watermarkRef}
+            aria-hidden="true"
             className="font-black tracking-tighter text-foreground/[0.04]"
             style={{ fontSize: 'clamp(4.5rem, 11vw, 9rem)', lineHeight: 0.85 }}
           >
-            {activeProject.year}
+            <svg aria-hidden="true" width="4ch" height="0.85em" className="overflow-visible">
+              <text x="0" y="0.75em" fill="currentColor">
+                {activeProject.year}
+              </text>
+            </svg>
           </div>
         </div>
 
