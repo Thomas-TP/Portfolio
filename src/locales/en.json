@@ -20,14 +20,28 @@
     "role_prefix": "Third-year Swiss CFC IT student at",
     "school": "Geneva Institute of Technology",
     "roles": [
-      "IT Operations & Infrastructure",
-      "Seeking a work-study internship",
-      "Systems, networks, cloud & automation"
+      "Systems, networks & virtualisation",
+      "Cloud, security & automation",
+      "Projects I design, deploy and maintain"
     ],
     "view_cv": "View my CV",
     "contact_me": "Contact me",
     "scroll": "Scroll",
-    "availability": "Based in Gland · Available now · Geneva to Vevey"
+    "availability": "Based in Gland · Available now · Geneva to Vevey",
+    "opportunity": "Looking for an IT internship",
+    "specialty": "IT operations & infrastructure.",
+    "actions": "CV, contact and assistant",
+    "cv_short": "My CV",
+    "based": "Based in Gland",
+    "region": "Geneva → Vevey",
+    "available": "Available now",
+    "portrait_label": "Beyond the CV",
+    "portrait_hint": "Hover or tap the portrait",
+    "show_memoji": "Show my Memoji",
+    "show_photo": "Show my photo",
+    "footer_note": "IT · Projects · Experience",
+    "explore": "Explore my background",
+    "explore_detail": "Skills, projects & work"
   },
   "cv": {
     "subtitle": "Curriculum Vitæ",
@@ -75,8 +89,8 @@
     "title": "My Tech Stack"
   },
   "projects": {
-    "title": "Projects",
-    "subtitle": "A collection of projects exploring web development, game design, and cybersecurity.",
+    "title": "Other explorations",
+    "subtitle": "Other projects exploring development, interaction and IT security.",
     "view_all": "View all repositories",
     "view_project": "View Project",
     "swipe_hint": "Swipe to explore",
@@ -94,64 +108,6 @@
         "description": "An open-source soundboard for Windows — a free, lightweight Voicemod alternative. Real-time voice changer, dual audio output to a virtual mic, drag-and-drop sound organization, and global hotkeys. Built with Rust and Tauri."
       }
     }
-  },
-  "calyroc": {
-    "eyebrow": "Independent web studio",
-    "title": "Calyroc",
-    "lead": "Calyroc is my web studio: fast, custom-built sites for independents, SMEs and startups, delivered without detours. Fixed quotes, direct contact with me from the first brief to launch — no project manager, no hidden costs.",
-    "pillars": {
-      "pricing": {
-        "title": "Fixed, transparent pricing",
-        "desc": "A price set upfront, no scope creep — starting at CHF 1,490 versus CHF 6,000–12,000 at a traditional agency."
-      },
-      "direct": {
-        "title": "Direct access",
-        "desc": "You work with me directly, from the first conversation to delivery — no project manager in between."
-      },
-      "perf": {
-        "title": "Performance-first, modern stack",
-        "desc": "Fast sites tuned for Core Web Vitals, on the same Cloudflare edge stack as this portfolio."
-      }
-    },
-    "stages_label": "4 clear stages",
-    "stats": {
-      "price": "Fixed quote from",
-      "stages": "Project stages",
-      "revisions": "Revisions included",
-      "languages": "Studio languages"
-    },
-    "browser_url": "calyroc.com",
-    "report_label": "Studio overview",
-    "cta": "Explore calyroc.com"
-  },
-  "swiss3design": {
-    "eyebrow": "E-commerce platform",
-    "title": "Swiss3Design",
-    "lead": "Swiss3Design is a complete online store I designed and built: multicolor 3D-printed design objects with up to 4 simultaneous colors, crafted piece by piece in Gland, Switzerland. From the product configurator to Stripe checkout, the whole platform runs on the Cloudflare edge.",
-    "pillars": {
-      "print": {
-        "title": "Multicolor printing",
-        "desc": "Up to 4 colors printed in a single piece with AMS technology — no assembly, no painting."
-      },
-      "custom": {
-        "title": "Custom quotes",
-        "desc": "Upload a 3D file and get a personalized quote within 48 hours, from concept to finished object."
-      },
-      "stack": {
-        "title": "Full-stack e-commerce",
-        "desc": "Customer accounts, Stripe checkout, order tracking and an admin backend — built solo on Next.js and Cloudflare Workers."
-      }
-    },
-    "colors_label": "Up to 4 colors",
-    "stats": {
-      "colors": "Simultaneous colors",
-      "quote": "Quote turnaround",
-      "shipping": "Free shipping from",
-      "swiss": "Swiss made"
-    },
-    "browser_url": "swiss3design.ch",
-    "report_label": "Store overview",
-    "cta": "Explore swiss3design.ch"
   },
   "contact": {
     "title": "Let's work together",
@@ -270,5 +226,84 @@
     "title": "Page Not Found",
     "desc": "The page you are looking for does not exist or has been moved to another sector.",
     "home": "Return to Base"
+  },
+  "case_studies": {
+    "eyebrow": "Personal projects",
+    "title": "Design. Deploy. Maintain.",
+    "intro": "Two projects I develop and evolve, from their interfaces to the services behind them.",
+    "role_label": "My role",
+    "stack_label": "Core technologies",
+    "more": "Technical challenges & practice",
+    "challenge_label": "A project challenge",
+    "practice_label": "What I put into practice",
+    "visit": "Visit website",
+    "source": "Source code",
+    "architecture_label": "Simplified architecture",
+    "explore_label": "Explore the project components",
+    "map_hint": "Select a component to explore how it works",
+    "layers": {
+      "interface": "Interface",
+      "runtime": "Runtime",
+      "data": "Data",
+      "services": "Services"
+    },
+    "swiss3design": {
+      "category": "E-commerce · 3D printing",
+      "context": "My online store for objects 3D printed in Gland. A platform connecting product customisation, customer accounts, orders and payments.",
+      "role": "I design and develop the application, configure its Cloudflare deployment, and maintain and evolve its features.",
+      "challenge": "Connect orders and payments without relying only on the browser redirect: Stripe payment confirmation is handled on the server through webhooks.",
+      "practice": "TypeScript development, PostgreSQL, service integration, file storage, authentication and deploying a complete application.",
+      "nodes": {
+        "interface": {
+          "name": "Next.js · React",
+          "title": "An interface for customising and ordering",
+          "description": "The catalogue, configurators, customer area and back office are developed with Next.js, React and TypeScript."
+        },
+        "runtime": {
+          "name": "Cloudflare Workers",
+          "title": "Deploying the application and its services",
+          "description": "OpenNext adapts the Next.js application to Cloudflare Workers. Server routes handle authentication, orders and service integrations."
+        },
+        "data": {
+          "name": "Neon · PostgreSQL",
+          "title": "Connecting the application to its data",
+          "description": "A PostgreSQL database hosted on Neon is accessed through Cloudflare Hyperdrive. Drizzle structures database queries and the data schema."
+        },
+        "services": {
+          "name": "Stripe · R2",
+          "title": "Payments and files",
+          "description": "Stripe processes payments and sends events to the server. Cloudflare R2 stores files used by the platform."
+        }
+      }
+    },
+    "calyroc": {
+      "category": "Web studio · Multilingual application",
+      "context": "The website of my independent web studio. Beyond its public pages, it brings together a contact form, enquiry tracking and a conversational assistant.",
+      "role": "I independently handle the studio’s design, development and management, as well as the deployment and maintenance of its website.",
+      "challenge": "Connect multilingual pages, a contact form and enquiry tracking: submissions are validated on the server and stored before the email notification is sent.",
+      "practice": "Application architecture, multilingual routing, server-side processing, D1 storage, spam protection and Cloudflare service integration.",
+      "nodes": {
+        "interface": {
+          "name": "Next.js · React",
+          "title": "A structured multilingual website",
+          "description": "Pages are built with Next.js, React and TypeScript. Dictionaries and localised routes organise the different language versions."
+        },
+        "runtime": {
+          "name": "Cloudflare Workers",
+          "title": "An application deployed on Workers",
+          "description": "OpenNext runs Next.js routes and server logic on Cloudflare Workers, including the contact form and website APIs."
+        },
+        "data": {
+          "name": "Cloudflare D1",
+          "title": "Storing and tracking enquiries",
+          "description": "A D1 database stores incoming enquiries and their follow-up status. An administration interface is used to manage them."
+        },
+        "services": {
+          "name": "Turnstile · Resend · AI",
+          "title": "Verify, notify and respond",
+          "description": "Turnstile verifies form submissions, Resend delivers notifications and Workers AI powers the studio’s assistant."
+        }
+      }
+    }
   }
 }

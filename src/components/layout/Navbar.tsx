@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, type ComponentType } from 'react';
 import { ModeToggle } from '@/components/ui/mode-toggle';
 import { useTranslation } from 'react-i18next';
 import { LanguageToggle } from '@/components/ui/language-toggle';
+import { scrollToSection } from '@/lib/scroll';
 
 interface NavItem {
   id: string;
@@ -66,19 +67,7 @@ function NavLink({
 
     e.preventDefault();
 
-    const targetId = item.href.replace('#', '');
-    if (targetId && targetId !== 'home') {
-      const element = document.getElementById(targetId);
-      if (element) {
-        const top =
-          element.getBoundingClientRect().top + window.scrollY + (targetId === 'contact' ? 160 : 0);
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-      setTimeout(() => window.history.pushState(null, '', item.href), 10);
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      window.history.pushState(null, '', '#');
-    }
+    void scrollToSection(item.href.replace('#', '') || 'home');
   };
 
   return (
@@ -234,7 +223,7 @@ export function Navbar() {
   useEffect(() => {
     let ticking = false;
     const getActiveSection = () => {
-      const sections = Array.from(document.querySelectorAll('section[id]'));
+      const sections = Array.from(document.querySelectorAll('#home, #about, #projects, #contact'));
       const scrollY = window.scrollY;
       const viewportHeight = window.innerHeight;
 
@@ -244,7 +233,7 @@ export function Navbar() {
       let active = sections[0]?.id ?? 'home';
       for (const section of sections) {
         const el = section as HTMLElement;
-        if (el.offsetTop <= trigger) {
+        if (el.getBoundingClientRect().top + scrollY <= trigger) {
           active = el.id;
         }
       }

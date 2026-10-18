@@ -13,6 +13,7 @@ export function GlitchText({ text, className = '' }: GlitchTextProps) {
   const handleHover = useCallback(() => {
     const el = containerRef.current;
     if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const animate = (gsap: NonNullable<ReturnType<typeof getGsap>>) => {
       gsap.fromTo(

@@ -1296,7 +1296,7 @@ export function Projects() {
   return (
     <section
       ref={sectionRef}
-      id="projects"
+      id="other-projects"
       className="py-10 md:py-16 container mx-auto px-4 cv-auto"
     >
       <div

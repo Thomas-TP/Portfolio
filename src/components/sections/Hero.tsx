@@ -10,7 +10,8 @@ import {
 import { useTranslation } from 'react-i18next';
 import { GlitchText } from '@/components/ui/glitch-text';
 import { loadGsap } from '@/lib/gsap-init';
-import { useMagnetic } from '@/hooks/useGsap';
+import { scrollToSection } from '@/lib/scroll';
+import './hero.css';
 
 /* Inline SVG to avoid pulling lucide-react (59 kB) into the sync bundle */
 function FileTextIcon({ size = 18 }: { size?: number }) {
@@ -55,6 +56,44 @@ function SparklesIcon({ size = 18 }: { size?: number }) {
   );
 }
 
+function ArrowIcon({ down = false }: { down?: boolean }) {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      style={down ? { rotate: '90deg' } : undefined}
+    >
+      <path d="M4 12h15m-6-6 6 6-6 6" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="4" />
+      <path d="m4 7 8 6 8-6" />
+    </svg>
+  );
+}
+
 const ASK_THOMAS_EVENT = 'ask-thomas:open';
 
 function openAskThomas() {
@@ -82,6 +121,7 @@ function useTypingAnimation(roles: string[]) {
     if (!roles.length) return;
 
     setText(roles[0]);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     stateRef.current = { roleIndex: 0, charIndex: roles[0].length, deleting: true };
 
     let timeout: ReturnType<typeof setTimeout>;
@@ -145,13 +185,12 @@ export function Hero() {
   const { t } = useTranslation();
   const [cvOpen, setCvOpen] = useState(false);
   const [mountBg, setMountBg] = useState(false);
+  const [activeAction, setActiveAction] = useState(0);
+  const [portraitRevealed, setPortraitRevealed] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
-  const avatarRef = useRef<HTMLDivElement>(null);
-  const cvBtnRef = useMagnetic(0.3);
-  const contactBtnRef = useMagnetic(0.3);
-  const askBtnRef = useMagnetic(0.3);
+  const avatarRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -204,6 +243,7 @@ export function Hero() {
     const content = contentRef.current;
     const indicator = scrollIndicatorRef.current;
     if (!section || !content) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     let ctx: { revert: () => void } | undefined;
     let active = true;
@@ -264,7 +304,7 @@ export function Hero() {
     '--avatar-ty': '0px',
   } as CSSProperties;
 
-  const handleAvatarMove = (event: PointerEvent<HTMLDivElement>) => {
+  const handleAvatarMove = (event: PointerEvent<HTMLButtonElement>) => {
     const el = avatarRef.current;
     if (!el || event.pointerType === 'touch') return;
     const rect = el.getBoundingClientRect();
@@ -299,132 +339,187 @@ export function Hero() {
           <CVModal isOpen={cvOpen} onClose={() => setCvOpen(false)} />
         </Suspense>
       )}
-      <section
-        ref={sectionRef}
-        id="home"
-        className="min-h-screen flex flex-col justify-center items-center relative pt-20"
-      >
+      <section ref={sectionRef} id="home" className="hero-section">
         {mountBg && (
           <Suspense>
             <HeroShader />
           </Suspense>
         )}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
-
-        <div ref={contentRef} className="container px-4 mx-auto z-10 flex-1 flex items-center">
-          <div className="w-full flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-10 lg:gap-12">
-            <div className="max-w-xl text-center md:text-left">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground pb-2">
-                <GlitchText text={t('hero.name')} />
-              </h1>
-
-              <p className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed mb-4 font-light mx-auto md:mx-0">
-                {t('hero.role_prefix')}{' '}
-                <span className="text-foreground font-medium">{t('hero.school')}</span>.
-                <br />
-                <span className="text-foreground font-medium grid">
-                  <span aria-hidden="true" className="invisible col-start-1 row-start-1">
-                    {Array.isArray(roles)
-                      ? roles.reduce((a, b) => (a.length > b.length ? a : b), '')
-                      : ''}
-                  </span>
-                  <span className="col-start-1 row-start-1">
-                    {typedRole}
-                    <span className="inline-block w-[2px] h-[1.1em] bg-foreground align-middle ml-0.5 animate-pulse" />
-                  </span>
+        <div className="hero-ambient" aria-hidden="true" />
+        <div ref={contentRef} className="hero-layout">
+          <div className="hero-copy">
+            <a
+              className="hero-status"
+              href="#contact"
+              onClick={e => {
+                e.preventDefault();
+                void scrollToSection('contact');
+              }}
+            >
+              <span className="hero-status-dot" aria-hidden="true" />
+              {t('hero.opportunity')}
+              <ArrowIcon />
+            </a>
+            <h1 className="hero-name">
+              <GlitchText text="Thomas" /> <GlitchText text="Prudhomme" />
+            </h1>
+            <p className="hero-specialty">{t('hero.specialty')}</p>
+            <p className="hero-education">
+              {t('hero.role_prefix')} <span>{t('hero.school')}</span>.
+            </p>
+            <div className="hero-typing" aria-label={Array.isArray(roles) ? roles.join('. ') : ''}>
+              <span className="hero-typing-marker" aria-hidden="true">
+                ↳
+              </span>
+              <span className="hero-typing-stack" aria-hidden="true">
+                <span className="hero-typing-reserve">
+                  {Array.isArray(roles)
+                    ? roles.reduce((a, b) => (a.length > b.length ? a : b), '')
+                    : ''}
                 </span>
-              </p>
-              <p className="text-sm text-muted-foreground mb-6">{t('hero.availability')}</p>
-
-              <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center flex-wrap">
-                <button
-                  ref={cvBtnRef as React.Ref<HTMLButtonElement>}
-                  onClick={() => setCvOpen(true)}
-                  className="group bg-primary text-primary-foreground px-6 py-4 rounded-full font-medium hover:opacity-90 transition-opacity flex items-center gap-2 cursor-pointer"
-                >
-                  <FileTextIcon size={18} />
-                  {t('hero.view_cv', 'Voir le CV')}
-                </button>
-
-                <a
-                  ref={contactBtnRef as React.Ref<HTMLAnchorElement>}
-                  href="#contact"
-                  className="px-8 py-4 rounded-full border border-border hover:bg-muted/50 transition-colors text-foreground"
-                  onClick={e => {
-                    e.preventDefault();
-                    const contact = document.getElementById('contact');
-                    if (contact) {
-                      window.scrollTo({
-                        top: contact.getBoundingClientRect().top + window.scrollY + 160,
-                        behavior: 'smooth',
-                      });
-                    }
-                    setTimeout(() => window.history.pushState(null, '', '#contact'), 10);
-                  }}
-                >
-                  {t('hero.contact_me')}
-                </a>
-
-                <button
-                  ref={askBtnRef as React.Ref<HTMLButtonElement>}
-                  onClick={openAskThomas}
-                  className="group px-4 py-3 rounded-full text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2 cursor-pointer"
-                >
-                  <SparklesIcon size={18} />
-                  {t('ask.launcher')}
-                </button>
-              </div>
+                <span className="hero-typing-live">
+                  {typedRole}
+                  <span className="hero-caret" />
+                </span>
+              </span>
             </div>
-
-            <div className="shrink-0">
-              <div
-                ref={avatarRef}
-                className="hero-avatar-stage group relative w-48 h-52 md:w-60 md:h-[16.5rem] lg:w-72 lg:h-[19.5rem]"
-                style={avatarStyle}
-                onPointerMove={handleAvatarMove}
-                onPointerLeave={resetAvatar}
-                onPointerCancel={resetAvatar}
+            <div
+              className="hero-actions"
+              role="group"
+              aria-label={t('hero.actions')}
+              style={{ '--active-action': activeAction } as CSSProperties}
+              onMouseLeave={() => setActiveAction(0)}
+              onBlur={e => {
+                if (!e.currentTarget.contains(e.relatedTarget)) setActiveAction(0);
+              }}
+            >
+              <span className="hero-action-surface" aria-hidden="true" />
+              <button
+                type="button"
+                className="hero-action"
+                data-active={activeAction === 0}
+                onMouseEnter={() => setActiveAction(0)}
+                onFocus={() => setActiveAction(0)}
+                onClick={() => setCvOpen(true)}
+                aria-label={t('hero.view_cv')}
               >
-                <div className="hero-avatar-shadow" />
-                <div className="hero-avatar-orbit hero-avatar-orbit-a" />
-                <div className="hero-avatar-orbit hero-avatar-orbit-b" />
-                <div className="hero-avatar-card">
-                  <img
-                    src="/images/photo-576.webp"
-                    srcSet="/images/photo-384.webp 384w, /images/photo-576.webp 576w, /images/photo-864.webp 864w"
-                    sizes="(min-width: 1024px) 288px, (min-width: 768px) 240px, 192px"
-                    alt="Thomas Prudhomme"
-                    width={576}
-                    height={624}
-                    className="hero-avatar-photo"
-                    loading="eager"
-                    decoding="sync"
-                    fetchPriority="high"
-                  />
-                  <img
-                    src="/images/memoji-nobg.webp"
-                    alt="Memoji de Thomas Prudhomme"
-                    width={256}
-                    height={256}
-                    className="hero-avatar-memoji"
-                    loading="lazy"
-                    decoding="async"
-                    fetchPriority="low"
-                  />
-                  <div className="hero-avatar-glare" />
-                  <div className="hero-avatar-depth" />
-                </div>
-              </div>
+                <FileTextIcon size={20} />
+                <span>{t('hero.cv_short')}</span>
+                <ArrowIcon />
+              </button>
+              <a
+                href="#contact"
+                className="hero-action"
+                data-active={activeAction === 1}
+                onMouseEnter={() => setActiveAction(1)}
+                onFocus={() => setActiveAction(1)}
+                onClick={e => {
+                  e.preventDefault();
+                  void scrollToSection('contact');
+                }}
+              >
+                <MailIcon />
+                <span>{t('hero.contact_me')}</span>
+                <ArrowIcon />
+              </a>
+              <button
+                type="button"
+                className="hero-action"
+                data-active={activeAction === 2}
+                onMouseEnter={() => setActiveAction(2)}
+                onFocus={() => setActiveAction(2)}
+                onClick={openAskThomas}
+              >
+                <SparklesIcon size={20} />
+                <span>{t('ask.launcher')}</span>
+                <ArrowIcon />
+              </button>
+            </div>
+            <div className="hero-location">
+              <span>
+                <i aria-hidden="true" />
+                {t('hero.based')}
+              </span>
+              <span>{t('hero.region')}</span>
+              <span>{t('hero.available')}</span>
             </div>
           </div>
+          <div className="hero-portrait">
+            <div className="hero-portrait-label" aria-hidden="true">
+              <span>TP / 01</span>
+              <span>{t('hero.portrait_label')}</span>
+            </div>
+            <button
+              type="button"
+              ref={avatarRef}
+              className="hero-avatar-stage"
+              style={avatarStyle}
+              data-revealed={portraitRevealed}
+              aria-pressed={portraitRevealed}
+              aria-label={t(portraitRevealed ? 'hero.show_photo' : 'hero.show_memoji')}
+              onClick={() => setPortraitRevealed(value => !value)}
+              onPointerMove={handleAvatarMove}
+              onPointerLeave={resetAvatar}
+              onPointerCancel={resetAvatar}
+            >
+              <span className="hero-avatar-shadow" aria-hidden="true" />
+              <span className="hero-avatar-orbit hero-avatar-orbit-a" aria-hidden="true" />
+              <span className="hero-avatar-orbit hero-avatar-orbit-b" aria-hidden="true" />
+              <span className="hero-avatar-card">
+                <img
+                  src="/images/photo-576.webp"
+                  srcSet="/images/photo-384.webp 384w, /images/photo-576.webp 576w, /images/photo-864.webp 864w"
+                  sizes="(min-width: 1024px) 320px, (min-width: 768px) 260px, 176px"
+                  alt="Thomas Prudhomme"
+                  width={576}
+                  height={624}
+                  className="hero-avatar-photo"
+                  loading="eager"
+                  decoding="sync"
+                  fetchPriority="high"
+                />
+                <img
+                  src="/images/memoji-nobg.webp"
+                  alt=""
+                  aria-hidden="true"
+                  width={256}
+                  height={256}
+                  className="hero-avatar-memoji"
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
+                />
+                <span className="hero-avatar-glare" aria-hidden="true" />
+                <span className="hero-avatar-depth" aria-hidden="true" />
+              </span>
+            </button>
+            <p className="hero-portrait-caption">
+              <SparklesIcon size={14} />
+              {t('hero.portrait_hint')}
+            </p>
+          </div>
         </div>
-
-        <div
-          ref={scrollIndicatorRef}
-          className="pb-12 flex flex-col items-center gap-2 text-muted-foreground z-20"
-        >
-          <span className="text-xs uppercase tracking-widest">{t('hero.scroll')}</span>
-          <div className="w-px h-12 bg-gradient-to-b from-border to-transparent" />
+        <div ref={scrollIndicatorRef} className="hero-footer">
+          <span className="hero-footer-note">{t('hero.footer_note')}</span>
+          <a
+            href="#about"
+            className="hero-explore"
+            onClick={e => {
+              e.preventDefault();
+              void scrollToSection('about');
+            }}
+          >
+            <span className="hero-explore-orb">
+              <ArrowIcon down />
+            </span>
+            <span>
+              <strong>{t('hero.explore')}</strong>
+              <small>{t('hero.explore_detail')}</small>
+            </span>
+          </a>
+          <span className="hero-footer-index" aria-hidden="true">
+            01 — 04
+          </span>
         </div>
       </section>
     </>

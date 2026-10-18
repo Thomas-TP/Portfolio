@@ -1,6 +1,7 @@
 import { lazy, Suspense, useState, useEffect, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import type Lenis from 'lenis';
+import { registerScrollEngine } from '@/lib/scroll';
 
 // Lazy-load non-LCP shell components to reduce sync JS on the main thread
 const Navbar = lazy(() => import('@/components/layout/Navbar').then(m => ({ default: m.Navbar })));
@@ -38,8 +39,10 @@ function useDeferredLenis(disabled: boolean) {
       lenis = new Lenis({
         autoRaf: false,
         anchors: false,
-        wheel: { lerp: 0.18 },
+        wheel: { smooth: true, lerp: 0.11 },
+        touch: { smooth: false },
       });
+      registerScrollEngine(lenis);
       const loop = (time: number) => {
         lenis!.raf(time);
         raf = requestAnimationFrame(loop);
@@ -49,6 +52,7 @@ function useDeferredLenis(disabled: boolean) {
 
     return () => {
       active = false;
+      registerScrollEngine(null);
       if (lenis) lenis.destroy();
       cancelAnimationFrame(raf);
     };
