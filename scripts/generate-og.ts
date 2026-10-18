@@ -1,3 +1,4 @@
+import sharp from 'sharp';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { writeFileSync, mkdirSync } from 'fs';
@@ -208,7 +209,7 @@ async function main() {
   mkdirSync(outDir, { recursive: true });
 
   for (const project of projects) {
-    console.log(`Generating: ${project.slug}.png`);
+    console.log(`Generating: ${project.slug}.webp`);
     const svg = await satori(createOgElement(project) as never, {
       width: 1200,
       height: 630,
@@ -220,8 +221,9 @@ async function main() {
 
     const resvg = new Resvg(svg, { fitTo: { mode: 'width' as const, value: 1200 } });
     const png = resvg.render().asPng();
-    writeFileSync(join(outDir, `${project.slug}.png`), png);
-    console.log(`  Done (${(png.length / 1024).toFixed(1)} KB)`);
+    const webp = await sharp(png).webp({ quality: 90, effort: 6 }).toBuffer();
+    writeFileSync(join(outDir, `${project.slug}.webp`), webp);
+    console.log(`  Done (${(webp.length / 1024).toFixed(1)} KB)`);
   }
 
   console.log('All OG images generated.');

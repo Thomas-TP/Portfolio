@@ -30,7 +30,7 @@ Personal portfolio for Thomas Prudhomme, a Computer Science student at Geneva In
 | Rate limiting | Cloudflare KV                           | Per-IP sliding window                                                          |
 | AI chatbot    | Cloudflare Workers AI                   | Llama 3.3 70B at `/ask` endpoint                                               |
 | CI            | GitHub Actions                          | Build check on push/PR to main (`.github/workflows/deploy.yml`)                |
-| Hosting       | Cloudflare Pages                        | Auto-deploy from Git, custom domain via `public/CNAME`                         |
+| Hosting       | Cloudflare Workers                        | Static assets + Worker in `worker/`, custom domains in `wrangler.jsonc`                         |
 
 ---
 
@@ -227,3 +227,6 @@ cloudflare-worker/
 - **Don't commit secrets** (API keys, Turnstile keys). They are Wrangler secrets only.
 - **Don't break the LCP path.** The Hero section's critical assets (memoji, skeleton) must load eagerly.
 - **Don't remove the `#lcp-prerender` teardown** in `App.tsx` — it eliminates CLS from the pre-rendered skeleton.
+
+## Hosting migration (2026-10-18)
+Production hosting is Worker `portfolio-thomastp` configured in root `wrangler.jsonc`. Deploy with `bun run deploy`. The contact/chat API remains a separate Worker in `cloudflare-worker/`. The old Pages `functions/_middleware.ts` is superseded by `worker/index.ts` (streaming HTMLRewriter for project previews). Keep `_headers` and `_redirects` for Workers static assets. Generate Worker types using `bun run check:worker`. Hero shader uses native WebGL and preserves the original shader; do not reintroduce the Three engine for this fullscreen quad.

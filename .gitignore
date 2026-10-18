@@ -33,3 +33,6 @@ public/pdf.worker.min.mjs
 *.njsproj
 *.sln
 *.sw?
+
+worker/worker-configuration.d.ts
+.cache/

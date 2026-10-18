@@ -14,7 +14,7 @@
 [![UnoCSS](https://img.shields.io/badge/UnoCSS-66.x-000?style=for-the-badge&logo=unocss&logoColor=white)](https://unocss.dev)
 [![React](https://img.shields.io/badge/React-19-000?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-7-000?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare_Pages-deployed-000?style=for-the-badge&logo=cloudflarepages&logoColor=white)](https://pages.cloudflare.com)
+[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare_Workers-deployed-000?style=for-the-badge&logo=cloudflare&logoColor=white)](https://workers.cloudflare.com)
 
 </div>
 
@@ -43,7 +43,7 @@
 | **CSS Engine**                | [UnoCSS](https://unocss.dev)                                  | `66.x`  | Atomic CSS, `presetWind`, PostCSS mode |
 | **UI Framework**              | [React](https://react.dev)                                    | `19.x`  | Concurrent mode                        |
 | **Language**                  | [TypeScript](https://typescriptlang.org)                      | `7.x`   | `strict` mode, `bundler` resolution    |
-| **Hosting**                   | [Cloudflare Pages](https://pages.cloudflare.com)              | —       | Edge CDN, automatic deploys            |
+| **Hosting**                   | [Cloudflare Workers](https://workers.cloudflare.com)              | —       | Edge CDN, automatic deploys            |
 | **Contact API**               | [Cloudflare Workers](https://workers.cloudflare.com)          | —       | Serverless edge function               |
 
 > **Confirmed:** `bun install` · `rsbuild` / `rspack` compiler · `unocss` design system
@@ -58,7 +58,7 @@
 ✦  UnoCSS — On-demand atomic CSS, zero dead styles in production
 ✦  GSAP 3 — Scroll-driven animations, magnetic hover, parallax reveals
 ✦  Lenis smooth scroll — Native-feeling inertia scroll (side-effect init, no remount)
-✦  Three.js particle network — Interactive 3D hero background
+✦  Native WebGL shader — Interactive animated hero background
 ✦  i18n (EN / FR) — i18next + browser language detection
 ✦  Dark / Light mode — System-aware with localStorage persistence
 ✦  PDF viewer — pdfjs-dist: lazy-loaded, web worker offloaded
@@ -66,7 +66,7 @@
 ✦  Rate limiting — KV-backed per-IP rate limiting on the edge
 ✦  Security headers — CSP, X-Frame-Options, Referrer-Policy via _headers
 ✦  SEO — JSON-LD structured data, Open Graph, Twitter Card, sitemap.xml
-✦  Lighthouse 100 — Performance · Accessibility · Best Practices · SEO
+✦  Audited with Lighthouse and PageSpeed Insights (reports dated 2026-10-18)
 ```
 
 ---
@@ -79,7 +79,7 @@ Browser Request
       ▼
 ┌─────────────────────────────────────┐
 │         Cloudflare Edge CDN          │
-│  (Pages + _headers security rules)   │
+│  (Workers Static Assets + _headers)   │
 └──────────────┬──────────────────────┘
                │
        ┌───────▼────────┐
@@ -305,26 +305,31 @@ wrangler tail                              # Stream live worker logs
 
 ## Cloudflare Deployment
 
-### Pages — Frontend
+### Worker — Frontend
 
-The site is deployed on **Cloudflare Pages** via Git integration.
+Production is served by **portfolio-thomastp** on Cloudflare Workers Static Assets.
+Custom domains: **thomastp.ch** and **www.thomastp.ch**, configured in `wrangler.jsonc`.
+The contact/chat API remains the separate `portfolio-contact` Worker.
 
-| Setting          | Value           |
-| ---------------- | --------------- |
-| Build command    | `bun run build` |
-| Output directory | `dist`          |
-| Root directory   | `/`             |
-
-Security headers are enforced via [`public/_headers`](public/_headers):
-
+```bash
+bun install --frozen-lockfile
+bun run lint
+bunx tsc --noEmit
+bun run check:worker
+bun run deploy
 ```
-/*
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=()
-  X-XSS-Protection: 1; mode=block
-```
+
+`worker/index.ts` streams project social previews using HTMLRewriter and redirects
+www to the canonical domain. `_headers` and `_redirects` preserve security, caching,
+and legacy CV/image URLs. `.assetsignore` excludes original heavy source images;
+all raster images displayed in the portfolio use WebP (small platform favicons stay PNG/ICO).
+Generated project social images are also WebP.
+
+The old Pages project is retained only as a rollback archive, without the custom domains.
+Its Git integration targets an older repository and must not be used for production deployments.
+To enable Workers Builds, connect **Thomas-TP/Portfolio**, branch **main**, root `/`,
+build command `bun run build`, deploy command `bunx wrangler deploy` in the Worker settings.
+Do not add API tokens to source control.
 
 ### Worker — Contact API
 

@@ -98,7 +98,7 @@ function StudioVisual() {
         {/* Site nav — icon mark + menu */}
         <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.06]">
           <img
-            src="/images/calyroc-icon.png"
+            src="/images/calyroc-icon.webp"
             alt=""
             aria-hidden="true"
             loading="lazy"

@@ -18,5 +18,5 @@
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "dist", "cloudflare-worker"]
+  "exclude": ["node_modules", "dist", "cloudflare-worker", "worker"]
 }

@@ -1,8 +1,12 @@
-/favicon.ico /icons/favicon.svg 200
-/documents/cv-fr.pdf https://cv.thomastp.ch/cv-fr.pdf 301
-/documents/cv-en.pdf https://cv.thomastp.ch/cv-en.pdf 301
-/documents/CV_Thomas_Prudhomme_FR.pdf https://cv.thomastp.ch/cv-fr.pdf 301
-/documents/CV_Thomas_Prudhomme_EN.pdf https://cv.thomastp.ch/cv-en.pdf 301
-# SPA fallback — serve index.html for unknown paths so the React 404 page
-# (with its mini game) renders instead of the default Cloudflare 404.
-/* /index.html 200
+/favicon.ico /icons/favicon.ico 301
+/documents/cv-fr.pdf https://cv.thomastp.ch/cv-fr.pdf?v=20261018 301
+/documents/cv-en.pdf https://cv.thomastp.ch/cv-en.pdf?v=20261018 301
+/documents/CV_Thomas_Prudhomme_FR.pdf https://cv.thomastp.ch/cv-fr.pdf?v=20261018 301
+/documents/CV_Thomas_Prudhomme_EN.pdf https://cv.thomastp.ch/cv-en.pdf?v=20261018 301
+/images/photo.png /images/photo-864.webp 301
+/images/photo.webp /images/photo-864.webp 301
+/images/calyroc-icon.png /images/calyroc-icon.webp 301
+/images/calyroc-logo.png /images/calyroc-logo.webp 301
+/images/swiss3design-logo.png /images/swiss3design-logo.webp 301
+/images/og-image.png /images/og-image.webp 301
+/images/og/:slug.png /images/og/:slug.webp 301

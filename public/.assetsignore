@@ -1,0 +1,7 @@
+# Keep source images in Git, but serve only their optimized versions.
+/images/**/*.png
+/images/*.png
+/images/photo.webp
+/CNAME
+/_worker.js
+/_routes.json

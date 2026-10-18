@@ -10,7 +10,9 @@
     "indexnow": "bun run scripts/submit-indexnow.ts",
     "preview": "rsbuild preview",
     "lint": "oxlint .",
-    "format": "oxfmt --write ."
+    "format": "oxfmt --write .",
+    "deploy": "bun run build && wrangler deploy",
+    "check:worker": "wrangler types worker/worker-configuration.d.ts && tsc -p worker/tsconfig.json"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -59,6 +61,8 @@
     "oxfmt": "^0.67.0",
     "oxlint": "^1.82.0",
     "satori": "^0.33.4",
-    "typescript": "^7.0.2"
+    "sharp": "^0.35.5",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.151.1"
   }
 }
